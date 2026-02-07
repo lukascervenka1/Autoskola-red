@@ -44,7 +44,11 @@ const formSchema = z.object({
   }),
 });
 
+import { useState } from "react";
+
 export default function Registration() {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema) as any,
     defaultValues: {
@@ -65,10 +69,12 @@ export default function Registration() {
         ...values,
         _subject: `Nová závazná přihláška: ${values.firstName} ${values.lastName}`,
       });
+      setIsSubmitted(true);
       toast.success("Přihláška odeslána!", {
         description: "Potvrzení vám přijde na email. Brzy se vám ozveme.",
       });
       form.reset();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
       console.error("Submission error:", error);
       toast.error("Chyba při odesílání", {
@@ -102,167 +108,184 @@ export default function Registration() {
               <CardDescription>Všechny údaje jsou u nás v bezpečí.</CardDescription>
             </CardHeader>
             <CardContent>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <FormField
-                      control={form.control}
-                      name="firstName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Jméno</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Jan" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="lastName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Příjmení</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Novák" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+              {isSubmitted ? (
+                <div className="flex flex-col items-center justify-center text-center p-8 space-y-6">
+                  <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+                    <CheckCircle2 className="w-10 h-10" />
                   </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <FormField
-                      control={form.control}
-                      name="age"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Věk</FormLabel>
-                          <FormControl>
-                            <Input type="number" placeholder="18" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Telefon</FormLabel>
-                          <FormControl>
-                            <Input type="tel" placeholder="+420 777 666 555" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                  <div className="space-y-2">
+                    <h3 className="text-3xl font-bold text-gray-800">Přihláška odeslána!</h3>
+                    <p className="text-lg text-muted-foreground max-w-md mx-auto">
+                      Děkujeme za váš zájem. Potvrzení jsme vám poslali na email. Nejpozději do 24 hodin se vám ozveme a domluvíme další postup.
+                    </p>
                   </div>
-
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input type="email" placeholder="jan.novak@email.cz" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <FormField
-                      control={form.control}
-                      name="course"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Vyberte kurz</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
-                            <FormControl>
-                              <SelectTrigger>
-                                <SelectValue placeholder="Zvolte typ kurzu" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              <SelectItem value="B">Skupina B (Osobní automobil)</SelectItem>
-                              <SelectItem value="B_automat">Skupina B (Automat)</SelectItem>
-                              <SelectItem value="AM">Skupina AM (Moped od 15 let)</SelectItem>
-                              <SelectItem value="A1">Skupina A1 (Motocykl od 16 let)</SelectItem>
-                              <SelectItem value="A2">Skupina A2 (Motocykl od 18 let)</SelectItem>
-                              <SelectItem value="A">Skupina A (Motocykl bez omezení)</SelectItem>
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="variant"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Varianta kurzu</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
-                            <FormControl>
-                              <SelectTrigger>
-                                <SelectValue placeholder="Zvolte variantu" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              <SelectItem value="standart">Standart (B - 3 Měsíce, Moto - 2 Měsíce)</SelectItem>
-                              <SelectItem value="student">Standart - Student (B s mentorem od 17let)</SelectItem>
-                              <SelectItem value="expres">Expres 1 Měsíc</SelectItem>
-                              <SelectItem value="return">Vrácení ŘP</SelectItem>
-                              <SelectItem value="conditioning">Kondiční Jízdy (balíček 10jízd)</SelectItem>
-                              <SelectItem value="other">Jiná služba</SelectItem>
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-
-                  <div className="text-sm text-muted-foreground -mt-4 mb-4">
-                    Nejste si jistí? Můžeme to probrat i telefonicky.
-                  </div>
-
-                  <FormField
-                    control={form.control}
-                    name="consent"
-                    render={({ field }) => (
-                      <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
-                        <FormControl>
-                          <Checkbox
-                            checked={field.value}
-                            onCheckedChange={field.onChange}
-                          />
-                        </FormControl>
-                        <div className="space-y-1 leading-none">
-                          <FormLabel>
-                            Souhlasím se zpracováním osobních údajů
-                          </FormLabel>
-                          <FormDescription>
-                            Vaše údaje použijeme pouze pro účely registrace do kurzu.
-                          </FormDescription>
-                        </div>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <Button type="submit" size="lg" className="w-full text-lg font-bold bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20">
-                    Odeslat nezávaznou přihlášku <CheckCircle2 className="ml-2 w-5 h-5" />
+                  <Button size="lg" variant="outline" onClick={() => setIsSubmitted(false)} className="mt-4">
+                    Vyplnit další přihlášku
                   </Button>
-                </form>
-              </Form>
+                </div>
+              ) : (
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="firstName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Jméno</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Jan" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="lastName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Příjmení</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Novák" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="age"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Věk</FormLabel>
+                            <FormControl>
+                              <Input type="number" placeholder="18" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Telefon</FormLabel>
+                            <FormControl>
+                              <Input type="tel" placeholder="+420 777 666 555" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Email</FormLabel>
+                          <FormControl>
+                            <Input type="email" placeholder="jan.novak@email.cz" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="course"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Vyberte kurz</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Zvolte typ kurzu" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="B">Skupina B (Osobní automobil)</SelectItem>
+                                <SelectItem value="B_automat">Skupina B (Automat)</SelectItem>
+                                <SelectItem value="AM">Skupina AM (Moped od 15 let)</SelectItem>
+                                <SelectItem value="A1">Skupina A1 (Motocykl od 16 let)</SelectItem>
+                                <SelectItem value="A2">Skupina A2 (Motocykl od 18 let)</SelectItem>
+                                <SelectItem value="A">Skupina A (Motocykl bez omezení)</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="variant"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Varianta kurzu</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Zvolte variantu" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="standart">Standart (B - 3 Měsíce, Moto - 2 Měsíce)</SelectItem>
+                                <SelectItem value="student">Standart - Student (B s mentorem od 17let)</SelectItem>
+                                <SelectItem value="expres">Expres 1 Měsíc</SelectItem>
+                                <SelectItem value="return">Vrácení ŘP</SelectItem>
+                                <SelectItem value="conditioning">Kondiční Jízdy (balíček 10jízd)</SelectItem>
+                                <SelectItem value="other">Jiná služba</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <div className="text-sm text-muted-foreground -mt-4 mb-4">
+                      Nejste si jistí? Můžeme to probrat i telefonicky.
+                    </div>
+
+                    <FormField
+                      control={form.control}
+                      name="consent"
+                      render={({ field }) => (
+                        <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                          <FormControl>
+                            <Checkbox
+                              checked={field.value}
+                              onCheckedChange={field.onChange}
+                            />
+                          </FormControl>
+                          <div className="space-y-1 leading-none">
+                            <FormLabel>
+                              Souhlasím se zpracováním osobních údajů
+                            </FormLabel>
+                            <FormDescription>
+                              Vaše údaje použijeme pouze pro účely registrace do kurzu.
+                            </FormDescription>
+                          </div>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <Button type="submit" size="lg" className="w-full text-lg font-bold bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20">
+                      Odeslat nezávaznou přihlášku <CheckCircle2 className="ml-2 w-5 h-5" />
+                    </Button>
+                  </form>
+                </Form>
+              )}
             </CardContent>
           </Card>
 
