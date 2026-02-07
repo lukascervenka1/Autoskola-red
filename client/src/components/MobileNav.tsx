@@ -20,6 +20,7 @@ export function MobileNav() {
     { href: "/cenik", label: "Ceník" },
     { href: "/blog", label: "Blog" },
     { href: "/kontakt", label: "Kontakt" },
+    { href: "/studenti", label: "Pro žáky" },
   ];
 
   return (

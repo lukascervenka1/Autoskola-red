@@ -34,6 +34,7 @@ export function Footer() {
                             <li><Link href="/cenik" className="hover:text-primary transition-colors">Ceník</Link></li>
                             <li><Link href="/blog" className="hover:text-primary transition-colors">Magazín</Link></li>
                             <li><Link href="/kontakt" className="hover:text-primary transition-colors">Kontakt</Link></li>
+                            <li><Link href="/studenti" className="text-primary hover:text-primary/80 transition-colors font-medium">Pro žáky</Link></li>
                         </ul>
                     </div>
 

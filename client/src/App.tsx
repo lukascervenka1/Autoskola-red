@@ -16,6 +16,7 @@ import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import Terms from "@/pages/Terms";
+import StudentZone from "@/pages/StudentZone";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/kontakt" component={Contact} />
       <Route path="/ochrana-osobnich-udaju" component={PrivacyPolicy} />
       <Route path="/obchodni-podminky" component={Terms} />
+      <Route path="/studenti" component={StudentZone} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

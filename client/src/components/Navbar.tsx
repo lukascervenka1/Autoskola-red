@@ -48,6 +48,12 @@ export function Navbar() {
                             Kontakt
                         </a>
                     </Link>
+                    <Link href="/studenti">
+                        <a className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors cursor-pointer flex items-center gap-1 border border-primary/20 bg-primary/5 px-3 py-1.5 rounded-full">
+                            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                            Pro žáky
+                        </a>
+                    </Link>
                     <Button asChild className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25 rounded-full px-6 cursor-pointer">
                         <Link href="/registrace">
                             Přihlásit se do kurzu
