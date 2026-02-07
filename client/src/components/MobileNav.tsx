@@ -41,22 +41,22 @@ export function MobileNav() {
         </SheetHeader>
         <div className="flex flex-col gap-6">
           {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => {
-                setOpen(false);
-                if (link.href.startsWith('/#') && window.location.pathname === '/') {
-                  e.preventDefault();
-                  const id = link.href.substring(2);
-                  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors flex items-center gap-4 group"
-            >
-              <div className="w-1 h-1 rounded-full bg-primary/0 group-hover:bg-primary transition-all" />
-              {link.label}
-            </a>
+            <Link key={link.href} href={link.href}>
+              <a
+                onClick={(e) => {
+                  setOpen(false);
+                  if (link.href.startsWith('/#') && window.location.pathname === '/') {
+                    e.preventDefault();
+                    const id = link.href.substring(2);
+                    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors flex items-center gap-4 group cursor-pointer"
+              >
+                <div className="w-1 h-1 rounded-full bg-primary/0 group-hover:bg-primary transition-all" />
+                {link.label}
+              </a>
+            </Link>
           ))}
           <div className="pt-6 mt-6 border-t border-border">
             <Button asChild className="w-full bg-primary text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all text-lg h-12">
