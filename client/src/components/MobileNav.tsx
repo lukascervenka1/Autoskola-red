@@ -17,6 +17,7 @@ export function MobileNav() {
 
   const links = [
     { href: "/#kurzy", label: "Kurzy" },
+    { href: "/cenik", label: "Ceník" },
     { href: "/blog", label: "Blog" },
     { href: "/kontakt", label: "Kontakt" },
   ];
@@ -58,7 +59,7 @@ export function MobileNav() {
           ))}
           <div className="pt-6 mt-6 border-t border-border">
             <Button asChild className="w-full bg-primary text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all text-lg h-12">
-              <Link href="/registrace">
+              <Link href="/registrace" onClick={() => setOpen(false)}>
                 Přihlásit se do kurzu
               </Link>
             </Button>
