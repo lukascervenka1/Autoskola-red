@@ -419,7 +419,7 @@ export default function Home() {
                   </div>
                   <CardHeader>
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
-                      <Zap className="w-6 h-6" />
+                      <CarIcon className="w-6 h-6" />
                     </div>
                     <CardTitle className="text-xl">Skupina B - Automat</CardTitle>
                     <CardDescription>Osobní automobil (Automat)</CardDescription>
@@ -432,7 +432,7 @@ export default function Home() {
               <DialogContent className="sm:max-w-[500px]">
                 <DialogHeader>
                   <DialogTitle className="flex items-center gap-2 text-2xl">
-                    <Zap className="w-6 h-6 text-primary" /> Skupina B - Automat
+                    <CarIcon className="w-6 h-6 text-primary" /> Skupina B - Automat
                   </DialogTitle>
                   <DialogDescription>
                     Oprávnění k řízení osobních automobilů pouze s automatickou převodovkou.
