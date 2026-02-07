@@ -26,7 +26,7 @@ export default function Contact() {
         <div className="min-h-screen bg-background">
             <SEO
                 title="Kontakt | Autoškola RED - Dejvice, Puškinovo náměstí"
-                description="Kontaktujte nás. Autoškola RED, Puškinovo náměstí 681/3, Praha 6. Telefon: +420 777 888 999, Email: info@autoskola.red. Těšíme se na vás."
+                description="Kontaktujte nás. Autoškola RED, Puškinovo náměstí 681/3, Praha 6. Telefon: +420 608 913 000, Email: info@autoskola.red. Těšíme se na vás."
             />
             <Navbar />
 
@@ -79,8 +79,8 @@ export default function Contact() {
                                             </div>
                                             <div>
                                                 <h3 className="font-bold mb-1">Telefon</h3>
-                                                <a href="tel:+420777888999" className="text-lg font-semibold hover:text-primary transition-colors">
-                                                    +420 777 888 999
+                                                <a href="tel:+420608913000" className="text-lg font-semibold hover:text-primary transition-colors">
+                                                    +420 608 913 000
                                                 </a>
                                                 <p className="text-sm text-muted-foreground mt-1">Po-Pá 9:00 - 17:00</p>
                                             </div>
@@ -113,27 +113,15 @@ export default function Contact() {
                                 <CardContent className="p-0 divide-y divide-border">
                                     <div className="flex justify-between p-4">
                                         <span className="font-medium">Pondělí</span>
-                                        <span>8:00 - 18:00</span>
+                                        <span>14:00 - 18:00</span>
                                     </div>
                                     <div className="flex justify-between p-4">
-                                        <span className="font-medium">Úterý</span>
-                                        <span>8:00 - 18:00</span>
-                                    </div>
-                                    <div className="flex justify-between p-4">
-                                        <span className="font-medium">Středa</span>
-                                        <span>8:00 - 18:00</span>
+                                        <span className="font-medium">Čtvrtek</span>
+                                        <span>14:00 - 18:00</span>
                                     </div>
                                     <div className="flex justify-between p-4 bg-muted/20">
-                                        <span className="font-medium text-muted-foreground">Čtvrtek</span>
-                                        <span className="text-muted-foreground">Na objednání</span>
-                                    </div>
-                                    <div className="flex justify-between p-4">
-                                        <span className="font-medium">Pátek</span>
-                                        <span>8:00 - 15:00</span>
-                                    </div>
-                                    <div className="flex justify-between p-4 bg-red-50 text-red-600/80">
-                                        <span className="font-medium">Víkend</span>
-                                        <span>Zavřeno</span>
+                                        <span className="font-medium text-muted-foreground">Ostatní dny</span>
+                                        <span className="text-muted-foreground">Na telefonické domluvě</span>
                                     </div>
                                 </CardContent>
                             </Card>
@@ -142,12 +130,16 @@ export default function Contact() {
                         <div className="pt-6">
                             <h3 className="font-bold mb-4">Sledujte nás</h3>
                             <div className="flex gap-4">
-                                <Button variant="outline" size="icon" className="rounded-full w-12 h-12 border-2 hover:border-primary hover:text-primary">
-                                    <Facebook className="w-5 h-5" />
-                                </Button>
-                                <Button variant="outline" size="icon" className="rounded-full w-12 h-12 border-2 hover:border-primary hover:text-primary">
-                                    <Instagram className="w-5 h-5" />
-                                </Button>
+                                <a href="https://www.facebook.com/profile.php?id=61569570703723" target="_blank" rel="noopener noreferrer">
+                                    <Button variant="outline" size="icon" className="rounded-full w-12 h-12 border-2 hover:border-primary hover:text-primary">
+                                        <Facebook className="w-5 h-5" />
+                                    </Button>
+                                </a>
+                                <a href="https://www.instagram.com/autoskola_red/" target="_blank" rel="noopener noreferrer">
+                                    <Button variant="outline" size="icon" className="rounded-full w-12 h-12 border-2 hover:border-primary hover:text-primary">
+                                        <Instagram className="w-5 h-5" />
+                                    </Button>
+                                </a>
                             </div>
                         </div>
                     </div>

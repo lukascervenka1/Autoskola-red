@@ -17,13 +17,12 @@ export function Footer() {
                             Vaše cesta k nezávislosti začíná u nás.
                         </p>
                         <div className="flex gap-4">
-                            {/* Social Icons placeholders */}
-                            <div className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center cursor-pointer transition-colors">
+                            <a href="https://www.facebook.com/profile.php?id=61569570703723" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center cursor-pointer transition-colors" aria-label="Facebook">
                                 <span className="font-bold">fb</span>
-                            </div>
-                            <div className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center cursor-pointer transition-colors">
+                            </a>
+                            <a href="https://www.instagram.com/autoskola_red/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center cursor-pointer transition-colors" aria-label="Instagram">
                                 <span className="font-bold">ig</span>
-                            </div>
+                            </a>
                         </div>
                     </div>
 
@@ -47,7 +46,7 @@ export function Footer() {
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                                <span>+420 777 888 999</span>
+                                <span>+420 608 913 000</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-primary shrink-0" />
@@ -60,12 +59,12 @@ export function Footer() {
                         <h4 className="font-bold text-lg mb-6">Otevírací doba</h4>
                         <ul className="space-y-2 text-white/60">
                             <li className="flex justify-between">
-                                <span>Po - Pá</span>
-                                <span>8:00 - 18:00</span>
+                                <span>Po a Čt</span>
+                                <span>14:00 - 18:00</span>
                             </li>
-                            <li className="flex justify-between text-white/40">
-                                <span>So - Ne</span>
-                                <span>Zavřeno</span>
+                            <li className="flex flex-col text-white/60 mt-2">
+                                <span>Ostatní dny:</span>
+                                <span className="text-sm opacity-70">Na telefonické domluvě</span>
                             </li>
                         </ul>
                     </div>

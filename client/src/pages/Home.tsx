@@ -41,7 +41,7 @@ export default function Home() {
     "image": "https://autoskola.red/og-image.jpg",
     "@id": "https://autoskola.red",
     "url": "https://autoskola.red",
-    "telephone": "+420777888999",
+    "telephone": "+420608913000",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
@@ -59,17 +59,14 @@ export default function Home() {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [
         "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
+        "Thursday"
       ],
-      "opens": "08:00",
+      "opens": "14:00",
       "closes": "18:00"
     },
     "sameAs": [
-      "https://www.facebook.com/autoskolared",
-      "https://www.instagram.com/autoskolared"
+      "https://www.facebook.com/profile.php?id=61569570703723",
+      "https://www.instagram.com/autoskola_red/"
     ]
   };
 
@@ -141,7 +138,7 @@ export default function Home() {
             <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight text-foreground">
               Řidičák <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-500">
-                snadno a v pohodě.
+                snadno a <br className="hidden md:inline" />v pohodě.
               </span>
             </motion.h1>
 
@@ -152,7 +149,7 @@ export default function Home() {
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="h-14 px-8 text-lg rounded-full bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all cursor-pointer">
                 <Link href="/registrace">
-                  Chci jezdit <ChevronRight className="w-5 h-5 ml-2" />
+                  Chci řidičák <ChevronRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full border-2 hover:bg-muted/50 cursor-pointer">
@@ -351,7 +348,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-24 text-center">
           <Button asChild size="lg" variant="secondary" className="h-12 px-8 rounded-full font-semibold hover:bg-primary hover:text-white transition-all relative z-10 hover:scale-105 shadow-sm hover:shadow-lg">
             <Link href="/cenik">
               Zobrazit kompletní ceník <ChevronRight className="w-4 h-4 ml-2" />
