@@ -60,7 +60,11 @@ export default function Registration() {
 
   async function onSubmit(values: any) {
     try {
-      await axios.post("/api/register", values);
+      // Send to Formspree
+      await axios.post("https://formspree.io/f/xvzbowwd", {
+        ...values,
+        _subject: `Nová závazná přihláška: ${values.firstName} ${values.lastName}`,
+      });
       toast.success("Přihláška odeslána!", {
         description: "Potvrzení vám přijde na email. Brzy se vám ozveme.",
       });

@@ -6,8 +6,22 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock, Send, Navigation, Facebook, Instagram } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { useForm, ValidationError } from "@formspree/react";
+import { toast } from "sonner";
 
 export default function Contact() {
+    const [state, handleSubmit] = useForm("xvzbowwd", {
+        data: {
+            _subject: "Nová zpráva z kontaktního formuláře",
+        }
+    });
+
+    if (state.succeeded) {
+        toast.success("Zpráva odeslána", {
+            description: "Děkujeme, brzy se vám ozveme."
+        });
+        // Optionally reset form if needed, but Formspree hook handles state nicely
+    }
     return (
         <div className="min-h-screen bg-background">
             <SEO
@@ -149,45 +163,63 @@ export default function Contact() {
                                 </CardDescription>
                             </CardHeader>
                             <CardContent>
-                                <form className="space-y-6" onSubmit={(e) => {
-                                    e.preventDefault();
-                                    // Placeholder for form submission
-                                    alert("Děkujeme za zprávu. Brzy se ozveme!");
-                                }}>
-                                    <div className="grid sm:grid-cols-2 gap-4">
-                                        <div className="space-y-2">
-                                            <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="name">Jméno</label>
-                                            <Input id="name" placeholder="Petr Novák" required />
+                                {state.succeeded ? (
+                                    <div className="flex flex-col items-center justify-center text-center p-8 space-y-4">
+                                        <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+                                            <Send className="w-8 h-8" />
                                         </div>
-                                        <div className="space-y-2">
-                                            <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="phone">Telefon</label>
-                                            <Input id="phone" type="tel" placeholder="+420 777 666 555" />
+                                        <h3 className="text-2xl font-bold text-gray-800">Zpráva odeslána!</h3>
+                                        <p className="text-muted-foreground">
+                                            Děkujeme za váš dotaz. Budeme vás kontaktovat co nejdříve.
+                                        </p>
+                                        <Button variant="outline" onClick={() => window.location.reload()}>
+                                            Poslat další zprávu
+                                        </Button>
+                                    </div>
+                                ) : (
+                                    <form className="space-y-6" onSubmit={handleSubmit}>
+                                        <div className="grid sm:grid-cols-2 gap-4">
+                                            <div className="space-y-2">
+                                                <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="name">Jméno</label>
+                                                <Input id="name" name="name" placeholder="Petr Novák" required />
+                                                <ValidationError prefix="Name" field="name" errors={state.errors} />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="phone">Telefon</label>
+                                                <Input id="phone" name="phone" type="tel" placeholder="+420 777 666 555" />
+                                                <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="email">Email</label>
-                                        <Input id="email" type="email" placeholder="petr@email.cz" required />
-                                    </div>
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="email">Email</label>
+                                            <Input id="email" name="email" type="email" placeholder="petr@email.cz" required />
+                                            <ValidationError prefix="Email" field="email" errors={state.errors} />
+                                        </div>
 
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="message">Vaše zpráva</label>
-                                        <Textarea
-                                            id="message"
-                                            placeholder="Dobrý den, měl bych zájem o..."
-                                            className="min-h-[150px] resize-none"
-                                            required
-                                        />
-                                    </div>
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="message">Vaše zpráva</label>
+                                            <Textarea
+                                                id="message"
+                                                name="message"
+                                                placeholder="Dobrý den, měl bych zájem o..."
+                                                className="min-h-[150px] resize-none"
+                                                required
+                                            />
+                                            <ValidationError prefix="Message" field="message" errors={state.errors} />
+                                        </div>
 
-                                    <Button type="submit" className="w-full h-12 text-lg font-bold bg-primary hover:bg-primary/90">
-                                        Odeslat zprávu <Send className="ml-2 w-4 h-4" />
-                                    </Button>
+                                        <Button type="submit" disabled={state.submitting} className="w-full h-12 text-lg font-bold bg-primary hover:bg-primary/90">
+                                            {state.submitting ? "Odesílám..." : (
+                                                <>Odeslat zprávu <Send className="ml-2 w-4 h-4" /></>
+                                            )}
+                                        </Button>
 
-                                    <p className="text-xs text-center text-muted-foreground mt-4">
-                                        Odesláním souhlasíte se zpracováním osobních údajů.
-                                    </p>
-                                </form>
+                                        <p className="text-xs text-center text-muted-foreground mt-4">
+                                            Odesláním souhlasíte se zpracováním osobních údajů.
+                                        </p>
+                                    </form>
+                                )}
                             </CardContent>
                         </Card>
                     </div>
