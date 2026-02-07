@@ -1,0 +1,1 @@
+$path = 'client/src/pages/Home.tsx'; $c = Get-Content $path -Raw; $c = $c -replace '<\s+section', '<section'; $c = $c -replace '<\s+div', '<div'; $c = $c -replace '<\s+Footer', '<Footer'; $c = $c -replace '</section\s+>', '</section>'; $c = $c -replace '</div\s+>', '</div>'; Set-Content $path $c -Encoding UTF8
