@@ -5,9 +5,10 @@ interface SEOProps {
     title: string;
     description: string;
     canonical?: string;
+    structuredData?: Record<string, any>;
 }
 
-export function SEO({ title, description, canonical }: SEOProps) {
+export function SEO({ title, description, canonical, structuredData }: SEOProps) {
     return (
         <Helmet>
             <title>{title}</title>
@@ -24,6 +25,13 @@ export function SEO({ title, description, canonical }: SEOProps) {
             <meta property="twitter:card" content="summary_large_image" />
             <meta property="twitter:title" content={title} />
             <meta property="twitter:description" content={description} />
+
+            {/* Structured Data (JSON-LD) */}
+            {structuredData && (
+                <script type="application/ld+json">
+                    {JSON.stringify(structuredData)}
+                </script>
+            )}
         </Helmet>
     );
 }

@@ -169,11 +169,49 @@ import { Footer } from "@/components/Footer";
 import { MotorcycleIcon } from "@/components/icons/MotorcycleIcon";
 
 export default function Pricing() {
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+            ...Object.values(PRICING.cars).map((course, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": {
+                    "@type": "Product",
+                    "name": `Řidičský průkaz - ${course.name}`,
+                    "description": course.description,
+                    "offers": {
+                        "@type": "Offer",
+                        "price": course.price,
+                        "priceCurrency": "CZK",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            })),
+            ...Object.values(PRICING.motorcycles).map((course, index) => ({
+                "@type": "ListItem",
+                "position": Object.values(PRICING.cars).length + index + 1,
+                "item": {
+                    "@type": "Product",
+                    "name": `Řidičský průkaz - ${course.name}`,
+                    "description": course.description,
+                    "offers": {
+                        "@type": "Offer",
+                        "price": course.price,
+                        "priceCurrency": "CZK",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            }))
+        ]
+    };
+
     return (
         <div className="min-h-screen bg-background pb-0">
             <SEO
                 title="Ceník autoškoly | Řidičák sk. B od 22 900 Kč | Praha 6"
                 description="Kompletní ceník autoškoly. Skupina B, motocykly (A, A1, A2, AM), kondiční jízdy a vrácení řidičáku. Žádné skryté poplatky, možnost splátek."
+                structuredData={structuredData}
             />
             <Navbar />
 

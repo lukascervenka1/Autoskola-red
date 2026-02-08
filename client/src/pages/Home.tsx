@@ -104,15 +104,44 @@ export default function Home() {
     }
   } as any;
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "DrivingSchool",
+    "name": "Autoškola RED",
+    "image": "https://autoskola.red/images/logo.png", // Assuming logo path or similar image
+    "description": "Moderní autoškola v Praze 6. Individuální přístup, jízdy v klidu a pohodě. Řidičské průkazy skupiny B, A, A1, A2, AM.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Puškinovo náměstí 681/3",
+      "addressLocality": "Praha 6",
+      "postalCode": "160 00",
+      "addressCountry": "CZ"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 50.1018, // Approximate coords for Puškinovo náměstí 3, Praha 6
+      "longitude": 14.4034
+    },
+    "url": "https://autoskola.red",
+    "telephone": "+420608913000",
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Thursday"],
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20 selection:text-primary">
       <SEO
-        title="Autoškola RED Praha 6 | Moderní výcvik & Skvělé ceny"
-        description="Hledáte autoškolu v Praze 6? Autoškola RED nabízí pohodový výcvik, skvělé ceny od 21 990 Kč a moderní vozový park. Řidičák sk. B i motorky."
+        title="Autoškola RED - Autoškola Praha 6 Dejvice"
+        description="Moderní autoškola v Praze 6. Řidičák na auto (B) i motorku (A). Individuální přístup, jízdy v klidu a pohodě. Přihlaste se online."
+        structuredData={structuredData}
       />
-      <script type="application/ld+json">
-        {JSON.stringify(schemaData)}
-      </script>
       <Navbar />
 
       {/* Hero Section */}
