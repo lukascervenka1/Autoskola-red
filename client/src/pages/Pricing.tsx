@@ -47,10 +47,34 @@ export const PRICING = {
         }
     },
     motorcycles: {
-        am: { price: 21900, name: "Skupina AM", subtitle: "Od 15 let" },
-        a1: { price: 22900, name: "Skupina A1", subtitle: "Od 16 let" },
-        a2: { price: 23900, name: "Skupina A2", subtitle: "Od 18 let" },
-        a: { price: 24900, name: "Skupina A", subtitle: "Od 24 let (nebo 20 let + praxe)" },
+        am: {
+            price: 21900,
+            name: "Skupina AM",
+            subtitle: "Od 15 let",
+            description: "Moped do 50 ccm a max. 45 km/h.",
+            features: ["Výcvik na automatickém skútru", "Zapůjčení výstroje v ceně", "Učebnice a zdravotní kurz zdarma"]
+        },
+        a1: {
+            price: 22900,
+            name: "Skupina A1",
+            subtitle: "Od 16 let",
+            description: "Motocykl do 125 ccm a 11 kW.",
+            features: ["Ideální pro začínající motorkáře", "Zapůjčení výstroje v ceně", "Učebnice a zdravotní kurz zdarma"]
+        },
+        a2: {
+            price: 23900,
+            name: "Skupina A2",
+            subtitle: "Od 18 let",
+            description: "Motocykl do 35 kW.",
+            features: ["Pro středně silné motorky", "Zapůjčení výstroje v ceně", "Učebnice a zdravotní kurz zdarma"]
+        },
+        a: {
+            price: 24900,
+            name: "Skupina A",
+            subtitle: "Od 24 let (nebo 20 let + praxe)",
+            description: "Motocykl bez omezení výkonu.",
+            features: ["Plnohodnotný řidičák na vše", "Zapůjčení výstroje v ceně", "Učebnice a zdravotní kurz zdarma"]
+        },
     },
     extensions: [
         { name: "Rozšíření A1 → A2", price: 9900, note: "Včetně 2 lekcí jízdy" },
@@ -116,12 +140,12 @@ const PriceCard = ({ item, type }: { item: any, type: 'car' | 'moto' }) => {
                     </div>
                 </div>
 
-                {isCar && (
+                {item.features && (
                     <ul className="space-y-3">
                         {item.features.map((feature: string, i: number) => (
                             <li key={i} className="flex items-start gap-3 text-sm">
                                 <Check className="w-5 h-5 text-green-500 shrink-0" />
-                                <span>{feature}</span>
+                                <span className={!isCar ? "text-muted-foreground" : ""}>{feature}</span>
                             </li>
                         ))}
                     </ul>
@@ -146,7 +170,7 @@ import { MotorcycleIcon } from "@/components/icons/MotorcycleIcon";
 
 export default function Pricing() {
     return (
-        <div className="min-h-screen bg-background pb-24">
+        <div className="min-h-screen bg-background pb-0">
             <SEO
                 title="Ceník autoškoly | Řidičák sk. B od 22 900 Kč | Praha 6"
                 description="Kompletní ceník autoškoly. Skupina B, motocykly (A, A1, A2, AM), kondiční jízdy a vrácení řidičáku. Žádné skryté poplatky, možnost splátek."
@@ -225,13 +249,20 @@ export default function Pricing() {
 
                 {/* Moto Courses */}
                 <section className="mb-24">
-                    <div className="flex items-center gap-4 mb-12">
+                    <div className="flex items-center gap-4 mb-8">
                         <div className="w-14 h-14 bg-orange-500 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-orange-500/20">
                             <MotorcycleIcon className="w-8 h-8" />
                         </div>
                         <div>
                             <h2 className="text-4xl font-black tracking-tight">Motocykly & Skútry</h2>
                             <p className="text-lg text-muted-foreground mt-1">Skupiny AM, A1, A2, A</p>
+                        </div>
+                    </div>
+
+                    <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl p-4 mb-12 flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+                        <div className="text-sm text-orange-800 dark:text-orange-200">
+                            <strong>Upozornění:</strong> Jezdí se primárně za suchého počasí. V dešti se výcvik neprovádí z důvodu bezpečnosti.
                         </div>
                     </div>
 
@@ -308,7 +339,7 @@ export default function Pricing() {
                 </section>
 
                 {/* FAQ / Info regarding exams */}
-                <section className="mt-16 bg-secondary/30 rounded-3xl p-8 border border-border/50">
+                <section className="mt-16 mb-24 bg-secondary/30 rounded-3xl p-8 border border-border/50">
                     <div className="flex items-start gap-4">
                         <Info className="w-6 h-6 text-primary shrink-0 mt-1" />
                         <div className="space-y-4">
