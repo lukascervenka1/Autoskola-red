@@ -98,7 +98,7 @@ export default function Registration() {
           transition={{ duration: 0.5 }}
         >
           <div className="text-center mb-8 space-y-2">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Přihláška do autoškoly</h1>
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Nezávazná přihláška do autoškoly</h1>
             <p className="text-muted-foreground">Vyplňte formulář a začněte svou cestu za řidičákem ještě dnes.</p>
           </div>
 
@@ -253,7 +253,7 @@ export default function Registration() {
                     </div>
 
                     <div className="text-sm text-muted-foreground -mt-4 mb-4">
-                      Nejste si jistí? Můžeme to probrat i telefonicky.
+                      Nejste si jistí? Můžeme to probrat i telefonicky na čísle <a href="tel:+420608913000" className="font-bold text-primary hover:underline">+420 608 913 000</a>.
                     </div>
 
                     <FormField

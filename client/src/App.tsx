@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 
 
 import Registration from "./pages/Registration";
+import { CookieConsent } from "@/components/CookieConsent";
 
 import Pricing from "@/pages/Pricing";
 import Contact from "@/pages/Contact";
@@ -55,6 +56,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <CookieConsent />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

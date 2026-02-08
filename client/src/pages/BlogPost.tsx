@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Calendar, User, Clock, Share2 } from "lucide-react";
 import { useRoute, Link } from "wouter";
 import { blogPosts } from "@/data/blog-data";
+import { toast } from "sonner";
 import { useEffect } from "react";
 
 import { SEO } from "@/components/SEO";
@@ -106,7 +107,18 @@ export default function BlogPost() {
                         <div className="font-bold text-lg">
                             Líbil se vám článek?
                         </div>
-                        <Button variant="outline" className="gap-2">
+                        <Button variant="outline" className="gap-2" onClick={() => {
+                            if (navigator.share) {
+                                navigator.share({
+                                    title: post.title,
+                                    text: post.excerpt,
+                                    url: window.location.href,
+                                }).catch(console.error);
+                            } else {
+                                navigator.clipboard.writeText(window.location.href);
+                                toast.success("Odkaz zkopírován do schránky");
+                            }
+                        }}>
                             <Share2 className="w-4 h-4" /> Sdílet
                         </Button>
                     </div>
