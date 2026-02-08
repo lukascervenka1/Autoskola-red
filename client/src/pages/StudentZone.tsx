@@ -71,14 +71,29 @@ export default function StudentZone() {
             name: "Škoda Yeti",
             src: "https://calendar.google.com/calendar/embed?src=74f9d1152758a428f9f656365d1609305e91985c0d4a118624802a4596cd3ef8%40group.calendar.google.com&ctz=Europe%2FPrague",
             color: "orange"
+        },
+        {
+            id: "moto_jiri",
+            name: "Motorka - Jiří",
+            src: "https://calendar.google.com/calendar/embed?src=16c474cdd937cdac5f24b2612a58ed3a1e964ed159132710481055b8a1bdbefd%40group.calendar.google.com&ctz=Europe%2FPrague",
+            color: "yellow"
+        },
+        {
+            id: "moto_marek",
+            name: "Motorka - Marek",
+            src: "https://calendar.google.com/calendar/embed?src=d88ccaf8231d7c9a4ec175962a40e76f2f282e91a767e3c6b8cbc16fa2297dc5%40group.calendar.google.com&ctz=Europe%2FPrague",
+            color: "pink"
         }
     ];
+
+    const simulatorCalendar = "https://calendar.google.com/calendar/embed?src=073fd01bb7ba98b5655c749d4a88a4164875ba765782022477d303a204f6da7a%40group.calendar.google.com&ctz=Europe%2FPrague";
+    const examsCalendar = "https://calendar.google.com/calendar/embed?src=bdd033d6febb8c117ab540797e8af9794faed2c8c894c8c2659dc335e0203753%40group.calendar.google.com&ctz=Europe%2FPrague";
 
     return (
         <div className="min-h-screen bg-background">
             <SEO
                 title="Studentská zóna | Autoškola RED"
-                description="Rozvrh jízd pro žáky Autoškoly RED. Přehled obsazenosti vozidel."
+                description="Rozvrh jízd pro žáky Autoškoly RED. Přehled obsazenosti vozidel, trenažéru a termíny zkoušek."
             />
             <Navbar />
 
@@ -129,16 +144,17 @@ export default function StudentZone() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="space-y-8"
+                        className="space-y-12"
                     >
+                        {/* Header */}
                         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b pb-6">
                             <div>
                                 <h1 className="text-3xl font-bold flex items-center gap-3">
                                     <CalendarDays className="w-8 h-8 text-primary" />
-                                    Rozvrh jízd
+                                    Rozvrh jízd a Zkoušek
                                 </h1>
                                 <p className="text-muted-foreground mt-1">
-                                    Vyberte vozidlo pro zobrazení obsazenosti.
+                                    Přehled obsazenosti vozidel, trenažéru a termíny zkoušek.
                                 </p>
                             </div>
                             <Button variant="outline" onClick={handleLogout} className="text-muted-foreground hover:text-red-500">
@@ -146,47 +162,96 @@ export default function StudentZone() {
                             </Button>
                         </div>
 
-                        <Tabs defaultValue={calendars[0].id} className="w-full">
-                            <TabsList className="w-full h-auto flex-wrap justify-start gap-2 bg-transparent p-0 mb-6">
+                        {/* Main Tabs - Cars & Moto */}
+                        <section>
+                            <h2 className="text-2xl font-bold mb-6">Jízdy (Auto & Moto)</h2>
+                            <Tabs defaultValue={calendars[0].id} className="w-full">
+                                <TabsList className="w-full h-auto flex-wrap justify-start gap-2 bg-transparent p-0 mb-6">
+                                    {calendars.map((cal) => (
+                                        <TabsTrigger
+                                            key={cal.id}
+                                            value={cal.id}
+                                            className="data-[state=active]:bg-primary data-[state=active]:text-white border bg-white px-4 py-3 h-auto text-base"
+                                        >
+                                            <Car className="w-4 h-4 mr-2" /> {cal.name}
+                                        </TabsTrigger>
+                                    ))}
+                                </TabsList>
+
                                 {calendars.map((cal) => (
-                                    <TabsTrigger
-                                        key={cal.id}
-                                        value={cal.id}
-                                        className="data-[state=active]:bg-primary data-[state=active]:text-white border bg-white px-4 py-3 h-auto text-base"
-                                    >
-                                        <Car className="w-4 h-4 mr-2" /> {cal.name}
-                                    </TabsTrigger>
+                                    <TabsContent key={cal.id} value={cal.id} className="mt-0">
+                                        <Card className="overflow-hidden border-2 shadow-lg">
+                                            <CardHeader className="bg-muted/30 border-b py-4">
+                                                <CardTitle className="flex items-center gap-2 text-lg">
+                                                    <span className={`w-3 h-3 rounded-full bg-${cal.color}-500`} />
+                                                    {cal.name}
+                                                </CardTitle>
+                                            </CardHeader>
+                                            <div className="aspect-[4/3] md:aspect-[16/9] w-full bg-white relative">
+                                                <iframe
+                                                    src={cal.src}
+                                                    style={{ border: 0 }}
+                                                    width="100%"
+                                                    height="100%"
+                                                    frameBorder="0"
+                                                    scrolling="no"
+                                                    className="absolute inset-0"
+                                                />
+                                            </div>
+                                        </Card>
+                                    </TabsContent>
                                 ))}
-                            </TabsList>
+                            </Tabs>
+                        </section>
 
-                            {calendars.map((cal) => (
-                                <TabsContent key={cal.id} value={cal.id} className="mt-0">
-                                    <Card className="overflow-hidden border-2 shadow-lg">
-                                        <CardHeader className="bg-muted/30 border-b py-4">
-                                            <CardTitle className="flex items-center gap-2 text-lg">
-                                                <span className={`w-3 h-3 rounded-full bg-${cal.color}-500`} />
-                                                {cal.name}
-                                            </CardTitle>
-                                        </CardHeader>
-                                        <div className="aspect-[4/3] md:aspect-[16/9] w-full bg-white relative">
-                                            <iframe
-                                                src={cal.src}
-                                                style={{ border: 0 }}
-                                                width="100%"
-                                                height="100%"
-                                                frameBorder="0"
-                                                scrolling="no"
-                                                className="absolute inset-0"
-                                            />
-                                        </div>
-                                    </Card>
-                                </TabsContent>
-                            ))}
-                        </Tabs>
+                        {/* Simulator Section */}
+                        <section>
+                            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-primary">
+                                    <path d="M21 4H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-1 14H4V6h16v12zM7 12l5-3 5 3-5 3z" />
+                                </svg>
+                                Trenažér
+                            </h2>
+                            <Card className="overflow-hidden border-2 shadow-md">
+                                <div className="aspect-[4/3] md:aspect-[16/9] w-full bg-white relative">
+                                    <iframe
+                                        src={simulatorCalendar}
+                                        style={{ border: 0 }}
+                                        width="100%"
+                                        height="100%"
+                                        frameBorder="0"
+                                        scrolling="no"
+                                        className="absolute inset-0"
+                                    />
+                                </div>
+                            </Card>
+                        </section>
 
-                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-blue-800 text-sm">
-                            <strong>Tip:</strong> Pokud se kalendář nezobrazuje správně, zkuste to v jiném prohlížeči nebo vypněte blokování sledování.
-                        </div>
+                        {/* Exams Section - Highlighted */}
+                        <section className="bg-yellow-500/5 rounded-3xl p-6 md:p-10 border-2 border-yellow-500/30 shadow-xl shadow-yellow-500/10">
+                            <h2 className="text-3xl font-black mb-6 flex items-center gap-3 text-yellow-600 dark:text-yellow-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                                </svg>
+                                Kalendář Závěrečných Zkoušek
+                            </h2>
+                            <p className="mb-8 text-lg text-muted-foreground">
+                                Přehled vypsaných termínů zkoušek. Pro přihlášení kontaktujte svého instruktora.
+                            </p>
+                            <Card className="overflow-hidden border-2 border-yellow-500/20 shadow-lg">
+                                <div className="aspect-[4/3] md:aspect-[16/9] w-full bg-white relative">
+                                    <iframe
+                                        src={examsCalendar}
+                                        style={{ border: 0 }}
+                                        width="100%"
+                                        height="100%"
+                                        frameBorder="0"
+                                        scrolling="no"
+                                        className="absolute inset-0"
+                                    />
+                                </div>
+                            </Card>
+                        </section>
                     </motion.div>
                 )}
             </div>
