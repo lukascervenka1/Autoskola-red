@@ -238,7 +238,7 @@ export default function StudentZone() {
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
-                                        Při dotazích můžete volat:
+                                        V případě dotazů volejte:
                                     </span>
                                     <a
                                         href="tel:+420608913000"

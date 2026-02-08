@@ -304,7 +304,7 @@ export default function Home() {
             </Card>
 
             {/* Standard - Highlighted */}
-            <Card className="relative border-primary bg-background shadow-2xl scale-105 z-10">
+            <Card className="relative border-primary bg-background shadow-2xl scale-105 z-10 hover:scale-110 transition-transform duration-300">
               <div className="absolute top-0 right-0 left-0 -mt-4 flex justify-center">
                 <span className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Nejoblíbenější</span>
               </div>
