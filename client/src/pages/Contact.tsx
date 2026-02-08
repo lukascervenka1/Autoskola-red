@@ -53,23 +53,30 @@ export default function Contact() {
                             </p>
 
                             <div className="grid gap-6">
-                                <Card className="border-l-4 border-l-primary shadow-md">
-                                    <CardContent className="p-6 flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
-                                            <MapPin className="w-6 h-6" />
-                                        </div>
-                                        <div>
-                                            <h3 className="font-bold text-lg mb-1">Adresa učebny</h3>
-                                            <p className="text-muted-foreground">
-                                                Puškinovo náměstí 681/3<br />
-                                                160 00 Praha 6 - Bubeneč
-                                            </p>
-                                            <div className="mt-2 text-sm text-primary font-medium flex items-center gap-1">
-                                                <Navigation className="w-4 h-4" /> Vchod z boku budovy Archi HUB
+                                <a
+                                    href="https://www.google.com/maps/dir//Puškinovo+náměstí+681%2F3,+160+00+Praha+6-Bubeneč"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block group"
+                                >
+                                    <Card className="border-l-4 border-l-primary shadow-md transition-shadow group-hover:shadow-lg">
+                                        <CardContent className="p-6 flex items-start gap-4">
+                                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                                                <MapPin className="w-6 h-6" />
                                             </div>
-                                        </div>
-                                    </CardContent>
-                                </Card>
+                                            <div>
+                                                <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">Adresa učebny</h3>
+                                                <p className="text-muted-foreground">
+                                                    Puškinovo náměstí 681/3<br />
+                                                    160 00 Praha 6 - Bubeneč
+                                                </p>
+                                                <div className="mt-2 text-sm text-primary font-medium flex items-center gap-1">
+                                                    <Navigation className="w-4 h-4" /> Vchod z boku budovy Archi HUB
+                                                </div>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </a>
 
                                 <div className="grid sm:grid-cols-2 gap-6">
                                     <Card className="hover:shadow-md transition-shadow">

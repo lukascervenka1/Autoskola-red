@@ -6,8 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Lock, Unlock, CalendarDays, Car } from "lucide-react";
-import { motion } from "framer-motion";
+import { Lock, Unlock, CalendarDays, Car, ChevronDown, ChevronUp, Phone, Bike } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const SHARED_PASSWORD = "Autoskolared1";
 const STORAGE_KEY = "autoskola_student_auth";
@@ -16,6 +16,7 @@ export default function StudentZone() {
     const [password, setPassword] = useState("");
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [error, setError] = useState(false);
+    const [showSimulator, setShowSimulator] = useState(false);
 
     useEffect(() => {
         const storedAuth = localStorage.getItem(STORAGE_KEY);
@@ -46,43 +47,50 @@ export default function StudentZone() {
             id: "i20",
             name: "Hyundai i20",
             src: "https://calendar.google.com/calendar/embed?src=4266064c138f8dc8e70a7de1fac3f84fca6442df8d2c88799e72f05f05dae700%40group.calendar.google.com&ctz=Europe%2FPrague",
-            color: "blue"
+            color: "blue",
+            type: "car"
         },
         {
             id: "kodiaq",
             name: "Škoda Kodiaq (Automat)",
             src: "https://calendar.google.com/calendar/embed?src=6d0b05514fdd3c64b94910dd301bb40e7ecbc17572962884ae046441969ba491%40group.calendar.google.com&ctz=Europe%2FPrague",
-            color: "red"
+            color: "red",
+            type: "car"
         },
         {
             id: "octavia2",
             name: "Škoda Octavia II",
             src: "https://calendar.google.com/calendar/embed?src=d618b48803fd8775dfefe6ec93e7cf6550289adf1053dcd417ee3cdb8a60bfba%40group.calendar.google.com&ctz=Europe%2FPrague",
-            color: "green"
+            color: "green",
+            type: "car"
         },
         {
             id: "octavia3",
             name: "Škoda Octavia III",
             src: "https://calendar.google.com/calendar/embed?src=0e893f2345f220f3780438943b494f6302dfa1034e2166e10fa85b65f46b069c%40group.calendar.google.com&ctz=Europe%2FPrague",
-            color: "purple"
+            color: "purple",
+            type: "car"
         },
         {
             id: "yeti",
             name: "Škoda Yeti",
             src: "https://calendar.google.com/calendar/embed?src=74f9d1152758a428f9f656365d1609305e91985c0d4a118624802a4596cd3ef8%40group.calendar.google.com&ctz=Europe%2FPrague",
-            color: "orange"
+            color: "orange",
+            type: "car"
         },
         {
             id: "moto_jiri",
             name: "Motorka - Jiří",
             src: "https://calendar.google.com/calendar/embed?src=16c474cdd937cdac5f24b2612a58ed3a1e964ed159132710481055b8a1bdbefd%40group.calendar.google.com&ctz=Europe%2FPrague",
-            color: "yellow"
+            color: "yellow",
+            type: "moto"
         },
         {
             id: "moto_marek",
             name: "Motorka - Marek",
             src: "https://calendar.google.com/calendar/embed?src=d88ccaf8231d7c9a4ec175962a40e76f2f282e91a767e3c6b8cbc16fa2297dc5%40group.calendar.google.com&ctz=Europe%2FPrague",
-            color: "pink"
+            color: "pink",
+            type: "moto"
         }
     ];
 
@@ -173,7 +181,12 @@ export default function StudentZone() {
                                             value={cal.id}
                                             className="data-[state=active]:bg-primary data-[state=active]:text-white border bg-white px-4 py-3 h-auto text-base"
                                         >
-                                            <Car className="w-4 h-4 mr-2" /> {cal.name}
+                                            {cal.type === 'moto' ? (
+                                                <Bike className="w-5 h-5 mr-2" />
+                                            ) : (
+                                                <Car className="w-4 h-4 mr-2" />
+                                            )}
+                                            {cal.name}
                                         </TabsTrigger>
                                     ))}
                                 </TabsList>
@@ -206,38 +219,79 @@ export default function StudentZone() {
 
                         {/* Simulator Section */}
                         <section>
-                            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-primary">
-                                    <path d="M21 4H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-1 14H4V6h16v12zM7 12l5-3 5 3-5 3z" />
-                                </svg>
-                                Trenažér
-                            </h2>
-                            <Card className="overflow-hidden border-2 shadow-md">
-                                <div className="aspect-[4/3] md:aspect-[16/9] w-full bg-white relative">
-                                    <iframe
-                                        src={simulatorCalendar}
-                                        style={{ border: 0 }}
-                                        width="100%"
-                                        height="100%"
-                                        frameBorder="0"
-                                        scrolling="no"
-                                        className="absolute inset-0"
-                                    />
-                                </div>
-                            </Card>
+                            <div className="flex items-center justify-between mb-6">
+                                <h2 className="text-2xl font-bold flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-primary">
+                                        <path d="M21 4H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-1 14H4V6h16v12zM7 12l5-3 5 3-5 3z" />
+                                    </svg>
+                                    Trenažér
+                                </h2>
+                                <Button
+                                    variant="outline"
+                                    size="icon"
+                                    onClick={() => setShowSimulator(!showSimulator)}
+                                    className="rounded-full w-10 h-10 border-2"
+                                    title={showSimulator ? "Skrýt" : "Zobrazit"}
+                                >
+                                    {showSimulator ? (
+                                        <ChevronUp className="w-5 h-5" />
+                                    ) : (
+                                        <ChevronDown className="w-5 h-5" />
+                                    )}
+                                </Button>
+                            </div>
+
+                            <AnimatePresence>
+                                {showSimulator && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: "auto" }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        className="overflow-hidden mt-4"
+                                    >
+                                        <Card className="overflow-hidden border-2 shadow-md">
+                                            <div className="aspect-[4/3] md:aspect-[16/9] w-full bg-white relative">
+                                                <iframe
+                                                    src={simulatorCalendar}
+                                                    style={{ border: 0 }}
+                                                    width="100%"
+                                                    height="100%"
+                                                    frameBorder="0"
+                                                    scrolling="no"
+                                                    className="absolute inset-0"
+                                                />
+                                            </div>
+                                        </Card>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
                         </section>
 
                         {/* Exams Section - Highlighted */}
                         <section className="bg-yellow-500/5 rounded-3xl p-6 md:p-10 border-2 border-yellow-500/30 shadow-xl shadow-yellow-500/10">
-                            <h2 className="text-3xl font-black mb-6 flex items-center gap-3 text-yellow-600 dark:text-yellow-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                                </svg>
-                                Kalendář Závěrečných Zkoušek
-                            </h2>
-                            <p className="mb-8 text-lg text-muted-foreground">
-                                Přehled vypsaných termínů zkoušek. Pro přihlášení kontaktujte svého instruktora.
-                            </p>
+                            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
+                                <div>
+                                    <h2 className="text-3xl font-black mb-2 text-yellow-600 dark:text-yellow-400">
+                                        Kalendář závěrečných zkoušek
+                                    </h2>
+                                    <p className="text-lg text-muted-foreground">
+                                        Přehled vypsaných termínů zkoušek.
+                                    </p>
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+                                        Při dotazích můžete volat:
+                                    </span>
+                                    <a
+                                        href="tel:+420608913000"
+                                        className="flex items-center gap-2 text-xl font-bold text-primary hover:underline bg-white/50 px-4 py-2 rounded-lg border border-border/50"
+                                    >
+                                        <Phone className="w-5 h-5" />
+                                        +420 608 913 000
+                                    </a>
+                                </div>
+                            </div>
+
                             <Card className="overflow-hidden border-2 border-yellow-500/20 shadow-lg">
                                 <div className="aspect-[4/3] md:aspect-[16/9] w-full bg-white relative">
                                     <iframe
