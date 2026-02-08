@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Lock, Unlock, CalendarDays, Car, ChevronDown, ChevronUp, Phone, Bike } from "lucide-react";
+import { Lock, Unlock, CalendarDays, Car, ChevronDown, ChevronUp, Phone, Bike, Monitor } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const SHARED_PASSWORD = "Autoskolared1";
@@ -16,7 +16,6 @@ export default function StudentZone() {
     const [password, setPassword] = useState("");
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [error, setError] = useState(false);
-    const [showSimulator, setShowSimulator] = useState(false);
 
     useEffect(() => {
         const storedAuth = localStorage.getItem(STORAGE_KEY);
@@ -89,12 +88,17 @@ export default function StudentZone() {
             id: "moto_marek",
             name: "Motorka - Marek",
             src: "https://calendar.google.com/calendar/embed?src=d88ccaf8231d7c9a4ec175962a40e76f2f282e91a767e3c6b8cbc16fa2297dc5%40group.calendar.google.com&ctz=Europe%2FPrague",
-            color: "pink",
             type: "moto"
+        },
+        {
+            id: "simulator",
+            name: "Trenažér",
+            src: "https://calendar.google.com/calendar/embed?src=073fd01bb7ba98b5655c749d4a88a4164875ba765782022477d303a204f6da7a%40group.calendar.google.com&ctz=Europe%2FPrague",
+            color: "slate",
+            type: "simulator"
         }
     ];
 
-    const simulatorCalendar = "https://calendar.google.com/calendar/embed?src=073fd01bb7ba98b5655c749d4a88a4164875ba765782022477d303a204f6da7a%40group.calendar.google.com&ctz=Europe%2FPrague";
     const examsCalendar = "https://calendar.google.com/calendar/embed?src=bdd033d6febb8c117ab540797e8af9794faed2c8c894c8c2659dc335e0203753%40group.calendar.google.com&ctz=Europe%2FPrague";
 
     return (
@@ -183,6 +187,8 @@ export default function StudentZone() {
                                         >
                                             {cal.type === 'moto' ? (
                                                 <Bike className="w-5 h-5 mr-2" />
+                                            ) : cal.type === 'simulator' ? (
+                                                <Monitor className="w-5 h-5 mr-2" />
                                             ) : (
                                                 <Car className="w-4 h-4 mr-2" />
                                             )}
@@ -217,55 +223,7 @@ export default function StudentZone() {
                             </Tabs>
                         </section>
 
-                        {/* Simulator Section */}
-                        <section>
-                            <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-2xl font-bold flex items-center gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-primary">
-                                        <path d="M21 4H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-1 14H4V6h16v12zM7 12l5-3 5 3-5 3z" />
-                                    </svg>
-                                    Trenažér
-                                </h2>
-                                <Button
-                                    variant="outline"
-                                    size="icon"
-                                    onClick={() => setShowSimulator(!showSimulator)}
-                                    className="rounded-full w-10 h-10 border-2"
-                                    title={showSimulator ? "Skrýt" : "Zobrazit"}
-                                >
-                                    {showSimulator ? (
-                                        <ChevronUp className="w-5 h-5" />
-                                    ) : (
-                                        <ChevronDown className="w-5 h-5" />
-                                    )}
-                                </Button>
-                            </div>
 
-                            <AnimatePresence>
-                                {showSimulator && (
-                                    <motion.div
-                                        initial={{ opacity: 0, height: 0 }}
-                                        animate={{ opacity: 1, height: "auto" }}
-                                        exit={{ opacity: 0, height: 0 }}
-                                        className="overflow-hidden mt-4"
-                                    >
-                                        <Card className="overflow-hidden border-2 shadow-md">
-                                            <div className="aspect-[4/3] md:aspect-[16/9] w-full bg-white relative">
-                                                <iframe
-                                                    src={simulatorCalendar}
-                                                    style={{ border: 0 }}
-                                                    width="100%"
-                                                    height="100%"
-                                                    frameBorder="0"
-                                                    scrolling="no"
-                                                    className="absolute inset-0"
-                                                />
-                                            </div>
-                                        </Card>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </section>
 
                         {/* Exams Section - Highlighted */}
                         <section className="bg-yellow-500/5 rounded-3xl p-6 md:p-10 border-2 border-yellow-500/30 shadow-xl shadow-yellow-500/10">
