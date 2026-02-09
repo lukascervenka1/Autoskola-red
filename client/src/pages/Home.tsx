@@ -289,6 +289,7 @@ export default function Home() {
                     "Základní teoretická příprava",
                     "E-learning zdarma",
                     "Simulátor zdarma",
+                    "Kurz první pomoci v ceně",
                     "Možnost připlatit si automat 1500 Kč"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
@@ -331,18 +332,16 @@ export default function Home() {
 
                 <ul className="space-y-3">
                   {[
+                    "Všechny výhody balíčku Economy",
                     "Rychlokurz (2-3 měsíce)",
                     "Přednostní plánování jízd",
-                    "Rozšířená výuka v provozu",
                     "Garance termínu zkoušky",
-                    "Jízda v simulátoru zdarma",
                     "Možnost zrušení jízd do 24h zdarma",
-                    "Kurz první pomoci v ceně",
                     "Simulace závěrečné zkoušky"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm font-medium">
-                      <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
-                      {item}
+                      <CheckCircle2 className={`w-5 h-5 shrink-0 ${i === 0 ? "text-primary font-bold" : "text-primary"}`} />
+                      <span className={i === 0 ? "font-bold" : ""}>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -367,6 +366,7 @@ export default function Home() {
                 </div>
                 <ul className="space-y-3">
                   {[
+                    "Všechny výhody balíčků Economy a Standard",
                     "Expresní kurz (cca 1 měsíc)",
                     "Jízdy každý den včetně víkendů",
                     "Vyzvednutí doma/v práci",
@@ -374,8 +374,8 @@ export default function Home() {
                     "Individuální konzultace"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                      <CheckCircle2 className="w-5 h-5 text-purple-500 shrink-0" />
-                      {item}
+                      <CheckCircle2 className={`w-5 h-5 shrink-0 ${i === 0 ? "text-purple-500 font-bold" : "text-purple-500"}`} />
+                      <span className={i === 0 ? "font-bold" : ""}>{item}</span>
                     </li>
                   ))}
                 </ul>
