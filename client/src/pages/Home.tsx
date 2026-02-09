@@ -293,7 +293,7 @@ export default function Home() {
                     "Možnost připlatit si automat 1500 Kč"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                      <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
+                      <CheckCircle2 className="w-5 h-5 text-red-500 shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -307,12 +307,12 @@ export default function Home() {
             </Card>
 
             {/* Standard - Highlighted */}
-            <Card className="relative border-primary bg-background shadow-2xl scale-105 z-10 hover:scale-110 transition-transform duration-300">
+            <Card className="relative border-emerald-500 bg-background shadow-2xl scale-105 z-10 hover:scale-110 transition-transform duration-300">
               <div className="absolute top-0 right-0 left-0 -mt-4 flex justify-center">
-                <span className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Nejoblíbenější</span>
+                <span className="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Nejoblíbenější</span>
               </div>
               <CardHeader>
-                <CardTitle className="text-2xl font-bold text-primary">Standard</CardTitle>
+                <CardTitle className="text-2xl font-bold text-emerald-600">Standard</CardTitle>
                 <CardDescription>Ideální poměr cena/výkon</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -321,11 +321,11 @@ export default function Home() {
                     <span className="text-4xl font-extrabold text-foreground">24.900 Kč</span>
                     <span className="text-muted-foreground line-through decoration-red-500/50 decoration-2">26.900 Kč</span>
                   </div>
-                  <p className="text-xs font-semibold text-green-600 mt-1">Ušetříte 2.000 Kč</p>
+                  <p className="text-xs font-semibold text-emerald-600 mt-1">Ušetříte 2.000 Kč</p>
                 </div>
 
-                <div className="bg-primary/10 p-3 rounded-lg border border-primary/20">
-                  <p className="text-sm font-medium text-primary">
+                <div className="bg-emerald-100 p-3 rounded-lg border border-emerald-200">
+                  <p className="text-sm font-medium text-emerald-800">
                     <span className="font-bold">Největší benefit:</span> Kurz je možné absolvovat jak na autě s manuálem, tak automatem, je to na vás, cena se nemění!
                   </p>
                 </div>
@@ -340,12 +340,12 @@ export default function Home() {
                     "Simulace závěrečné zkoušky"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm font-medium">
-                      <CheckCircle2 className={`w-5 h-5 shrink-0 ${i === 0 ? "text-primary font-bold" : "text-primary"}`} />
+                      <CheckCircle2 className={`w-5 h-5 shrink-0 ${i === 0 ? "text-emerald-600 font-bold" : "text-emerald-500"}`} />
                       <span className={i === 0 ? "font-bold" : ""}>{item}</span>
                     </li>
                   ))}
                 </ul>
-                <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white rounded-full h-11 shadow-lg shadow-primary/20">
+                <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-full h-11 shadow-lg shadow-emerald-600/20">
                   <Link href="/registrace">
                     Vybrat Standard
                   </Link>
