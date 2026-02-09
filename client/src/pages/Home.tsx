@@ -586,98 +586,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24">
-        <div className="container">
-          <div className="bg-primary rounded-[2.5rem] p-12 md:p-20 relative overflow-hidden text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-12">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
-
-            <div className="relative z-10 max-w-2xl space-y-6">
-              <h2 className="text-4xl md:text-6xl font-black text-white leading-tight">
-                Začněte řídit <br /> ještě dnes
-              </h2>
-              <p className="text-white/80 text-lg md:text-xl">
-                Stačí vyplnit krátký formulář a my se vám ozveme s nejbližším možným termínem. Nečekejte na zázrak, řidičák se sám neudělá!
-              </p>
-            </div>
-
-            <div className="relative z-10 flex flex-col items-center gap-4 min-w-[300px]">
-              <Button asChild size="lg" className="h-16 text-xl bg-white text-primary hover:bg-gray-100 border-0 rounded-2xl shadow-2xl cursor-pointer">
-                <Link href="/registrace">
-                  Online přihláška
-                </Link>
-              </Button>
-              <div className="text-center text-white/60 text-sm">
-                Nezávazná registrace
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="pb-24">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Text / Info */}
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-3xl md:text-5xl font-black text-foreground">
-                  Kde nás najdete?
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Sídlíme v moderních prostorách <strong>Archi HUB</strong> v srdci Dejvic. Zastavte se za námi na kávu a probereme vaše plány za volantem.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-start gap-4 p-6 bg-secondary/30 rounded-3xl border border-border/50">
-                  <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0">
-                    <MapPin className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-1">Adresa</h3>
-                    <p className="text-muted-foreground">
-                      Puškinovo náměstí 681/3<br />
-                      160 00 Praha 6 - Bubeneč<br />
-                      <span className="text-sm opacity-70">(Vchod z boku budovy Archi HUB)</span>
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-6 bg-secondary/30 rounded-3xl border border-border/50">
-                  <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0">
-                    <Navigation className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-1">Jak k nám?</h3>
-                    <p className="text-muted-foreground">
-                      Je to kousek! Ze stanice metra <strong>Dejvická</strong> (výstup směr Václavkova) je to jen cca 5 minut chůze příjemným parkem.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Map */}
-            <div className="relative h-[500px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-gray-100">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://maps.google.com/maps?saddr=Dejvick%C3%A1&daddr=Pu%C5%A1kinovo+n%C3%A1m%C4%9Bst%C3%AD+681%2F3,+Praha+6&output=embed"
-                className="grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Mapa trasy do Autoškoly RED"
-              />
-              <div className="absolute inset-0 pointer-events-none rounded-[2.5rem] ring-1 ring-inset ring-black/10" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Highlights Section */}
       <section className="py-24 bg-secondary/30">
         <div className="container">
@@ -755,6 +663,98 @@ export default function Home() {
               <p className="text-muted-foreground">
                 Jízdy si plánujete online přes náš rezervační systém. Kdykoliv a odkudkoliv.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="pb-24">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Text / Info */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-3xl md:text-5xl font-black text-foreground">
+                  Kde nás najdete?
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Sídlíme v moderních prostorách <strong>Archi HUB</strong> v srdci Dejvic. Zastavte se za námi na kávu a probereme vaše plány za volantem.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 p-6 bg-secondary/30 rounded-3xl border border-border/50">
+                  <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0">
+                    <MapPin className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-xl mb-1">Adresa</h3>
+                    <p className="text-muted-foreground">
+                      Puškinovo náměstí 681/3<br />
+                      160 00 Praha 6 - Bubeneč<br />
+                      <span className="text-sm opacity-70">(Vchod z boku budovy Archi HUB)</span>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 p-6 bg-secondary/30 rounded-3xl border border-border/50">
+                  <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0">
+                    <Navigation className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-xl mb-1">Jak k nám?</h3>
+                    <p className="text-muted-foreground">
+                      Je to kousek! Ze stanice metra <strong>Dejvická</strong> (výstup směr Václavkova) je to jen cca 5 minut chůze příjemným parkem.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Map */}
+            <div className="relative h-[500px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-gray-100">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://maps.google.com/maps?saddr=Dejvick%C3%A1&daddr=Pu%C5%A1kinovo+n%C3%A1m%C4%9Bst%C3%AD+681%2F3,+Praha+6&output=embed"
+                className="grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mapa trasy do Autoškoly RED"
+              />
+              <div className="absolute inset-0 pointer-events-none rounded-[2.5rem] ring-1 ring-inset ring-black/10" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24">
+        <div className="container">
+          <div className="bg-primary rounded-[2.5rem] p-12 md:p-20 relative overflow-hidden text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
+
+            <div className="relative z-10 max-w-2xl space-y-6">
+              <h2 className="text-4xl md:text-6xl font-black text-white leading-tight">
+                Začněte řídit <br /> ještě dnes
+              </h2>
+              <p className="text-white/80 text-lg md:text-xl">
+                Stačí vyplnit krátký formulář a my se vám ozveme s nejbližším možným termínem. Nečekejte na zázrak, řidičák se sám neudělá!
+              </p>
+            </div>
+
+            <div className="relative z-10 flex flex-col items-center gap-4 min-w-[300px]">
+              <Button asChild size="lg" className="h-16 text-xl bg-white text-primary hover:bg-gray-100 border-0 rounded-2xl shadow-2xl cursor-pointer">
+                <Link href="/registrace">
+                  Online přihláška
+                </Link>
+              </Button>
+              <div className="text-center text-white/60 text-sm">
+                Nezávazná registrace
+              </div>
             </div>
           </div>
         </div>
