@@ -284,10 +284,12 @@ export default function Home() {
                 </div>
                 <ul className="space-y-3">
                   {[
-                    "Standardní délka 3-4 měsíce",
-                    "Jízdy 1-2x týdně",
+                    "Standardní délka kurzu 4-6 měsíce",
+                    "Jízdy 1x týdně",
                     "Základní teoretická příprava",
-                    "E-learning zdarma"
+                    "E-learning zdarma",
+                    "Simulátor zdarma",
+                    "Možnost připlatit si automat 1500 Kč"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
                       <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
@@ -320,13 +322,23 @@ export default function Home() {
                   </div>
                   <p className="text-xs font-semibold text-green-600 mt-1">Ušetříte 2.000 Kč</p>
                 </div>
+
+                <div className="bg-primary/10 p-3 rounded-lg border border-primary/20">
+                  <p className="text-sm font-medium text-primary">
+                    <span className="font-bold">Největší benefit:</span> Kurz je možné absolvovat jak na autě s manuálem, tak automatem, je to na vás, cena se nemění!
+                  </p>
+                </div>
+
                 <ul className="space-y-3">
                   {[
                     "Rychlokurz (2-3 měsíce)",
                     "Přednostní plánování jízd",
                     "Rozšířená výuka v provozu",
                     "Garance termínu zkoušky",
-                    "Jízda v simulátoru zdarma"
+                    "Jízda v simulátoru zdarma",
+                    "Možnost zrušení jízd do 24h zdarma",
+                    "Kurz první pomoci v ceně",
+                    "Simulace závěrečné zkoušky"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm font-medium">
                       <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
