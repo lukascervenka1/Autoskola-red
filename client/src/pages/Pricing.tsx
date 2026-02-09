@@ -16,7 +16,7 @@ export const PRICING = {
             name: "Economy",
             duration: "4-6 měsíců",
             description: "Nejpohodovější tempo pro ty, kteří nikam nespěchají.",
-            features: ["1h jízdy týdně", "E-learning zdarma", "Simulátor zdarma", "Kurz první pomoci v ceně", "Možnost automatu (+1500 Kč)"],
+            features: ["1h jízdy týdně", "E-learning zdarma", "Simulátor zdarma", "Kurz první pomoci v ceně", "Možnost automatu (+1500 Kč)", "Možnost splátek na 3x"],
         },
         student: {
             price: 22900,
@@ -24,7 +24,7 @@ export const PRICING = {
             name: "Standard - Student",
             duration: "3 měsíce",
             description: "Zlatá střední cesta. Ideální ke škole.",
-            features: ["2 až 4 hodiny jízd týdně", "Pravidelný výcvik", "Jízdy i o víkendech (+0 Kč)", "Online testy zdarma", "Kurz první pomoci v ceně"],
+            features: ["2 až 4 hodiny jízd týdně", "Online testy zdarma", "Kurz první pomoci v ceně", "Možnost automatu (+1000 Kč)", "Knížka autoškoly zdarma", "Možnost splátek na 3x"],
             highlight: true,
             tag: "Nejoblíbenější pro studenty"
         },
@@ -34,7 +34,7 @@ export const PRICING = {
             name: "Standard",
             duration: "3 měsíce",
             description: "Klasický kurz pro pracující a ostatní.",
-            features: ["Všechny výhody Economy", "Rychlejší výcvik (2-3 měsíce)", "Manuál i automat za stejnou cenu", "Garance termínu zkoušky"],
+            features: ["Všechny výhody Economy", "Rychlejší výcvik (2-3 měsíce)", "Garance termínu zkoušky", "Manuál i automat za stejnou cenu", "Možnost splátek na 3x"],
         },
         expres: {
             price: 29900,
@@ -42,7 +42,7 @@ export const PRICING = {
             name: "Expres",
             duration: "1 měsíc",
             description: "Rychlo-kurz pro ty, co potřebují řidičák včera.",
-            features: ["Jízdy téměř každý den", "Prioritní plánování", "Intenzivní výuka", "Zkouška ihned po ukončení"],
+            features: ["Jízdy téměř každý den", "Prioritní plánování", "Intenzivní výuka", "Zkouška ihned po ukončení", "Manuál i automat za stejnou cenu", "Možnost splátek na 3x"],
             tag: "Nejrychlejší cesta"
         }
     },

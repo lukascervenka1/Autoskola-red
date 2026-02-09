@@ -290,7 +290,8 @@ export default function Home() {
                     "E-learning zdarma",
                     "Simulátor zdarma",
                     "Kurz první pomoci v ceně",
-                    "Možnost připlatit si automat 1500 Kč"
+                    "Možnost připlatit si automat 1500 Kč",
+                    "Možnost splátek na 3x"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
                       <CheckCircle2 className="w-5 h-5 text-red-500 shrink-0" />
@@ -337,7 +338,8 @@ export default function Home() {
                     "Přednostní plánování jízd",
                     "Garance termínu zkoušky",
                     "Možnost zrušení jízd do 24h zdarma",
-                    "Simulace závěrečné zkoušky"
+                    "Simulace závěrečné zkoušky",
+                    "Možnost splátek na 3x"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm font-medium">
                       <CheckCircle2 className={`w-5 h-5 shrink-0 ${i === 0 ? "text-green-600 font-bold" : "text-green-500"}`} />
@@ -371,7 +373,8 @@ export default function Home() {
                     "Jízdy každý den včetně víkendů",
                     "Vyzvednutí doma/v práci",
                     "Přistavení vozu ke zkoušce",
-                    "Individuální konzultace"
+                    "Individuální konzultace",
+                    "Možnost splátek na 3x"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
                       <CheckCircle2 className={`w-5 h-5 shrink-0 ${i === 0 ? "text-purple-500 font-bold" : "text-purple-500"}`} />
