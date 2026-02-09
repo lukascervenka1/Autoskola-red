@@ -38,7 +38,7 @@ const formSchema = z.object({
   email: z.string().email("Neplatný email"),
   phone: z.string().min(9, "Telefon musí mít alespoň 9 znaků"),
   course: z.enum(["B", "B_automat", "AM", "A1", "A2", "A"]),
-  variant: z.enum(["standart", "student", "expres", "return", "conditioning", "other"]),
+  variant: z.enum(["standard", "student", "expres", "return", "conditioning", "other"]),
   consent: z.boolean().default(false).refine((val) => val === true, {
     message: "Musíte souhlasit se zpracováním osobních údajů",
   }),
@@ -238,8 +238,8 @@ export default function Registration() {
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="standart">Standart (B - 3 Měsíce, Moto - 2 Měsíce)</SelectItem>
-                                <SelectItem value="student">Standart - Student (B s mentorem od 17let)</SelectItem>
+                                <SelectItem value="standard">Standard (B - 3 Měsíce, Moto - 2 Měsíce)</SelectItem>
+                                <SelectItem value="student">Standard - Student (B s mentorem od 17let)</SelectItem>
                                 <SelectItem value="expres">Expres 1 Měsíc</SelectItem>
                                 <SelectItem value="return">Vrácení ŘP</SelectItem>
                                 <SelectItem value="conditioning">Kondiční Jízdy (balíček 10jízd)</SelectItem>

@@ -11,30 +11,30 @@ import { Separator } from "@/components/ui/separator";
 export const PRICING = {
     cars: {
         economy: {
-            price: 22900,
+            price: 21900,
             originalPrice: null,
             name: "Economy",
-            duration: "6 měsíců",
+            duration: "4-6 měsíců",
             description: "Nejpohodovější tempo pro ty, kteří nikam nespěchají.",
-            features: ["1h až 2h jízdy za 14 dní", "Flexibilní plánování", "Online studovna zdarma"],
+            features: ["1h jízdy týdně", "E-learning zdarma", "Simulátor zdarma", "Kurz první pomoci v ceně", "Možnost automatu (+1500 Kč)"],
         },
         student: {
-            price: 23900,
+            price: 22900,
             originalPrice: 24900,
             name: "Standard - Student",
             duration: "3 měsíce",
             description: "Zlatá střední cesta. Ideální ke škole.",
-            features: ["2 až 4 hodiny jízd týdně", "Pravidelný výcvik", "Jízdy i o víkendech (+0 Kč)", "Online testy zdarma"],
+            features: ["2 až 4 hodiny jízd týdně", "Pravidelný výcvik", "Jízdy i o víkendech (+0 Kč)", "Online testy zdarma", "Kurz první pomoci v ceně"],
             highlight: true,
             tag: "Nejoblíbenější pro studenty"
         },
         standard: {
-            price: 25900,
+            price: 24900,
             originalPrice: 26900,
             name: "Standard",
             duration: "3 měsíce",
             description: "Klasický kurz pro pracující a ostatní.",
-            features: ["2 až 4 hodiny jízd týdně", "Individuální přístup", "Plánování online", "Všechny studijní materiály"],
+            features: ["Všechny výhody Economy", "Rychlejší výcvik (2-3 měsíce)", "Manuál i automat za stejnou cenu", "Garance termínu zkoušky"],
         },
         expres: {
             price: 29900,
