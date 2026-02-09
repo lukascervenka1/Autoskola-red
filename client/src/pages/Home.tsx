@@ -176,9 +176,9 @@ export default function Home() {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="h-16 px-10 text-xl font-bold rounded-full bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/25 hover:shadow-primary/50 hover:scale-105 transition-all cursor-pointer">
+              <Button asChild size="lg" className="h-14 px-8 text-lg font-bold rounded-full bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all cursor-pointer">
                 <Link href="/registrace">
-                  Chci řidičák <ChevronRight className="w-6 h-6 ml-2" />
+                  Chci řidičák <ChevronRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full border-2 hover:bg-muted/50 cursor-pointer">
@@ -586,21 +586,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mid-Page CTA */}
-      <section className="py-16 bg-primary text-primary-foreground">
-        <div className="container text-center">
-          <h2 className="text-3xl md:text-5xl font-black mb-8 max-w-4xl mx-auto leading-tight">
-            Nečekejte až "bude čas". <br />
-            <span className="opacity-90">Ten správný čas je teď.</span>
-          </h2>
-          <Button asChild size="lg" className="h-20 px-12 text-2xl font-bold rounded-full bg-white text-primary hover:bg-gray-100 hover:scale-105 shadow-2xl transition-all border-4 border-transparent hover:border-white/50 cursor-pointer">
-            <Link href="/registrace">
-              Chci se přihlásit <ChevronRight className="w-8 h-8 ml-2" />
-            </Link>
-          </Button>
-          <p className="mt-6 text-primary-foreground/80 font-medium">
-            Zabere to jen 2 minuty. První jízdu naplánujeme obratem.
-          </p>
+      {/* Mid-Page CTA - Redesigned */}
+      <section className="py-12">
+        <div className="container">
+          <div className="relative rounded-[2rem] overflow-hidden p-8 md:p-12 bg-gradient-to-br from-primary/5 to-orange-500/5 border border-primary/10">
+            {/* Background decoration */}
+            <div className="absolute top-0 right-0 -z-10 w-[300px] h-[300px] bg-primary/10 rounded-full blur-3xl opacity-50 translate-x-1/2 -translate-y-1/2" />
+
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+              <div className="space-y-4 max-w-2xl">
+                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+                  Nečekejte, až „bude čas“. <br />
+                  <span className="text-primary">Ten správný čas je teď.</span>
+                </h2>
+                <p className="text-muted-foreground text-lg">
+                  Registrace zabere jen 2 minuty. První jízdu naplánujeme obratem.
+                </p>
+              </div>
+
+              <div className="shrink-0">
+                <Button asChild size="lg" className="h-14 px-8 text-lg rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all cursor-pointer">
+                  <Link href="/registrace">
+                    Přihlásit se online <ChevronRight className="w-5 h-5 ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
