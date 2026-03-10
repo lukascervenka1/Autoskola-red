@@ -196,14 +196,15 @@ export default function Pricing() {
                         "provider": {
                             "@type": "DrivingSchool",
                             "name": "Autoškola RED",
-                            "url": "https://autoskola.red"
+                            "@id": "https://autoskola.red/#organization"
                         },
                         "offers": {
                             "@type": "Offer",
                             "price": course.price,
                             "priceCurrency": "CZK",
                             "availability": "https://schema.org/InStock",
-                            "url": "https://autoskola.red/registrace"
+                            "url": "https://autoskola.red/registrace",
+                            "priceValidUntil": "2026-12-31"
                         }
                     }
                 })),
@@ -217,14 +218,15 @@ export default function Pricing() {
                         "provider": {
                             "@type": "DrivingSchool",
                             "name": "Autoškola RED",
-                            "url": "https://autoskola.red"
+                            "@id": "https://autoskola.red/#organization"
                         },
                         "offers": {
                             "@type": "Offer",
                             "price": course.price,
                             "priceCurrency": "CZK",
                             "availability": "https://schema.org/InStock",
-                            "url": "https://autoskola.red/registrace"
+                            "url": "https://autoskola.red/registrace",
+                            "priceValidUntil": "2026-12-31"
                         }
                     }
                 }))

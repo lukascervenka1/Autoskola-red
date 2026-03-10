@@ -127,6 +127,44 @@ export default function Home() {
         "target": "https://autoskola.red/blog?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kde se nachází Autoškola RED?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Autoškola RED sídlí v Praze 6 na Puškinově náměstí 681/3, v Dejvicích (Archi HUB)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jaké vozy používáte k výcviku?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "K výcviku používáme moderní vozy Škoda Kodiaq 2024. Nabízíme výcvik s manuální i automatickou převodovkou."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak dlouho trvá kurz v autoškole?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Standardní délka kurzu je přibližně 3 měsíce. Nabízíme také rychlokurz Expres, který lze stihnout za 1 měsíc, nebo Economy tempo v délce 4-6 měsíců."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Nabízíte studentské slevy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ano, pro studenty máme speciální balíček Standard - Student se slevou 2 000 Kč oproti běžné ceně."
+          }
+        }
+      ]
     }
   ];
 

@@ -36,6 +36,14 @@ export default function Contact() {
                 "latitude": 50.1018,
                 "longitude": 14.4034
             },
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Thursday"],
+                    "opens": "14:00",
+                    "closes": "18:00"
+                }
+            ],
             "sameAs": [
                 "https://www.facebook.com/profile.php?id=61569570703723",
                 "https://www.instagram.com/autoskola_red/"
