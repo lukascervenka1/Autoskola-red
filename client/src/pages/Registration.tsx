@@ -25,7 +25,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 import { Navbar } from "@/components/Navbar";
-import { CheckCircle2, Wallet, GraduationCap, Trophy, MapPin, BadgePercent } from "lucide-react";
+import { CheckCircle2, Wallet, GraduationCap, Trophy, MapPin, BadgePercent, FileText, Download, Info } from "lucide-react";
 import { motion } from "framer-motion";
 import { SEO } from "@/components/SEO";
 
@@ -142,17 +142,44 @@ export default function Registration() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="text-center mb-8 space-y-2">
-            <h1 className="text-3xl md:text-4xl font-black tracking-tight text-foreground">Zahájit výcvik v Autoškole RED</h1>
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-              Registrace zabere jen 2 minuty. Vyplňte formulář a my vás bezpečně provedeme celým procesem až k řidičskému průkazu.
+          <div className="text-center mb-10 space-y-4">
+            <h1 className="text-3xl md:text-5xl font-black tracking-tight text-foreground leading-tight">
+              Získejte řidičák <span className="text-primary text-nowrap">v klidu a v pohodě</span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Registrace je prvním krokem k vaší nezávislosti. Nečekejte na fronty, vše vyřešíme online a o zbytek papírování se postaráme my.
             </p>
           </div>
 
-          <Card className="border border-black/10 shadow-lg bg-white/80 backdrop-blur-md">
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold">Osobní údaje</CardTitle>
-              <CardDescription className="text-base">Vaše soukromí je pro nás prioritou. Údaje zpracováváme s maximální pečlivostí.</CardDescription>
+          {/* Important Notice - Documents */}
+          <div className="mb-10 p-6 bg-primary/5 border border-primary/20 rounded-2xl flex flex-col md:flex-row items-center gap-6 shadow-sm">
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-md shrink-0 border border-primary/10 text-primary">
+              <FileText className="w-8 h-8" />
+            </div>
+            <div className="flex-1 text-center md:text-left space-y-2">
+              <h3 className="font-bold text-lg flex items-center justify-center md:justify-start gap-2">
+                Co je potřeba pro začátek? <Info className="w-4 h-4 text-primary/60" />
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Před zahájením výcviku je nutné mít potvrzení o zdravotní způsobilosti od vašeho praktického lékaře. Stáhněte si vzor, nechte ho potvrdit a přineste nám ho na první lekci.
+              </p>
+            </div>
+            <Button asChild size="lg" className="rounded-full gap-2 px-8 py-6 h-auto shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all font-bold group">
+              <a href="/docs/posudek-o-zdravotni-zpusobilosti.pdf" download="Lekarsky_posudek_Autoskola_RED.pdf">
+                Stáhnout formulář <Download className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
+              </a>
+            </Button>
+          </div>
+
+          <Card className="border border-black/10 shadow-2xl bg-white/90 backdrop-blur-md overflow-hidden ring-1 ring-black/5">
+            <CardHeader className="bg-gray-50/50 border-b border-black/5 p-8">
+              <CardTitle className="text-2xl font-black flex items-center gap-2">
+                <div className="w-2 h-8 bg-primary rounded-full" />
+                Vaše cesta začíná zde
+              </CardTitle>
+              <CardDescription className="text-base font-medium mt-2">
+                Vyplňte krátkou přihlášku a my se vám ozveme zpět s dalším postupem.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               {isSubmitted ? (
@@ -160,10 +187,10 @@ export default function Registration() {
                   <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
-                  <div className="space-y-2">
-                    <h3 className="text-3xl font-bold text-gray-800">Přihláška odeslána!</h3>
-                    <p className="text-lg text-muted-foreground max-w-md mx-auto">
-                      Děkujeme za váš zájem. Potvrzení jsme vám poslali na email. Nejpozději do 24 hodin se vám ozveme a domluvíme další postup.
+                  <div className="space-y-4">
+                    <h3 className="text-3xl font-black text-gray-900 tracking-tight">Gratulujeme, jste v systému! 🎉</h3>
+                    <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed">
+                      Děkujeme za důvěru. Vaše přihláška dorazila k nám do týmu RED. Teď si dejte kávu, my se na to podíváme a <span className="font-bold text-foreground">do 24 hodin se vám ozveme</span> s detaily první jízdy.
                     </p>
                   </div>
                   <Button size="lg" variant="outline" onClick={() => setIsSubmitted(false)} className="mt-4">
