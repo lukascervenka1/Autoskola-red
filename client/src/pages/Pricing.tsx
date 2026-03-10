@@ -11,7 +11,7 @@ import { Separator } from "@/components/ui/separator";
 export const PRICING = {
     cars: {
         economy: {
-            price: 21900,
+            price: 22900,
             originalPrice: null,
             name: "Economy",
             duration: "4-6 měsíců",
@@ -19,8 +19,8 @@ export const PRICING = {
             features: ["1h jízdy týdně", "E-learning zdarma", "Simulátor zdarma", "Kurz první pomoci v ceně", "Možnost automatu (+1500 Kč)", "Možnost splátek na 3x"],
         },
         student: {
-            price: 22900,
-            originalPrice: 24900,
+            price: 23900,
+            originalPrice: 25900,
             name: "Standard - Student",
             duration: "3 měsíce",
             description: "Zlatá střední cesta. Ideální ke škole.",
@@ -29,8 +29,8 @@ export const PRICING = {
             tag: "Nejoblíbenější pro studenty"
         },
         standard: {
-            price: 24900,
-            originalPrice: 26900,
+            price: 25900,
+            originalPrice: 27900,
             name: "Standard",
             duration: "3 měsíce",
             description: "Klasický kurz pro pracující a ostatní.",
@@ -143,11 +143,11 @@ const PriceCard = ({ item, type, variantId, courseId }: { item: any, type: 'car'
                             {item.originalPrice.toLocaleString()} Kč
                         </span>
                     )}
-                    <div className="flex items-baseline gap-1">
-                        <span className="text-4xl font-black text-primary">
-                            {item.price.toLocaleString()}
+                    <div>
+                        <span className="text-4xl font-extrabold text-foreground">
+                            {item.price.toLocaleString()} Kč
                         </span>
-                        <span className="text-xl font-bold text-muted-foreground">Kč</span>
+                        <span className="text-muted-foreground ml-2">/ kurz</span>
                     </div>
                 </div>
 

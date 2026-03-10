@@ -317,7 +317,7 @@ export default function Home() {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div>
-                  <span className="text-4xl font-extrabold text-foreground">21.900 Kč</span>
+                  <span className="text-4xl font-extrabold text-foreground">22.900 Kč</span>
                   <span className="text-muted-foreground ml-2">/ kurz</span>
                 </div>
                 <ul className="space-y-3">
@@ -357,8 +357,8 @@ export default function Home() {
               <CardContent className="space-y-6">
                 <div>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-extrabold text-foreground">24.900 Kč</span>
-                    <span className="text-muted-foreground line-through decoration-red-500/50 decoration-2">26.900 Kč</span>
+                    <span className="text-4xl font-extrabold text-foreground">25.900 Kč</span>
+                    <span className="text-muted-foreground line-through decoration-red-500/50 decoration-2">27.900 Kč</span>
                   </div>
                   <p className="text-xs font-semibold text-green-600 mt-1">Ušetříte 2.000 Kč</p>
                 </div>
