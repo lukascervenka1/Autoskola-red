@@ -371,7 +371,6 @@ export default function Home() {
 
                 <ul className="space-y-3">
                   {[
-                    "Studentská sleva -2 000 Kč",
                     "Všechny výhody balíčku Economy",
                     "Rychlokurz (2-3 měsíce)",
                     "Přednostní plánování jízd",
@@ -381,16 +380,23 @@ export default function Home() {
                     "Možnost splátek na 3x"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm font-medium">
-                      <CheckCircle2 className={`w-5 h-5 shrink-0 ${i === 0 ? "text-green-600 font-bold" : "text-green-500"}`} />
-                      <span className={i === 0 ? "font-bold" : ""}>{item}</span>
+                      <CheckCircle2 className="w-5 h-5 shrink-0 text-green-500" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-                <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white rounded-full h-11 shadow-lg shadow-primary/20">
-                  <Link href="/registrace?variant=standard&course=B">
-                    Vybrat Standard
-                  </Link>
-                </Button>
+                <div className="space-y-3 pt-2">
+                  <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white rounded-full h-11 shadow-lg shadow-primary/20">
+                    <Link href="/registrace?variant=standard&course=B">
+                      Vybrat Standard
+                    </Link>
+                  </Button>
+                  <p className="text-center">
+                    <Link href="/cenik" className="text-xs font-medium text-muted-foreground hover:text-primary transition-colors hover:underline">
+                      Jste student? Zobrazit zvýhodněný balíček
+                    </Link>
+                  </p>
+                </div>
               </CardContent>
             </Card>
 
