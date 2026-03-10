@@ -34,7 +34,7 @@ export const PRICING = {
             name: "Standard",
             duration: "3 měsíce",
             description: "Klasický kurz pro pracující a ostatní.",
-            features: ["Všechny výhody Economy", "Rychlejší výcvik (2-3 měsíce)", "Garance termínu zkoušky", "Možnost přechodu MAN → AUT zdarma", "Možnost splátek na 3x"],
+            features: ["Studentská sleva -2 000 Kč", "Všechny výhody Economy", "Rychlejší výcvik (2-3 měsíce)", "Garance termínu zkoušky", "Možnost přechodu MAN → AUT zdarma", "Možnost splátek na 3x"],
         },
         expres: {
             price: 29900,

@@ -333,6 +333,7 @@ export default function Home() {
 
                 <ul className="space-y-3">
                   {[
+                    "Studentská sleva -2 000 Kč",
                     "Všechny výhody balíčku Economy",
                     "Rychlokurz (2-3 měsíce)",
                     "Přednostní plánování jízd",
