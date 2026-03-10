@@ -151,25 +151,6 @@ export default function Registration() {
             </p>
           </div>
 
-          {/* Important Notice - Documents */}
-          <div className="mb-10 p-6 bg-primary/5 border border-primary/20 rounded-2xl flex flex-col md:flex-row items-center gap-6 shadow-sm">
-            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-md shrink-0 border border-primary/10 text-primary">
-              <FileText className="w-8 h-8" />
-            </div>
-            <div className="flex-1 text-center md:text-left space-y-2">
-              <h3 className="font-bold text-lg flex items-center justify-center md:justify-start gap-2">
-                Co je potřeba pro začátek? <Info className="w-4 h-4 text-primary/60" />
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Před zahájením výcviku je nutné mít potvrzení o zdravotní způsobilosti od vašeho praktického lékaře. Stáhněte si vzor, nechte ho potvrdit a přineste nám ho na první lekci.
-              </p>
-            </div>
-            <Button asChild size="lg" className="rounded-full gap-2 px-8 py-6 h-auto shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all font-bold group">
-              <a href="/docs/posudek-o-zdravotni-zpusobilosti.pdf" download="Lekarsky_posudek_Autoskola_RED.pdf">
-                Stáhnout formulář <Download className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
-              </a>
-            </Button>
-          </div>
 
           <Card className="border border-black/10 shadow-2xl bg-white/90 backdrop-blur-md overflow-hidden ring-1 ring-black/5">
             <CardHeader className="bg-gray-50/50 border-b border-black/5 p-8">
@@ -367,6 +348,26 @@ export default function Registration() {
               )}
             </CardContent>
           </Card>
+
+          {/* Important Notice - Documents (Moved & Compact) */}
+          <div className="mt-8 p-5 bg-primary/5 border border-primary/10 rounded-2xl flex flex-col sm:flex-row items-center gap-5 shadow-sm">
+            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0 border border-primary/5 text-primary">
+              <FileText className="w-6 h-6" />
+            </div>
+            <div className="flex-1 text-center sm:text-left space-y-1">
+              <h3 className="font-bold text-base flex items-center justify-center sm:justify-start gap-2">
+                Nezapomeňte na lékařský posudek <Info className="w-3.5 h-3.5 text-primary/60" />
+              </h3>
+              <p className="text-xs text-muted-foreground leading-snug max-w-md">
+                Pro začátek výcviku potřebujete potvrzení od lékaře. Stáhněte si formulář a nechte ho potvrdit.
+              </p>
+            </div>
+            <Button asChild size="sm" className="rounded-full gap-2 px-6 py-5 h-auto shadow-md shadow-primary/10 hover:shadow-primary/20 transition-all font-bold group text-sm">
+              <a href="/docs/posudek-o-zdravotni-zpusobilosti.pdf" download="Lekarsky_posudek_Autoskola_RED.pdf">
+                Stáhnout PDF <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+              </a>
+            </Button>
+          </div>
 
           {/* Benefits Section */}
           <div className="mt-12 flex flex-wrap justify-center gap-6">
