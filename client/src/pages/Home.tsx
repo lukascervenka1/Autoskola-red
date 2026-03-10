@@ -450,30 +450,44 @@ export default function Home() {
       <section id="recenze" className="py-24 bg-white relative overflow-hidden">
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center mb-16 space-y-8">
-            <div className="inline-flex flex-col items-center gap-4 p-8 md:p-12 bg-secondary/30 rounded-[2.5rem] border border-border/50 shadow-sm relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
-                <div className="flex flex-col items-center">
-                  <span className="text-7xl md:text-8xl font-black text-foreground tracking-tighter">5.0</span>
-                  <div className="flex text-amber-500 mt-2">
-                    <Star className="w-8 h-8 md:w-10 h-10 fill-current" />
-                    <Star className="w-8 h-8 md:w-10 h-10 fill-current" />
-                    <Star className="w-8 h-8 md:w-10 h-10 fill-current" />
-                    <Star className="w-8 h-8 md:w-10 h-10 fill-current" />
-                    <Star className="w-8 h-8 md:w-10 h-10 fill-current" />
+            <div className="relative inline-flex flex-col items-center group">
+              {/* Specialized Animated Gold Border */}
+              <div className="absolute -inset-[2px] bg-gradient-to-r from-amber-200 via-yellow-500 to-amber-200 rounded-[2.6rem] opacity-75 blur-[2px] group-hover:opacity-100 transition-opacity animate-pulse" />
+              <div className="absolute -inset-[1px] bg-gradient-to-r from-amber-300 via-yellow-600 to-amber-300 rounded-[2.55rem] animate-shimmer bg-[length:200%_100%]" />
+
+              <div className="relative flex flex-col items-center gap-6 p-10 md:p-14 bg-white rounded-[2.5rem] shadow-2xl z-10 w-full max-w-2xl">
+                <div className="flex flex-col items-center space-y-2">
+                  <div className="flex items-center gap-4">
+                    <span className="text-8xl md:text-9xl font-black text-foreground tracking-tighter drop-shadow-sm">5.0</span>
+                  </div>
+                  <div className="flex text-amber-500 gap-1 pb-2">
+                    <Star className="w-10 h-10 md:w-12 h-12 fill-current drop-shadow-md" />
+                    <Star className="w-10 h-10 md:w-12 h-12 fill-current drop-shadow-md" />
+                    <Star className="w-10 h-10 md:w-12 h-12 fill-current drop-shadow-md" />
+                    <Star className="w-10 h-10 md:w-12 h-12 fill-current drop-shadow-md" />
+                    <Star className="w-10 h-10 md:w-12 h-12 fill-current drop-shadow-md" />
                   </div>
                 </div>
-                <div className="h-px w-12 md:h-16 md:w-px bg-border/50" />
-                <div className="flex flex-col items-center md:items-start gap-4">
-                  <div className="space-y-1">
-                    <p className="text-xl md:text-2xl font-bold text-foreground">Excelentní hodnocení</p>
-                    <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">Nejlépe hodnocená autoškola na Googlu</p>
+
+                <div className="flex flex-col items-center text-center space-y-6">
+                  <div className="space-y-2">
+                    <p className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight">Excelentní hodnocení</p>
+                    <p className="text-sm font-bold text-amber-600 uppercase tracking-[0.2em]">Nejlépe hodnocená autoškola na Googlu</p>
                   </div>
-                  <Button asChild size="lg" variant="outline" className="rounded-full border-primary/20 hover:border-primary hover:text-primary transition-all bg-white/50 backdrop-blur-sm">
-                    <a href="https://search.google.com/local/writereview?placeid=ChIJ8-bh676VC0cRx9a6vFNu-i4" target="_blank" rel="noopener noreferrer">
+
+                  <Button asChild size="lg" className="rounded-full bg-white border-2 border-amber-500/30 text-amber-700 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 h-14 px-10 text-lg font-bold shadow-lg hover:shadow-primary/40 group-hover:scale-105 active:scale-95">
+                    <a href="https://search.google.com/local/writereview?placeid=ChIJ8-bh676VC0cRx9a6vFNu-i4" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                       Napsat recenzi na Google
                     </a>
                   </Button>
+                </div>
+
+                {/* Subtle elite glow elements */}
+                <div className="absolute top-0 right-0 p-4 opacity-10">
+                  <Star className="w-12 h-12 text-amber-500 fill-current rotate-12" />
+                </div>
+                <div className="absolute bottom-0 left-0 p-4 opacity-10">
+                  <Star className="w-12 h-12 text-amber-500 fill-current -rotate-12" />
                 </div>
               </div>
             </div>
