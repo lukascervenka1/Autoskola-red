@@ -84,8 +84,7 @@ export default function Registration() {
   // Handle pre-selection from URL parameters and scroll to top
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Ensure page starts at the top
-      window.scrollTo(0, 0);
+      // Logic for pre-selection from URL parameters
 
       const params = new URLSearchParams(window.location.search);
       const variant = params.get("variant");
