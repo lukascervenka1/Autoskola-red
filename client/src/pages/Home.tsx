@@ -415,7 +415,7 @@ export default function Home() {
                   {[
                     "Všechny výhody balíčků Economy a Standard",
                     "Expresní kurz (cca 1 měsíc)",
-                    "Jízdy každý den včetně víkendů",
+                    "Individuální plánování jízd",
                     "Vyzvednutí doma/v práci",
                     "Přistavení vozu ke zkoušce",
                     "Individuální konzultace",
@@ -449,32 +449,42 @@ export default function Home() {
       {/* Testimonials / Google Reviews Section - Moved here for better conversion */}
       <section id="recenze" className="py-24 bg-white relative overflow-hidden">
         <div className="container relative z-10">
-          <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
-            <div className="space-y-4 text-center md:text-left">
-              <h2 className="text-3xl md:text-5xl font-black text-foreground">
-                Co o nás říkají žáci?
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-xl">
-                Vaše spokojenost je pro nás nejlepší vizitkou. S hodnocením 5.0 na Googlu patříme mezi nejlépe hodnocené autoškoly v Praze.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center md:items-end gap-3 p-6 bg-secondary/30 rounded-3xl border border-border/50 shrink-0">
-              <div className="flex items-center gap-2">
-                <span className="text-4xl font-black text-foreground">5.0</span>
-                <div className="flex text-amber-500">
-                  <Star className="w-6 h-6 fill-current" />
-                  <Star className="w-6 h-6 fill-current" />
-                  <Star className="w-6 h-6 fill-current" />
-                  <Star className="w-6 h-6 fill-current" />
-                  <Star className="w-6 h-6 fill-current" />
+          <div className="max-w-4xl mx-auto text-center mb-16 space-y-8">
+            <div className="inline-flex flex-col items-center gap-4 p-8 md:p-12 bg-secondary/30 rounded-[2.5rem] border border-border/50 shadow-sm relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
+                <div className="flex flex-col items-center">
+                  <span className="text-7xl md:text-8xl font-black text-foreground tracking-tighter">5.0</span>
+                  <div className="flex text-amber-500 mt-2">
+                    <Star className="w-8 h-8 md:w-10 h-10 fill-current" />
+                    <Star className="w-8 h-8 md:w-10 h-10 fill-current" />
+                    <Star className="w-8 h-8 md:w-10 h-10 fill-current" />
+                    <Star className="w-8 h-8 md:w-10 h-10 fill-current" />
+                    <Star className="w-8 h-8 md:w-10 h-10 fill-current" />
+                  </div>
+                </div>
+                <div className="h-px w-12 md:h-16 md:w-px bg-border/50" />
+                <div className="flex flex-col items-center md:items-start gap-4">
+                  <div className="space-y-1">
+                    <p className="text-xl md:text-2xl font-bold text-foreground">Excelentní hodnocení</p>
+                    <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">Nejlépe hodnocená autoškola na Googlu</p>
+                  </div>
+                  <Button asChild size="lg" variant="outline" className="rounded-full border-primary/20 hover:border-primary hover:text-primary transition-all bg-white/50 backdrop-blur-sm">
+                    <a href="https://search.google.com/local/writereview?placeid=ChIJ8-bh676VC0cRx9a6vFNu-i4" target="_blank" rel="noopener noreferrer">
+                      Napsat recenzi na Google
+                    </a>
+                  </Button>
                 </div>
               </div>
-              <Button asChild variant="outline" className="rounded-full border-primary/20 hover:border-primary hover:text-primary transition-all">
-                <a href="https://search.google.com/local/writereview?placeid=ChIJ8-bh676VC0cRx9a6vFNu-i4" target="_blank" rel="noopener noreferrer">
-                  Napsat recenzi na Google
-                </a>
-              </Button>
+            </div>
+
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-6xl font-black text-foreground tracking-tight">
+                Co o nás říkají žáci?
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Vaše spokojenost je pro nás nejlepší vizitkou. S hodnocením 5.0 na Googlu patříme mezi nejlépe hodnocené autoškoly v Praze.
+              </p>
             </div>
           </div>
 

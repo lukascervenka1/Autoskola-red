@@ -44,7 +44,7 @@ export const PRICING = {
             name: "VIP Expres",
             duration: "1 měsíc",
             description: "Nejrychlejší cesta s VIP servisem a individuálním přístupem.",
-            features: ["Jízdy každý den včetně víkendů", "Vyzvednutí doma/v práci", "Prioritní plánování", "Intenzivní výuka", "Zkouška ihned po ukončení", "Manuál i automat za stejnou cenu", "Možnost splátek na 3x"],
+            features: ["Individuální plánování jízd", "Vyzvednutí doma/v práci", "Prioritní plánování", "Intenzivní výuka", "Zkouška ihned po ukončení", "Manuál i automat za stejnou cenu", "Možnost splátek na 3x"],
             tag: "Nejvyšší standard"
         }
     },
