@@ -34,7 +34,7 @@ export const PRICING = {
             name: "Standard",
             duration: "3 měsíce",
             description: "Klasický kurz pro pracující a ostatní.",
-            features: ["Všechny výhody Economy", "Rychlejší výcvik (2-3 měsíce)", "Garance termínu zkoušky", "Manuál i automat za stejnou cenu", "Možnost splátek na 3x"],
+            features: ["Všechny výhody Economy", "Rychlejší výcvik (2-3 měsíce)", "Garance termínu zkoušky", "Možnost přechodu MAN → AUT zdarma", "Možnost splátek na 3x"],
         },
         expres: {
             price: 29900,
@@ -106,8 +106,19 @@ const CarIcon = ({ className }: { className?: string }) => (
     </svg>
 );
 
-const PriceCard = ({ item, type }: { item: any, type: 'car' | 'moto' }) => {
+const PriceCard = ({ item, type, variantId, courseId }: { item: any, type: 'car' | 'moto', variantId?: string, courseId?: string }) => {
     const isCar = type === 'car';
+    const courseType = isCar ? (variantId === 'economy' ? 'B' : 'B') : variantId; // Logic for course type
+
+    // Determine the exact course value for the form
+    const getCourseValue = () => {
+        if (courseId) return courseId;
+        if (!isCar) return variantId?.toUpperCase();
+        if (item.name.toLowerCase().includes('automat')) return 'B_automat';
+        return 'B';
+    };
+
+    const registrationUrl = `/registrace?variant=${variantId || ''}&course=${getCourseValue()}`;
 
     return (
         <Card className={`relative flex flex-col h-full border-2 transition-all duration-300 hover:shadow-xl ${item.highlight ? 'border-primary shadow-lg shadow-primary/10 scale-105 z-10' : 'border-border/50 hover:border-primary/50'}`}>
@@ -152,7 +163,7 @@ const PriceCard = ({ item, type }: { item: any, type: 'car' | 'moto' }) => {
                 )}
             </CardContent>
             <CardFooter>
-                <Link href="/registrace" className="w-full">
+                <Link href={registrationUrl} className="w-full">
                     <Button className={`w-full text-lg h-12 ${item.highlight ? 'bg-primary hover:bg-primary/90' : ''}`} variant={item.highlight ? 'default' : 'outline'}>
                         Chci se přihlásit
                     </Button>
@@ -169,48 +180,80 @@ import { Footer } from "@/components/Footer";
 import { MotorcycleIcon } from "@/components/icons/MotorcycleIcon";
 
 export default function Pricing() {
-    const structuredData = {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "itemListElement": [
-            ...Object.values(PRICING.cars).map((course, index) => ({
-                "@type": "ListItem",
-                "position": index + 1,
-                "item": {
-                    "@type": "Product",
-                    "name": `Řidičský průkaz - ${course.name}`,
-                    "description": course.description,
-                    "offers": {
-                        "@type": "Offer",
-                        "price": course.price,
-                        "priceCurrency": "CZK",
-                        "availability": "https://schema.org/InStock"
+    const structuredData = [
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Kurzy a ceny Autoškola RED",
+            "itemListElement": [
+                ...Object.values(PRICING.cars).map((course, index) => ({
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "item": {
+                        "@type": "Course",
+                        "name": `Řidičský průkaz skupina B - ${course.name}`,
+                        "description": course.description,
+                        "provider": {
+                            "@type": "DrivingSchool",
+                            "name": "Autoškola RED",
+                            "url": "https://autoskola.red"
+                        },
+                        "offers": {
+                            "@type": "Offer",
+                            "price": course.price,
+                            "priceCurrency": "CZK",
+                            "availability": "https://schema.org/InStock",
+                            "url": "https://autoskola.red/registrace"
+                        }
                     }
-                }
-            })),
-            ...Object.values(PRICING.motorcycles).map((course, index) => ({
-                "@type": "ListItem",
-                "position": Object.values(PRICING.cars).length + index + 1,
-                "item": {
-                    "@type": "Product",
-                    "name": `Řidičský průkaz - ${course.name}`,
-                    "description": course.description,
-                    "offers": {
-                        "@type": "Offer",
-                        "price": course.price,
-                        "priceCurrency": "CZK",
-                        "availability": "https://schema.org/InStock"
+                })),
+                ...Object.values(PRICING.motorcycles).map((course, index) => ({
+                    "@type": "ListItem",
+                    "position": Object.values(PRICING.cars).length + index + 1,
+                    "item": {
+                        "@type": "Course",
+                        "name": `Řidičský průkaz ${course.name}`,
+                        "description": course.description,
+                        "provider": {
+                            "@type": "DrivingSchool",
+                            "name": "Autoškola RED",
+                            "url": "https://autoskola.red"
+                        },
+                        "offers": {
+                            "@type": "Offer",
+                            "price": course.price,
+                            "priceCurrency": "CZK",
+                            "availability": "https://schema.org/InStock",
+                            "url": "https://autoskola.red/registrace"
+                        }
                     }
-                }
-            }))
-        ]
-    };
+                }))
+            ]
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Domů",
+                "item": "https://autoskola.red"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Ceník",
+                "item": "https://autoskola.red/cenik"
+            }]
+        }
+    ];
 
     return (
         <div className="min-h-screen bg-background pb-0">
             <SEO
-                title="Ceník autoškoly | Řidičák sk. B od 22 900 Kč | Praha 6"
-                description="Kompletní ceník autoškoly. Skupina B, motocykly (A, A1, A2, AM), kondiční jízdy a vrácení řidičáku. Žádné skryté poplatky, možnost splátek."
+                title="Ceník autoškoly Praha 6 Dejvice 2026 | Autoškola RED"
+                description="Transparentní ceník řidičských průkazů v Praze 6. Skupiny B (manuál i automat), motocykly A, A1, A2, AM. Férové ceny bez skrytých poplatků v centru Dejvic."
+                canonical="https://autoskola.red/cenik"
+                image="/images/skoda-kodiaq-dejvice.png"
                 structuredData={structuredData}
             />
             <Navbar />
@@ -219,10 +262,10 @@ export default function Pricing() {
             <section className="pt-40 pb-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
                 <div className="container relative z-10 text-center">
-                    <h1 className="text-4xl md:text-6xl font-black mb-6">Férový Ceník</h1>
-                    <p className="text-xl text-white/70 max-w-2xl mx-auto">
-                        Žádné skryté poplatky. Vyberte si kurz, který sedí vašemu tempu a rozpočtu.
-                        Investice do vzdělání, která se vám vrátí na každém kilometru.
+                    <h1 className="text-4xl md:text-6xl font-black mb-6">Ceník a balíčky Autoškola RED</h1>
+                    <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+                        Transparentní ceny pro kurzy v Praze 6 – Dejvicích.
+                        Žádné skryté poplatky, jen jasná cesta k vašemu řidičáku.
                     </p>
                 </div>
             </section>
@@ -242,10 +285,10 @@ export default function Pricing() {
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-end">
-                        <PriceCard item={PRICING.cars.economy} type="car" />
-                        <PriceCard item={PRICING.cars.student} type="car" />
-                        <PriceCard item={PRICING.cars.standard} type="car" />
-                        <PriceCard item={PRICING.cars.expres} type="car" />
+                        <PriceCard item={PRICING.cars.economy} type="car" variantId="economy" />
+                        <PriceCard item={PRICING.cars.student} type="car" variantId="student" />
+                        <PriceCard item={PRICING.cars.standard} type="car" variantId="standard" />
+                        <PriceCard item={PRICING.cars.expres} type="car" variantId="expres" />
                     </div>
 
                     {/* Payment Types */}
@@ -307,10 +350,10 @@ export default function Pricing() {
                     <div className="grid lg:grid-cols-3 gap-16">
                         <div className="lg:col-span-2">
                             <div className="grid sm:grid-cols-2 gap-8">
-                                <PriceCard item={PRICING.motorcycles.am} type="moto" />
-                                <PriceCard item={PRICING.motorcycles.a1} type="moto" />
-                                <PriceCard item={PRICING.motorcycles.a2} type="moto" />
-                                <PriceCard item={PRICING.motorcycles.a} type="moto" />
+                                <PriceCard item={PRICING.motorcycles.am} type="moto" variantId="standard" courseId="AM" />
+                                <PriceCard item={PRICING.motorcycles.a1} type="moto" variantId="standard" courseId="A1" />
+                                <PriceCard item={PRICING.motorcycles.a2} type="moto" variantId="standard" courseId="A2" />
+                                <PriceCard item={PRICING.motorcycles.a} type="moto" variantId="standard" courseId="A" />
                             </div>
                         </div>
 
@@ -384,7 +427,7 @@ export default function Pricing() {
                             <h3 className="font-bold text-lg">Důležité informace k poplatkům</h3>
                             <p className="text-muted-foreground text-sm leading-relaxed">
                                 Ceny kurzů nezahrnují správní poplatky magistrátu za závěrečné zkoušky (tzv. kolky). Tyto poplatky se hradí přímo magistrátu.
-                                První zkouška stojí 700 Kč, opakovaná jízda 400 Kč.
+                                První zkouška stojí 700 Kč, opakovaná zkouška 400 Kč a praktická zkouška jízda 800 Kč.
                             </p>
                             <p className="text-muted-foreground text-sm leading-relaxed">
                                 Kurz je možné absolvovat i v <strong>anglickém jazyce</strong> za příplatek 4 000 Kč.

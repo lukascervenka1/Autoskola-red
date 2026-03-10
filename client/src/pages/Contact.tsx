@@ -15,6 +15,48 @@ export default function Contact() {
             _subject: "Nová zpráva z kontaktního formuláře",
         }
     });
+    const structuredData = [
+        {
+            "@context": "https://schema.org",
+            "@type": "DrivingSchool",
+            "name": "Autoškola RED",
+            "url": "https://autoskola.red/kontakt",
+            "telephone": "+420608913000",
+            "email": "info@autoskola.red",
+            "image": "https://autoskola.red/images/skoda-kodiaq-dejvice.png",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Puškinovo náměstí 681/3",
+                "addressLocality": "Praha 6 - Bubeneč",
+                "postalCode": "160 00",
+                "addressCountry": "CZ"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 50.1018,
+                "longitude": 14.4034
+            },
+            "sameAs": [
+                "https://www.facebook.com/profile.php?id=61569570703723",
+                "https://www.instagram.com/autoskola_red/"
+            ]
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Domů",
+                "item": "https://autoskola.red"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Kontakt",
+                "item": "https://autoskola.red/kontakt"
+            }]
+        }
+    ];
 
     if (state.succeeded) {
         toast.success("Zpráva odeslána", {
@@ -25,8 +67,11 @@ export default function Contact() {
     return (
         <div className="min-h-screen bg-background">
             <SEO
-                title="Kontakt | Autoškola RED - Dejvice, Puškinovo náměstí"
-                description="Kontaktujte nás. Autoškola RED, Puškinovo náměstí 681/3, Praha 6. Telefon: +420 608 913 000, Email: info@autoskola.red. Těšíme se na vás."
+                title="Kontakt a kudy k nám | Autoškola Praha 6 Dejvice"
+                description="Hledáte nás v Dejvicích? Sídlíme na Puškinově náměstí 3, Praha 6. Zastavte se za námi nebo nás kontaktujte telefonicky na +420 608 913 000."
+                canonical="https://autoskola.red/kontakt"
+                image="/images/skoda-kodiaq-dejvice.png"
+                structuredData={structuredData}
             />
             <Navbar />
 
@@ -34,9 +79,9 @@ export default function Contact() {
             <section className="pt-40 pb-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
                 <div className="container relative z-10 text-center">
-                    <h1 className="text-4xl md:text-6xl font-black mb-6">Kontakt</h1>
+                    <h1 className="text-4xl md:text-6xl font-black mb-6">Kontakt na Autoškolu v Dejvicích</h1>
                     <p className="text-xl text-white/70 max-w-2xl mx-auto">
-                        Jsme tu pro vás. Zastavte se za námi v Dejvicích nebo nám napište.
+                        Jsme autoškola Praha 6. Zastavte se za námi v Dejvicích, nebo nám napište.
                     </p>
                 </div>
             </section>
@@ -47,9 +92,9 @@ export default function Contact() {
                     {/* Contact Info Side */}
                     <div className="space-y-12">
                         <div className="space-y-6">
-                            <h2 className="text-3xl font-bold">Kde nás najdete?</h2>
+                            <h2 className="text-3xl font-bold">Kde nás najdete v Praze 6?</h2>
                             <p className="text-lg text-muted-foreground">
-                                Naše učebna v Dejvicích je skvěle dostupná. Pár minut od metra a jste u nás.
+                                Naše autoškola v Dejvicích je skvěle dostupná. Pár minut od metra a jste u nás.
                             </p>
 
                             <div className="grid gap-6">

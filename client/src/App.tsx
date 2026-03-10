@@ -1,6 +1,5 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { SEO } from "@/components/SEO";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -46,10 +45,6 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <SEO
-        title="Autoškola RED - Autoškola Praha 6 Dejvice"
-        description="Moderní autoškola v Praze 6. Řidičák na auto (B) i motorku (A). Individuální přístup, jízdy v klidu a pohodě. Přihlaste se online."
-      />
       <ThemeProvider
         defaultTheme="light"
       >

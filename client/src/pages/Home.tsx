@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronRight, MapPin, Phone, Mail, Star, Users, Zap, Award, CheckCircle2, Clock, Shield, Navigation, Heart, Car, GraduationCap, Banknote, BookOpen, CalendarCheck } from "lucide-react";
+import { ChevronRight, MapPin, Phone, Mail, Star, Users, Zap, Award, CheckCircle2, Clock, Shield, Navigation, Heart, Car, GraduationCap, Banknote, BookOpen, CalendarCheck, ArrowRight } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Link, useLocation } from "wouter";
 import { useEffect } from "react";
@@ -33,42 +33,6 @@ import { SEO } from "@/components/SEO";
 
 export default function Home() {
   const [location] = useLocation();
-
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "AutoSchool",
-    "name": "Autoškola RED",
-    "image": "https://autoskola.red/og-image.jpg",
-    "@id": "https://autoskola.red",
-    "url": "https://autoskola.red",
-    "telephone": "+420608913000",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Puškinovo náměstí 681/3",
-      "addressLocality": "Praha 6",
-      "postalCode": "16000",
-      "addressCountry": "CZ"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 50.101,
-      "longitude": 14.403
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Thursday"
-      ],
-      "opens": "14:00",
-      "closes": "18:00"
-    },
-    "sameAs": [
-      "https://www.facebook.com/profile.php?id=61569570703723",
-      "https://www.instagram.com/autoskola_red/"
-    ]
-  };
 
   useEffect(() => {
     if (window.location.hash) {
@@ -104,42 +68,75 @@ export default function Home() {
     }
   } as any;
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "DrivingSchool",
-    "name": "Autoškola RED",
-    "image": "https://autoskola.red/images/logo.png", // Assuming logo path or similar image
-    "description": "Moderní autoškola v Praze 6. Individuální přístup, jízdy v klidu a pohodě. Řidičské průkazy skupiny B, A, A1, A2, AM.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Puškinovo náměstí 681/3",
-      "addressLocality": "Praha 6",
-      "postalCode": "160 00",
-      "addressCountry": "CZ"
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "DrivingSchool",
+      "name": "Autoškola RED",
+      "alternateName": "Autoškola Praha 6 RED",
+      "image": "https://autoskola.red/images/skoda-kodiaq-dejvice.png",
+      "description": "Prémiová autoškola v Praze 6 Dejvicích. Nabízíme individuální přístup, moderní vozy Škoda Kodiaq 2024 a výcvik v klidu a pohodě pro skupiny B a A.",
+      "@id": "https://autoskola.red/#organization",
+      "url": "https://autoskola.red",
+      "telephone": "+420608913000",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Puškinovo náměstí 681/3",
+        "addressLocality": "Praha 6 - Bubeneč",
+        "postalCode": "160 00",
+        "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.1018,
+        "longitude": 14.4034
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Praha 6" },
+        { "@type": "City", "name": "Dejvice" },
+        { "@type": "City", "name": "Bubeneč" },
+        { "@type": "City", "name": "Hradčany" }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "37"
+      },
+      "knowsAbout": ["Řidičský průkaz skupina B", "Řidičský průkaz skupina A", "Kondiční jízdy", "Vrácení řidičského průkazu"],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Thursday"],
+          "opens": "14:00",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61569570703723",
+        "https://www.instagram.com/autoskola_red/"
+      ]
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 50.1018, // Approximate coords for Puškinovo náměstí 3, Praha 6
-      "longitude": 14.4034
-    },
-    "url": "https://autoskola.red",
-    "telephone": "+420608913000",
-    "priceRange": "$$",
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Thursday"],
-        "opens": "14:00",
-        "closes": "18:00"
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Autoškola RED",
+      "url": "https://autoskola.red",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://autoskola.red/blog?q={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
-    ]
-  };
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20 selection:text-primary">
       <SEO
-        title="Autoškola RED - Autoškola Praha 6 Dejvice"
-        description="Moderní autoškola v Praze 6. Řidičák na auto (B) i motorku (A). Individuální přístup, jízdy v klidu a pohodě. Přihlaste se online."
+        title="Autoškola RED Praha 6 Dejvice | Řidičák snadno a v pohodě"
+        description="Prémiová autoškola v srdci Dejvic. Moderní výcvik v nových vozech Škoda Kodiaq 2024. Individuální přístup, klidné jízdy a vysoká úspěšnost u zkoušek v Praze 6."
+        canonical="https://autoskola.red/"
+        image="/images/skoda-kodiaq-dejvice.png"
         structuredData={structuredData}
       />
       <Navbar />
@@ -157,11 +154,11 @@ export default function Home() {
             className="space-y-8"
           >
             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-white/50 backdrop-blur-sm border border-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">
-              <span className="relative flex h-2 w-2">
+              <span className="relative flex h-2 w-2 mr-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Nová pobočka v Dejvicích otevřena
+              Nová pobočka Autoškola RED v Dejvicích otevřena
             </motion.div>
 
             <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight text-foreground">
@@ -171,8 +168,9 @@ export default function Home() {
               </span>
             </motion.h1>
 
-            <motion.p variants={itemVariants} className="text-xl text-muted-foreground max-w-lg leading-relaxed">
-              Moderní výuka, která vás bude bavit. Žádný stres, jen čistá radost z jízdy v nových vozech a s instruktory, kteří jsou v klidu.
+            <motion.p variants={itemVariants} className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-6">
+              Získejte řidičák v klidu a bez stresu přímo v srdci Dejvic. Spojujeme moderní
+              přístup s precizním výcvikem v nejnovějších vozech pro váš jistý start do provozu.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
@@ -192,7 +190,7 @@ export default function Home() {
               <div className="flex -space-x-3">
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="w-10 h-10 rounded-full border-2 border-background bg-muted flex items-center justify-center overflow-hidden">
-                    <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Student" className="w-full h-full object-cover" />
+                    <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt={`Spokojený student autoškoly v Praze 6 č. ${i}`} className="w-full h-full object-cover" />
                   </div>
                 ))}
               </div>
@@ -204,7 +202,9 @@ export default function Home() {
                   <Star className="w-4 h-4 fill-current" />
                   <Star className="w-4 h-4 fill-current" />
                 </div>
-                <span>500+ spokojených studentů</span>
+                <a href="https://search.google.com/local/reviews?placeid=ChIJ8-bh676VC0cRx9a6vFNu-i4" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  <span className="font-bold text-foreground">5.0 na Google</span> (37+ recenzí)
+                </a>
               </div>
             </motion.div>
           </motion.div>
@@ -217,8 +217,8 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-[3rem] rotate-3 blur-sm transform scale-95" />
             <img
-              src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop"
-              alt="Moderní autoškola"
+              src="/images/skoda-kodiaq-dejvice.png"
+              alt="Instrukční vůz Škoda Kodiaq 2024 na Vítězném náměstí"
               className="relative rounded-[2.5rem] shadow-2xl object-cover h-full w-full z-10 border-4 border-white"
             />
 
@@ -244,14 +244,14 @@ export default function Home() {
               animate={{ y: 0, opacity: 1 }}
               whileHover={{ scale: 1.05 }}
               transition={{ delay: 1.2 }}
-              className="absolute -right-8 bottom-1/4 z-20 glass p-4 rounded-2xl shadow-xl flex items-center gap-4"
+              className="absolute -right-8 bottom-[45%] z-20 glass p-4 rounded-2xl shadow-xl flex items-center gap-4"
             >
               <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
                 <CarIcon className="w-6 h-6" />
               </div>
               <div>
                 <p className="font-bold text-foreground">Nové vozy</p>
-                <p className="text-xs text-muted-foreground">Škoda Octavia 2024</p>
+                <p className="text-xs text-muted-foreground">Škoda Kodiaq 2024</p>
               </div>
             </motion.div>
           </motion.div>
@@ -264,9 +264,9 @@ export default function Home() {
 
         <div className="container relative">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl font-bold tracking-tight">Vyberte si svůj balíček</h2>
+            <h2 className="text-4xl font-bold tracking-tight">Ceny kurzů Autoškoly RED v Dejvicích</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Všechny ceny jsou konečné, žádné skryté poplatky. Možnost platby na splátky bez navýšení.
+              Transparentní ceník pro rok 2026. Možnost platby na splátky bez navýšení a kondiční jízdy v Praze 6.
             </p>
           </div>
 
@@ -300,7 +300,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <Button asChild variant="outline" className="w-full rounded-full h-11 border-primary/20 hover:border-primary hover:text-primary">
-                  <Link href="/registrace">
+                  <Link href="/registrace?variant=economy&course=B">
                     Vybrat Economy
                   </Link>
                 </Button>
@@ -326,8 +326,8 @@ export default function Home() {
                 </div>
 
                 <div className="bg-emerald-100 p-3 rounded-lg border border-emerald-200">
-                  <p className="text-sm font-medium text-emerald-800">
-                    <span className="font-bold">Největší benefit:</span> Kurz je možné absolvovat jak na autě s manuálem, tak automatem, je to na vás, cena se nemění!
+                  <p className="text-sm font-medium text-emerald-800 leading-relaxed">
+                    <span className="font-bold">Největší benefit:</span> Maximální flexibilita. Začněte s manuálem a pokud vám nebude vyhovovat, kdykoliv zdarma přejdeme na automat. Cena se nemění!
                   </p>
                 </div>
 
@@ -348,7 +348,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white rounded-full h-11 shadow-lg shadow-primary/20">
-                  <Link href="/registrace">
+                  <Link href="/registrace?variant=standard&course=B">
                     Vybrat Standard
                   </Link>
                 </Button>
@@ -383,7 +383,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <Button asChild variant="outline" className="w-full rounded-full h-11 border-primary/20 hover:border-primary hover:text-primary">
-                  <Link href="/registrace">
+                  <Link href="/registrace?variant=expres&course=B">
                     Vybrat VIP
                   </Link>
                 </Button>
@@ -398,6 +398,102 @@ export default function Home() {
               Zobrazit kompletní ceník <ChevronRight className="w-4 h-4 ml-2" />
             </Link>
           </Button>
+        </div>
+      </section>
+
+      {/* Testimonials / Google Reviews Section - Moved here for better conversion */}
+      <section id="recenze" className="py-24 bg-white relative overflow-hidden">
+        <div className="container relative z-10">
+          <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
+            <div className="space-y-4 text-center md:text-left">
+              <h2 className="text-3xl md:text-5xl font-black text-foreground">
+                Co o nás říkají žáci?
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-xl">
+                Vaše spokojenost je pro nás nejlepší vizitkou. S hodnocením 5.0 na Googlu patříme mezi nejlépe hodnocené autoškoly v Praze.
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center md:items-end gap-3 p-6 bg-secondary/30 rounded-3xl border border-border/50 shrink-0">
+              <div className="flex items-center gap-2">
+                <span className="text-4xl font-black text-foreground">5.0</span>
+                <div className="flex text-amber-500">
+                  <Star className="w-6 h-6 fill-current" />
+                  <Star className="w-6 h-6 fill-current" />
+                  <Star className="w-6 h-6 fill-current" />
+                  <Star className="w-6 h-6 fill-current" />
+                  <Star className="w-6 h-6 fill-current" />
+                </div>
+              </div>
+              <Button asChild variant="outline" className="rounded-full border-primary/20 hover:border-primary hover:text-primary transition-all">
+                <a href="https://search.google.com/local/writereview?placeid=ChIJ8-bh676VC0cRx9a6vFNu-i4" target="_blank" rel="noopener noreferrer">
+                  Napsat recenzi na Google
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Karolína M.",
+                text: "Nejlepší autoškola v Dejvicích! Instruktor byl neuvěřitelně trpělivý a klidný, což jsem jako velký stresor opravdu ocenila. Jízdy v Kodiaqu byly za odměnu. Doporučuji všem!",
+                date: "před 2 týdny"
+              },
+              {
+                name: "Tomáš H.",
+                text: "Skvělý přístup a super domluva. Vše proběhlo přesně tak, jak jsme si na začátku řekli. Žádné skryté poplatky a instruktoři, kteří vás opravdu chtějí naučit řídit, ne jen proplout zkouškou.",
+                date: "před měsícem"
+              },
+              {
+                name: "Lenka S.",
+                text: "Dělala jsem si tady řidičák na automat a byla to ta nejlepší volba. Všechno vysvětleno s úsměvem, termíny jízd byly flexibilní. Určitě se sem vrátím na kondiční jízdy!",
+                date: "před 2 měsíci"
+              }
+            ].map((review, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="p-8 bg-background rounded-[2rem] border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 relative flex flex-col"
+              >
+                <div className="flex text-amber-500 mb-4">
+                  <Star className="w-4 h-4 fill-current" />
+                  <Star className="w-4 h-4 fill-current" />
+                  <Star className="w-4 h-4 fill-current" />
+                  <Star className="w-4 h-4 fill-current" />
+                  <Star className="w-4 h-4 fill-current" />
+                </div>
+                <p className="text-foreground/90 italic mb-6 flex-grow">"{review.text}"</p>
+                <div className="flex items-center justify-between border-t pt-4">
+                  <span className="font-bold">{review.name}</span>
+                  <span className="text-xs text-muted-foreground">{review.date}</span>
+                </div>
+                {/* Google Icon Badge */}
+                <div className="absolute top-6 right-8 opacity-10">
+                  <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current">
+                    <path d="M12.48 10.92v3.28h4.74c-.2 1.06-.9 1.95-1.82 2.56l2.84 2.2c1.66-1.53 2.62-3.79 2.62-6.48 0-.46-.04-.9-.11-1.32H12.48z" fill="#4285F4" />
+                    <path d="M12.48 21c2.43 0 4.47-.81 5.96-2.18l-2.84-2.2c-.81.54-1.85.86-3.12.86-2.38 0-4.4-1.61-5.12-3.77L4.4 16.03C5.89 19 8.94 21 12.48 21z" fill="#34A853" />
+                    <path d="M7.36 13.75c-.18-.54-.28-1.12-.28-1.75s.1-1.21.28-1.75V7.92H4.4c-.65 1.25-1.02 2.67-1.02 4.18s.37 2.93 1.02 4.18l2.96-2.53z" fill="#FBBC05" />
+                    <path d="M12.48 6.44c1.32 0 2.5.45 3.44 1.35l2.58-2.58C16.94 3.65 14.91 3 12.48 3c-3.54 0-6.59 2-8.08 4.92l2.96 2.33c.72-2.16 2.74-3.77 5.12-3.77z" fill="#EA4335" />
+                  </svg>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <a
+              href="https://search.google.com/local/reviews?placeid=ChIJ8-bh676VC0cRx9a6vFNu-i4"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 text-primary font-bold hover:underline"
+            >
+              Zobrazit všech 37+ recenzí na Google <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -713,7 +809,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Map Section */}
       <section className="pb-24">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -721,10 +816,10 @@ export default function Home() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h2 className="text-3xl md:text-5xl font-black text-foreground">
-                  Kde nás najdete?
+                  Autoškola Praha 6 – Kontakt
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Sídlíme v moderních prostorách <strong>Archi HUB</strong> v srdci Dejvic. Zastavte se za námi na kávu a probereme vaše plány za volantem.
+                  Najdete nás v moderních prostorách <strong>Archi HUB v Dejvicích</strong>. Jsme ideální autoškola pro studenty ČVUT, VŠCHT a obyvatele Prahy 6.
                 </p>
               </div>
 
@@ -776,6 +871,62 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="pb-24 overflow-hidden">
+        <div className="container">
+          <div className="relative rounded-[3rem] bg-slate-50 border border-slate-200 p-8 md:p-16 overflow-hidden">
+            {/* Decorative background element */}
+            <div className="absolute -right-24 -bottom-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-50" />
+
+            <div className="relative z-10">
+              <div className="max-w-4xl mb-12">
+                <h2 className="text-3xl md:text-5xl font-black text-slate-900 leading-tight mb-6">
+                  Autoškola Praha 6 Dejvice: <br />
+                  <span className="text-primary">Vaše cesta začíná u nás</span>
+                </h2>
+                <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
+                  Jsme lokální autoškola se sídlem v Bubenči, kousek od metra Dejvická. Naším revírem je celá Praha 6, od Kulaťáku až po Břevnov.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                {/* SEO Card 1 */}
+                <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
+                  <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <MapPin className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-slate-900">Lokalita Dejvická & Kulaťák</h3>
+                  <p className="text-slate-600 leading-relaxed text-sm">
+                    Výcvik v Dejvicích a Bubenči nabízí ideální mix klidných ulic a náročných uzlů. Naučíme vás suverénně zvládat Vítězné náměstí (Kulaťák) i úzké uličky Prahy 6.
+                  </p>
+                </div>
+
+                {/* SEO Card 2 */}
+                <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
+                  <div className="w-14 h-14 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <GraduationCap className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-slate-900">Zázemí u areálu ČVUT</h3>
+                  <p className="text-slate-600 leading-relaxed text-sm">
+                    Najdete nás v moderním prostoru Archi HUB, přímo v srdci technického kampusu. Jsme jasná volba pro studenty ČVUT, VŠCHT i pracující z okolí Prahy 6.
+                  </p>
+                </div>
+
+                {/* SEO Card 3 */}
+                <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
+                  <div className="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <Award className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-slate-900">Znalost zkušebních tras</h3>
+                  <p className="text-slate-600 leading-relaxed text-sm">
+                    Známe každou "záludnost" zkušebních tras v oblasti Dejvic. Připravíme vás tak, že vás u závěrečné zkoušky v Autoškole RED nic nepřekvapí.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24">
         <div className="container">
@@ -787,7 +938,7 @@ export default function Home() {
                 Začněte řídit <br /> ještě dnes
               </h2>
               <p className="text-white/80 text-lg md:text-xl">
-                Stačí vyplnit krátký formulář a my se vám ozveme s nejbližším možným termínem. Nečekejte na zázrak, řidičák se sám neudělá!
+                Stačí vyplnit krátký formulář a my se vám ozveme s nejbližším termínem. Autoškola Praha 6 nemusí být stres, když víte, do čeho jdete.
               </p>
             </div>
 

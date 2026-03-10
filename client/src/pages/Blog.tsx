@@ -9,11 +9,26 @@ import { blogPosts } from "@/data/blog-data";
 import { SEO } from "@/components/SEO";
 
 export default function Blog() {
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Magazín Autoškola RED",
+        "url": "https://autoskola.red/blog",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Autoškola RED",
+            "url": "https://autoskola.red"
+        }
+    };
+
     return (
         <div className="min-h-screen bg-background flex flex-col">
             <SEO
-                title="Magazín Autoškoly RED | Rady, tipy a novinky"
-                description="Články o řízení, dopravních předpisech a novinkách v autoškole. Přečtěte si tipy, jak zvládnout závěrečné zkoušky a bezpečně jezdit."
+                title="Blog Autoškola Praha 6 | Rady pro řidiče z Dejvic"
+                description="Magazín Autoškoly RED. Tipy k řízení v Praze 6, novinky v předpisech a rady pro studenty z Dejvic, jak zvládnout řidičák v klidu."
+                canonical="https://autoskola.red/blog"
+                image="/images/skoda-kodiaq-dejvice.png"
+                structuredData={structuredData}
             />
             <Navbar />
 
@@ -21,9 +36,9 @@ export default function Blog() {
             <section className="pt-40 pb-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
                 <div className="container relative z-10 text-center">
-                    <h1 className="text-4xl md:text-6xl font-black mb-6">Blog & Novinky</h1>
+                    <h1 className="text-4xl md:text-6xl font-black mb-6">Blog Autoškoly Praha 6 Dejvice</h1>
                     <p className="text-xl text-white/70 max-w-2xl mx-auto">
-                        Aktuality ze světa autoškol, změny v zákonech a tipy pro bezpečnější jízdu.
+                        Aktuality ze světa autoškol, změny v zákonech a tipy pro bezpečnější jízdu v Praze i mimo ni.
                     </p>
                 </div>
             </section>

@@ -10,6 +10,7 @@ export default function Terms() {
                 title="Obchodní podmínky | Autoškola RED"
                 description="Všeobecné obchodní podmínky Autoškoly RED."
                 canonical="https://autoskola.red/obchodni-podminky"
+                noindex={true}
             />
             <Navbar />
             <main className="container pt-32 pb-20 max-w-4xl">

@@ -106,6 +106,8 @@ export default function StudentZone() {
             <SEO
                 title="Studentská zóna | Autoškola RED"
                 description="Rozvrh jízd pro žáky Autoškoly RED. Přehled obsazenosti vozidel, trenažéru a termíny zkoušek."
+                canonical="https://autoskola.red/studenti"
+                noindex={true}
             />
             <Navbar />
 

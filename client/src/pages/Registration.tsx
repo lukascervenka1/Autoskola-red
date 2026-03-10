@@ -38,29 +38,72 @@ const formSchema = z.object({
   email: z.string().email("Neplatný email"),
   phone: z.string().min(9, "Telefon musí mít alespoň 9 znaků"),
   course: z.enum(["B", "B_automat", "AM", "A1", "A2", "A"]),
-  variant: z.enum(["standard", "student", "expres", "return", "conditioning", "other"]),
+  variant: z.enum(["economy", "standard", "student", "expres", "return", "conditioning", "other"]),
   consent: z.boolean().default(false).refine((val) => val === true, {
     message: "Musíte souhlasit se zpracováním osobních údajů",
   }),
 });
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Registration() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Přihláška do autoškoly",
+    "provider": {
+      "@type": "DrivingSchool",
+      "name": "Autoškola RED",
+      "url": "https://autoskola.red",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Puškinovo náměstí 681/3",
+        "addressLocality": "Praha 6 - Bubeneč",
+        "postalCode": "160 00",
+        "addressCountry": "CZ"
+      }
+    },
+    "areaServed": ["Praha 6", "Dejvice", "Bubeneč"]
+  };
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema) as any,
     defaultValues: {
-      firstName: "Jan",
-      lastName: "Novák",
+      firstName: "",
+      lastName: "",
       age: "",
       email: "",
       phone: "",
+      course: undefined,
       variant: undefined,
       consent: false,
     } as any,
   });
+
+  // Handle pre-selection from URL parameters and scroll to top
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Ensure page starts at the top
+      window.scrollTo(0, 0);
+
+      const params = new URLSearchParams(window.location.search);
+      const variant = params.get("variant");
+      const course = params.get("course");
+
+      // Use a small timeout to ensure form is fully initialized
+      const timer = setTimeout(() => {
+        if (course) {
+          form.setValue("course", course as any);
+        }
+        if (variant) {
+          form.setValue("variant", variant as any);
+        }
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [form]);
 
   async function onSubmit(values: any) {
     try {
@@ -86,8 +129,11 @@ export default function Registration() {
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20 selection:text-primary">
       <SEO
-        title="Online Přihláška | Autoškola RED Praha 6"
-        description="Nezávazná přihláška do autoškoly. Vyplňte formulář online a začněte s výcvikem ještě dnes. Skupina B a motorky."
+        title="Online přihláška | Autoškola Praha 6 Dejvice 2026"
+        description="Závazná online přihláška do Autoškoly RED v Dejvicích. Vyberte si kurz B, B automat nebo motocykl. Začněte v Praze 6 ještě dnes."
+        canonical="https://autoskola.red/registrace"
+        image="/images/skoda-kodiaq-dejvice.png"
+        structuredData={structuredData}
       />
       <Navbar />
 
@@ -98,14 +144,16 @@ export default function Registration() {
           transition={{ duration: 0.5 }}
         >
           <div className="text-center mb-8 space-y-2">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Nezávazná přihláška do autoškoly</h1>
-            <p className="text-muted-foreground">Vyplňte formulář a začněte svou cestu za řidičákem ještě dnes.</p>
+            <h1 className="text-3xl md:text-4xl font-black tracking-tight text-foreground">Zahájit výcvik v Autoškole RED</h1>
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+              Registrace zabere jen 2 minuty. Vyplňte formulář a my vás bezpečně provedeme celým procesem až k řidičskému průkazu.
+            </p>
           </div>
 
           <Card className="border border-black/10 shadow-lg bg-white/80 backdrop-blur-md">
             <CardHeader>
-              <CardTitle>Osobní údaje</CardTitle>
-              <CardDescription>Všechny údaje jsou u nás v bezpečí.</CardDescription>
+              <CardTitle className="text-2xl font-bold">Osobní údaje</CardTitle>
+              <CardDescription className="text-base">Vaše soukromí je pro nás prioritou. Údaje zpracováváme s maximální pečlivostí.</CardDescription>
             </CardHeader>
             <CardContent>
               {isSubmitted ? (
@@ -205,10 +253,12 @@ export default function Registration() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>Vyberte kurz</FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <Select onValueChange={field.onChange} value={field.value}>
                               <FormControl>
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Zvolte typ kurzu" />
+                                <SelectTrigger className="w-full overflow-hidden">
+                                  <div className="truncate w-full text-left">
+                                    <SelectValue placeholder="Zvolte typ kurzu" />
+                                  </div>
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
@@ -231,13 +281,16 @@ export default function Registration() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>Varianta kurzu</FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <Select onValueChange={field.onChange} value={field.value}>
                               <FormControl>
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Zvolte variantu" />
+                                <SelectTrigger className="w-full overflow-hidden">
+                                  <div className="truncate w-full text-left">
+                                    <SelectValue placeholder="Zvolte variantu" />
+                                  </div>
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
+                                <SelectItem value="economy">Economy (B - nejpohodovější tempo)</SelectItem>
                                 <SelectItem value="standard">Standard (B - 3 Měsíce, Moto - 2 Měsíce)</SelectItem>
                                 <SelectItem value="student">Standard - Student (B s mentorem od 17let)</SelectItem>
                                 <SelectItem value="expres">Expres 1 Měsíc</SelectItem>
@@ -280,8 +333,8 @@ export default function Registration() {
                       )}
                     />
 
-                    <Button type="submit" size="lg" className="w-full text-lg font-bold bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20">
-                      Odeslat nezávaznou přihlášku <CheckCircle2 className="ml-2 w-5 h-5" />
+                    <Button type="submit" size="lg" className="w-full h-14 text-lg font-bold bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all">
+                      Odeslat přihlášku online <CheckCircle2 className="ml-2 w-6 h-6" />
                     </Button>
                   </form>
                 </Form>

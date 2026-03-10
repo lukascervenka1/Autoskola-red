@@ -24,6 +24,12 @@ export default function BlogPost() {
     if (!post) {
         return (
             <div className="min-h-screen bg-background flex flex-col">
+                <SEO
+                    title="Článek nenalezen | Autoškola RED"
+                    description="Požadovaný článek nebyl nalezen."
+                    canonical="https://autoskola.red/404"
+                    noindex={true}
+                />
                 <Navbar />
                 <div className="flex-grow flex flex-col items-center justify-center container">
                     <h1 className="text-3xl font-bold mb-4">Článek nenalezen</h1>
@@ -44,6 +50,26 @@ export default function BlogPost() {
                 title={`${post.title} | Magazín Autoškola RED`}
                 description={post.excerpt}
                 canonical={`https://autoskola.red/blog/${post.slug}`}
+                image={post.image}
+                structuredData={{
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": post.title,
+                    "description": post.excerpt,
+                    "image": post.image,
+                    "datePublished": post.dateIso,
+                    "dateModified": post.dateIso,
+                    "author": {
+                        "@type": "Person",
+                        "name": post.author
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Autoškola RED",
+                        "url": "https://autoskola.red"
+                    },
+                    "mainEntityOfPage": `https://autoskola.red/blog/${post.slug}`
+                }}
             />
             <Navbar />
 
