@@ -402,7 +402,7 @@ export default function Home() {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div>
-                  <span className="text-4xl font-extrabold text-foreground">29.900 Kč</span>
+                  <span className="text-4xl font-extrabold text-foreground">37.900 Kč</span>
                   <span className="text-muted-foreground ml-2">/ kurz</span>
                 </div>
                 <ul className="space-y-3">

@@ -37,13 +37,13 @@ export const PRICING = {
             features: ["Studentská sleva -2 000 Kč", "Všechny výhody Economy", "Rychlejší výcvik (2-3 měsíce)", "Garance termínu zkoušky", "Možnost přechodu MAN → AUT zdarma", "Možnost splátek na 3x"],
         },
         expres: {
-            price: 29900,
-            originalPrice: 30900,
-            name: "Expres",
+            price: 37900,
+            originalPrice: 39900,
+            name: "VIP Expres",
             duration: "1 měsíc",
-            description: "Rychlo-kurz pro ty, co potřebují řidičák včera.",
-            features: ["Jízdy téměř každý den", "Prioritní plánování", "Intenzivní výuka", "Zkouška ihned po ukončení", "Manuál i automat za stejnou cenu", "Možnost splátek na 3x"],
-            tag: "Nejrychlejší cesta"
+            description: "Nejrychlejší cesta s VIP servisem a individuálním přístupem.",
+            features: ["Jízdy každý den včetně víkendů", "Vyzvednutí doma/v práci", "Prioritní plánování", "Intenzivní výuka", "Zkouška ihned po ukončení", "Manuál i automat za stejnou cenu", "Možnost splátek na 3x"],
+            tag: "Nejvyšší standard"
         }
     },
     motorcycles: {
