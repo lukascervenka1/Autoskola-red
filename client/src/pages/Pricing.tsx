@@ -121,7 +121,7 @@ const PriceCard = ({ item, type, variantId, courseId }: { item: any, type: 'car'
     const registrationUrl = `/registrace?variant=${variantId || ''}&course=${getCourseValue()}`;
 
     return (
-        <Card className={`relative flex flex-col h-full border-2 transition-all duration-300 hover:shadow-xl ${item.highlight ? 'border-primary shadow-lg shadow-primary/10 scale-105 z-10' : 'border-border/50 hover:border-primary/50'}`}>
+        <Card className={`relative flex flex-col border-2 transition-all duration-300 hover:shadow-xl ${item.highlight ? 'border-primary shadow-lg shadow-primary/10 scale-105 z-10' : 'border-border/50 hover:border-primary/50'}`}>
             {item.tag && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
                     {item.tag}
