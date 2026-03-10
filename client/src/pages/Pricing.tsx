@@ -119,29 +119,32 @@ const PriceCard = ({ item, type, variantId, courseId }: { item: any, type: 'car'
     };
 
     const registrationUrl = `/registrace?variant=${variantId || ''}&course=${getCourseValue()}`;
+    const isHighlighted = item.highlight;
 
     return (
-        <Card className={`relative flex flex-col border-2 transition-all duration-300 hover:shadow-xl ${item.highlight ? 'border-primary shadow-lg shadow-primary/10 scale-105 z-10' : 'border-border/50 hover:border-primary/50'}`}>
+        <Card className={`relative flex flex-col border-2 transition-all duration-300 hover:shadow-xl ${isHighlighted ? 'border-primary ring-2 ring-primary/20 z-10 shadow-xl' : 'border-border/50 hover:border-primary/50'} ${!item.tag ? 'mt-8' : ''}`}>
             {item.tag && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
                     {item.tag}
                 </div>
             )}
-            <CardHeader>
+            <CardHeader className="min-h-[160px] flex flex-col">
                 <CardTitle className="text-2xl">{item.name}</CardTitle>
-                <CardDescription className="text-base mt-2">{item.description || item.subtitle}</CardDescription>
+                <CardDescription className="text-base mt-2 flex-1 line-clamp-2">{item.description || item.subtitle}</CardDescription>
                 {isCar && (
                     <div className="mt-4 flex items-center gap-2 text-sm font-medium text-muted-foreground bg-secondary/50 px-3 py-1 rounded-md w-fit">
                         <Clock className="w-4 h-4" /> {item.duration}
                     </div>
                 )}
             </CardHeader>
-            <CardContent className="flex-1">
-                <div className="mb-6">
-                    {item.originalPrice && (
+            <CardContent className="flex flex-col flex-1">
+                <div className="min-h-[90px] mb-6 flex flex-col justify-end">
+                    {item.originalPrice ? (
                         <span className="text-muted-foreground/60 line-through text-lg block mb-1">
                             {item.originalPrice.toLocaleString()} Kč
                         </span>
+                    ) : (
+                        <div className="h-[28px] mb-1" aria-hidden="true" /> // Placeholder for alignment
                     )}
                     <div>
                         <span className="text-4xl font-extrabold text-foreground">
@@ -162,9 +165,9 @@ const PriceCard = ({ item, type, variantId, courseId }: { item: any, type: 'car'
                     </ul>
                 )}
             </CardContent>
-            <CardFooter>
+            <CardFooter className="mt-auto pt-6">
                 <Link href={registrationUrl} className="w-full">
-                    <Button className={`w-full text-lg h-12 ${item.highlight ? 'bg-primary hover:bg-primary/90' : ''}`} variant={item.highlight ? 'default' : 'outline'}>
+                    <Button className={`w-full text-lg h-12 ${isHighlighted ? 'bg-primary hover:bg-primary/90' : ''}`} variant={isHighlighted ? 'default' : 'outline'}>
                         Chci se přihlásit
                     </Button>
                 </Link>
@@ -286,7 +289,7 @@ export default function Pricing() {
                         </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-end">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
                         <PriceCard item={PRICING.cars.economy} type="car" variantId="economy" />
                         <PriceCard item={PRICING.cars.student} type="car" variantId="student" />
                         <PriceCard item={PRICING.cars.standard} type="car" variantId="standard" />
