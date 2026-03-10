@@ -25,7 +25,7 @@ export const PRICING = {
             duration: "3 měsíce",
             description: "Zlatá střední cesta. Ideální ke škole.",
             features: ["2 až 4 hodiny jízd týdně", "Online testy zdarma", "Kurz první pomoci v ceně", "Možnost automatu (+1000 Kč)", "Knížka autoškoly zdarma", "Možnost splátek na 3x"],
-            highlight: true,
+            highlight: false,
             tag: "Nejoblíbenější pro studenty"
         },
         standard: {
@@ -34,7 +34,9 @@ export const PRICING = {
             name: "Standard",
             duration: "3 měsíce",
             description: "Klasický kurz pro pracující a ostatní.",
-            features: ["Studentská sleva -2 000 Kč", "Všechny výhody Economy", "Rychlejší výcvik (2-3 měsíce)", "Garance termínu zkoušky", "Možnost přechodu MAN → AUT zdarma", "Možnost splátek na 3x"],
+            features: ["Všechny výhody Economy", "Rychlejší výcvik (2-3 měsíce)", "Garance termínu zkoušky", "Možnost přechodu MAN → AUT zdarma", "Možnost splátek na 3x"],
+            highlight: true,
+            tag: "Nejvýhodnější balíček"
         },
         expres: {
             price: 37900,
