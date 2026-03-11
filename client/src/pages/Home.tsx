@@ -9,7 +9,9 @@ import { MobileNav } from "@/components/MobileNav";
 import { Navbar } from "@/components/Navbar";
 import { BentoGrid, BentoItem } from "@/components/BentoGrid";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { motion } from "framer-motion";
+import { Carousel, CarouselContent, CarouselItem, CarouselApi } from "@/components/ui/carousel";
+import { motion, AnimatePresence } from "framer-motion";
+import * as React from "react";
 
 import { MotorcycleIcon } from "@/components/icons/MotorcycleIcon";
 
@@ -45,6 +47,70 @@ export default function Home() {
       }, 100);
     }
   }, [location]);
+
+  const [apiState, setApiState] = React.useState<CarouselApi>();
+
+  useEffect(() => {
+    if (!apiState) return;
+
+    const intervalId = setInterval(() => {
+      apiState.scrollNext();
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, [apiState]);
+  const reviews = [
+    {
+      name: "Viktorie Ž.",
+      text: "Vynikající organizace a vysoce profesionální, individuální přístup ke každému studentovi. Autoškolu RED mohu jen doporučit.",
+      date: "před měsícem"
+    },
+    {
+      name: "Filip F.",
+      text: "Zkoušky jsem udělal hned na první pokus. Skvělý přístup instruktorů a moderní auta. Rozhodně doporučuji Autoškolu RED!",
+      date: "před 2 měsíci"
+    },
+    {
+      name: "Elena S.",
+      text: "Začala jsem s řidičákem v 39 letech a měla jsem velký respekt. Pan instruktor Macek mě ale svým klidným a trpělivým přístupem naučil vše krok za krokem. Skvělá zkušenost.",
+      date: "před 3 měsíci"
+    },
+    {
+      name: "Denise A.",
+      text: "Úžasná zkušenost, velmi flexibilní plánování jízd a moderní prostředí pro teorii. Moc děkuji panu Mackovi za trpělivost a skvělou přípravu na zkoušky.",
+      date: "před měsícem"
+    },
+    {
+      name: "Paul A.",
+      text: "Amazing service and very flexible scheduling. The afternoon lectures were interesting and Mr. Macek is a very patient instructor who explains everything clearly.",
+      date: "před 4 měsíci"
+    },
+    {
+      name: "Petra K.",
+      text: "Velké poděkování celé autoškole a speciálně panu Draškovičovi za profesionální a lidský přístup během celého kurzu.",
+      date: "před 2 měsíci"
+    },
+    {
+      name: "Marie S.",
+      text: "Moje zkušenost s Autoškolou RED byla naprosto skvělá. Vše proběhlo hladce a bez stresu. Doporučuji všem, kdo hledají kvalitu.",
+      date: "před 5 měsíci"
+    },
+    {
+      name: "Jakub K.",
+      text: "Super autoškola, jízdy v novém Kodiaqu jsou pecka. Instruktoři jsou v pohodě a všechno vysvětlí v klidu.",
+      date: "před měsícem"
+    },
+    {
+      name: "Veronika H.",
+      text: "Oceňuji individuální přístup a trpělivost. S řidičákem jsem spokojená a cítím se za volantem jistě.",
+      date: "před 3 měsíci"
+    },
+    {
+      name: "Marek N.",
+      text: "Profesionální trénink a zkušení instruktoři. Všechno klaplo na první dobrou. Díky moc!",
+      date: "před 2 měsíci"
+    }
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -502,56 +568,51 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Karolína M.",
-                text: "Nejlepší autoškola v Dejvicích! Instruktor byl neuvěřitelně trpělivý a klidný, což jsem jako velký stresor opravdu ocenila. Jízdy v Kodiaqu byly za odměnu. Doporučuji všem!",
-                date: "před 2 týdny"
-              },
-              {
-                name: "Tomáš H.",
-                text: "Skvělý přístup a super domluva. Vše proběhlo přesně tak, jak jsme si na začátku řekli. Žádné skryté poplatky a instruktoři, kteří vás opravdu chtějí naučit řídit, ne jen proplout zkouškou.",
-                date: "před měsícem"
-              },
-              {
-                name: "Lenka S.",
-                text: "Dělala jsem si tady řidičák na automat a byla to ta nejlepší volba. Všechno vysvětleno s úsměvem, termíny jízd byly flexibilní. Určitě se sem vrátím na kondiční jízdy!",
-                date: "před 2 měsíci"
-              }
-            ].map((review, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="p-8 bg-background rounded-[2rem] border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 relative flex flex-col"
-              >
-                <div className="flex text-amber-500 mb-4">
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
-                </div>
-                <p className="text-foreground/90 italic mb-6 flex-grow">"{review.text}"</p>
-                <div className="flex items-center justify-between border-t pt-4">
-                  <span className="font-bold">{review.name}</span>
-                  <span className="text-xs text-muted-foreground">{review.date}</span>
-                </div>
-                {/* Google Icon Badge */}
-                <div className="absolute top-6 right-8 opacity-10">
-                  <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current">
-                    <path d="M12.48 10.92v3.28h4.74c-.2 1.06-.9 1.95-1.82 2.56l2.84 2.2c1.66-1.53 2.62-3.79 2.62-6.48 0-.46-.04-.9-.11-1.32H12.48z" fill="#4285F4" />
-                    <path d="M12.48 21c2.43 0 4.47-.81 5.96-2.18l-2.84-2.2c-.81.54-1.85.86-3.12.86-2.38 0-4.4-1.61-5.12-3.77L4.4 16.03C5.89 19 8.94 21 12.48 21z" fill="#34A853" />
-                    <path d="M7.36 13.75c-.18-.54-.28-1.12-.28-1.75s.1-1.21.28-1.75V7.92H4.4c-.65 1.25-1.02 2.67-1.02 4.18s.37 2.93 1.02 4.18l2.96-2.53z" fill="#FBBC05" />
-                    <path d="M12.48 6.44c1.32 0 2.5.45 3.44 1.35l2.58-2.58C16.94 3.65 14.91 3 12.48 3c-3.54 0-6.59 2-8.08 4.92l2.96 2.33c.72-2.16 2.74-3.77 5.12-3.77z" fill="#EA4335" />
-                  </svg>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <Carousel
+            setApi={setApiState}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full relative"
+          >
+            <CarouselContent>
+              {reviews.map((review, i) => (
+                <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3 p-4">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="h-full p-8 bg-background rounded-[2rem] border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 relative flex flex-col"
+                  >
+                    <div className="flex text-amber-500 mb-4">
+                      <Star className="w-4 h-4 fill-current" />
+                      <Star className="w-4 h-4 fill-current" />
+                      <Star className="w-4 h-4 fill-current" />
+                      <Star className="w-4 h-4 fill-current" />
+                      <Star className="w-4 h-4 fill-current" />
+                    </div>
+                    <p className="text-foreground/90 italic mb-6 flex-grow">"{review.text}"</p>
+                    <div className="flex items-center justify-between border-t pt-4">
+                      <span className="font-bold">{review.name}</span>
+                      <span className="text-xs text-muted-foreground">{review.date}</span>
+                    </div>
+                    {/* Google Icon Badge */}
+                    <div className="absolute top-6 right-8 opacity-10">
+                      <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current">
+                        <path d="M12.48 10.92v3.28h4.74c-.2 1.06-.9 1.95-1.82 2.56l2.84 2.2c1.66-1.53 2.62-3.79 2.62-6.48 0-.46-.04-.9-.11-1.32H12.48z" fill="#4285F4" />
+                        <path d="M12.48 21c2.43 0 4.47-.81 5.96-2.18l-2.84-2.2c-.81.54-1.85.86-3.12.86-2.38 0-4.4-1.61-5.12-3.77L4.4 16.03C5.89 19 8.94 21 12.48 21z" fill="#34A853" />
+                        <path d="M7.36 13.75c-.18-.54-.28-1.12-.28-1.75s.1-1.21.28-1.75V7.92H4.4c-.65 1.25-1.02 2.67-1.02 4.18s.37 2.93 1.02 4.18l2.96-2.53z" fill="#FBBC05" />
+                        <path d="M12.48 6.44c1.32 0 2.5.45 3.44 1.35l2.58-2.58C16.94 3.65 14.91 3 12.48 3c-3.54 0-6.59 2-8.08 4.92l2.96 2.33c.72-2.16 2.74-3.77 5.12-3.77z" fill="#EA4335" />
+                      </svg>
+                    </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            {/* Conditional navigation arrows if needed, but autoplay is primary */}
+          </Carousel>
 
           <div className="mt-16 text-center">
             <a
