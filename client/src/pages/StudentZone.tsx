@@ -47,48 +47,54 @@ export default function StudentZone() {
             name: "Hyundai i20",
             src: "https://calendar.google.com/calendar/embed?src=4266064c138f8dc8e70a7de1fac3f84fca6442df8d2c88799e72f05f05dae700%40group.calendar.google.com&ctz=Europe%2FPrague",
             color: "blue",
-            type: "car"
+            type: "car",
+            teacher: "Leonit Bondarchuk",
+            phone: "774849487"
         },
         {
             id: "kodiaq",
             name: "Škoda Kodiaq (Automat)",
             src: "https://calendar.google.com/calendar/embed?src=6d0b05514fdd3c64b94910dd301bb40e7ecbc17572962884ae046441969ba491%40group.calendar.google.com&ctz=Europe%2FPrague",
             color: "red",
-            type: "car"
+            type: "car",
+            teacher: "Jiří Červenka",
+            phone: "608913000"
         },
         {
             id: "octavia2",
             name: "Škoda Octavia II",
             src: "https://calendar.google.com/calendar/embed?src=d618b48803fd8775dfefe6ec93e7cf6550289adf1053dcd417ee3cdb8a60bfba%40group.calendar.google.com&ctz=Europe%2FPrague",
             color: "green",
-            type: "car"
+            type: "car",
+            teacher: "Dragan Drašković",
+            phone: "603553048"
         },
         {
             id: "octavia3",
             name: "Škoda Octavia III",
             src: "https://calendar.google.com/calendar/embed?src=0e893f2345f220f3780438943b494f6302dfa1034e2166e10fa85b65f46b069c%40group.calendar.google.com&ctz=Europe%2FPrague",
             color: "purple",
-            type: "car"
+            type: "car",
+            teacher: "Jiří Červenka",
+            phone: "608913000"
         },
         {
             id: "yeti",
             name: "Škoda Yeti",
             src: "https://calendar.google.com/calendar/embed?src=74f9d1152758a428f9f656365d1609305e91985c0d4a118624802a4596cd3ef8%40group.calendar.google.com&ctz=Europe%2FPrague",
             color: "orange",
-            type: "car"
+            type: "car",
+            teacher: "Karel Macek",
+            phone: "602153394"
         },
         {
             id: "moto_jiri",
             name: "Motorka - Jiří",
             src: "https://calendar.google.com/calendar/embed?src=16c474cdd937cdac5f24b2612a58ed3a1e964ed159132710481055b8a1bdbefd%40group.calendar.google.com&ctz=Europe%2FPrague",
             color: "yellow",
-            type: "moto"
-        },
-        {
-            id: "moto_marek",
-            name: "Motorka - Marek",
-            src: "https://calendar.google.com/calendar/embed?src=d88ccaf8231d7c9a4ec175962a40e76f2f282e91a767e3c6b8cbc16fa2297dc5%40group.calendar.google.com&ctz=Europe%2FPrague",
-            type: "moto"
+            type: "moto",
+            teacher: "Jiří Červenka",
+            phone: "608913000"
         },
         {
             id: "simulator",
@@ -180,21 +186,21 @@ export default function StudentZone() {
                         <section>
                             <h2 className="text-2xl font-bold mb-6">Jízdy (Auto & Moto)</h2>
                             <Tabs defaultValue={calendars[0].id} className="w-full">
-                                <TabsList className="w-full h-auto flex-wrap justify-start gap-2 bg-transparent p-0 mb-6">
+                                <TabsList className="w-full h-auto grid grid-cols-2 sm:flex sm:flex-wrap justify-start gap-2 bg-transparent p-0 mb-6">
                                     {calendars.map((cal) => (
                                         <TabsTrigger
                                             key={cal.id}
                                             value={cal.id}
-                                            className="data-[state=active]:bg-primary data-[state=active]:text-white border bg-white px-4 py-3 h-auto text-base"
+                                            className="data-[state=active]:bg-primary data-[state=active]:text-white border bg-white px-3 py-3 h-auto text-sm sm:text-base justify-center sm:justify-start sm:w-auto"
                                         >
                                             {cal.type === 'moto' ? (
-                                                <Bike className="w-5 h-5 mr-2" />
+                                                <Bike className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                                             ) : cal.type === 'simulator' ? (
-                                                <Monitor className="w-5 h-5 mr-2" />
+                                                <Monitor className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                                             ) : (
                                                 <Car className="w-4 h-4 mr-2" />
                                             )}
-                                            {cal.name}
+                                            <span className="truncate">{cal.name}</span>
                                         </TabsTrigger>
                                     ))}
                                 </TabsList>
@@ -203,10 +209,26 @@ export default function StudentZone() {
                                     <TabsContent key={cal.id} value={cal.id} className="mt-0">
                                         <Card className="overflow-hidden border-2 shadow-lg">
                                             <CardHeader className="bg-muted/30 border-b py-4">
-                                                <CardTitle className="flex items-center gap-2 text-lg">
-                                                    <span className={`w-3 h-3 rounded-full bg-${cal.color}-500`} />
-                                                    {cal.name}
-                                                </CardTitle>
+                                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                                    <CardTitle className="flex items-center justify-center md:justify-start gap-2 text-lg lg:text-xl">
+                                                        <span className={`w-3 h-3 rounded-full bg-${cal.color}-500 shrink-0`} />
+                                                        {cal.name}
+                                                    </CardTitle>
+                                                    {'teacher' in cal && cal.teacher && (
+                                                        <div className="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-3 sm:gap-4 text-sm">
+                                                            <div className="flex items-center gap-2 font-medium text-muted-foreground italic text-center sm:text-left">
+                                                                Instruktor: {cal.teacher}
+                                                            </div>
+                                                            <a
+                                                                href={`tel:+420${cal.phone}`}
+                                                                className="flex items-center gap-2 bg-white px-4 py-2 sm:py-1.5 rounded-lg border border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-colors shadow-sm whitespace-nowrap"
+                                                            >
+                                                                <Phone className="w-4 h-4" />
+                                                                +420 {cal.phone?.replace(/(\d{3})(\d{3})(\d{3})/, '$1 $2 $3')}
+                                                            </a>
+                                                        </div>
+                                                    )}
+                                                </div>
                                             </CardHeader>
                                             <div className="aspect-[4/3] md:aspect-[16/9] w-full bg-white relative">
                                                 <iframe

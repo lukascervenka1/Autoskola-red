@@ -181,6 +181,9 @@ export default function Registration() {
               ) : (
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    {/* Honeypot field for spam protection */}
+                    <input type="text" name="_gotcha" style={{ display: 'none' }} />
+                    
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <FormField
                         control={form.control}
