@@ -230,7 +230,7 @@ export default function StudentZone() {
                                                     )}
                                                 </div>
                                             </CardHeader>
-                                            <div className="aspect-[4/3] md:aspect-[16/9] w-full bg-white relative">
+                                            <div className="aspect-square md:aspect-[16/9] w-full bg-white relative">
                                                 <iframe
                                                     src={cal.src}
                                                     style={{ border: 0 }}
@@ -275,7 +275,7 @@ export default function StudentZone() {
                             </div>
 
                             <Card className="overflow-hidden border-2 border-yellow-500/20 shadow-lg">
-                                <div className="aspect-[4/3] md:aspect-[16/9] w-full bg-white relative">
+                                <div className="aspect-square md:aspect-[16/9] w-full bg-white relative">
                                     <iframe
                                         src={examsCalendar}
                                         style={{ border: 0 }}
