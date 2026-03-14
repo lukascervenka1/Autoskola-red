@@ -24,7 +24,7 @@ export const PRICING = {
             name: "Standard - Student",
             duration: "3 měsíce",
             description: "Zlatá střední cesta. Ideální ke škole.",
-            features: ["2 až 4 hodiny jízd týdně", "Online testy zdarma", "Kurz první pomoci v ceně", "Možnost automatu (+1000 Kč)", "Knížka autoškoly zdarma", "Možnost splátek na 3x"],
+            features: ["2 až 4 hodiny jízd týdně", "Online testy zdarma", "Kurz první pomoci v ceně", "Možnost automatu (+1000 Kč)", "Vyžadujeme potvrzení o studiu (např. ISIC)", "Knížka autoškoly zdarma", "Možnost splátek na 3x"],
             highlight: false,
             tag: "Nejoblíbenější pro studenty"
         },
@@ -54,28 +54,28 @@ export const PRICING = {
             name: "Skupina AM",
             subtitle: "Od 15 let",
             description: "Moped do 50 ccm a max. 45 km/h.",
-            features: ["Výcvik na automatickém skútru", "Zapůjčení výstroje v ceně", "Učebnice a zdravotní kurz zdarma"]
+            features: ["Výcvik na automatickém skútru", "Možnost manuální i automatické převodovky", "Zapůjčíme interkom", "Učebnice a zdravotní kurz zdarma"]
         },
         a1: {
             price: 22900,
             name: "Skupina A1",
             subtitle: "Od 16 let",
             description: "Motocykl do 125 ccm a 11 kW.",
-            features: ["Ideální pro začínající motorkáře", "Zapůjčení výstroje v ceně", "Učebnice a zdravotní kurz zdarma"]
+            features: ["Ideální pro začínající motorkáře", "Možnost manuální i automatické převodovky", "Zapůjčíme interkom", "Učebnice a zdravotní kurz zdarma"]
         },
         a2: {
             price: 23900,
             name: "Skupina A2",
             subtitle: "Od 18 let",
             description: "Motocykl do 35 kW.",
-            features: ["Pro středně silné motorky", "Zapůjčení výstroje v ceně", "Učebnice a zdravotní kurz zdarma"]
+            features: ["Pro středně silné motorky", "Zapůjčíme interkom", "Učebnice a zdravotní kurz zdarma"]
         },
         a: {
             price: 24900,
             name: "Skupina A",
             subtitle: "Od 24 let (nebo 20 let + praxe)",
             description: "Motocykl bez omezení výkonu.",
-            features: ["Plnohodnotný řidičák na vše", "Zapůjčení výstroje v ceně", "Učebnice a zdravotní kurz zdarma"]
+            features: ["Plnohodnotný řidičák na všechny motorky", "Zapůjčíme interkom", "Učebnice a zdravotní kurz zdarma"]
         },
     },
     extensions: [
@@ -395,7 +395,7 @@ export default function Pricing() {
                                 </CardHeader>
                                 <CardContent>
                                     <div className="text-4xl font-black mb-2">{PRICING.bundles.combined.price.toLocaleString()} Kč</div>
-                                    <Link href="/registrace">
+                                    <Link href="/registrace?course=combined">
                                         <Button variant="secondary" className="w-full font-bold text-primary hover:bg-white">
                                             Objednat balíček
                                         </Button>
