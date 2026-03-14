@@ -12,6 +12,12 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Carousel, CarouselContent, CarouselItem, CarouselApi } from "@/components/ui/carousel";
 import { motion, AnimatePresence } from "framer-motion";
 import * as React from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 import { MotorcycleIcon } from "@/components/icons/MotorcycleIcon";
 
@@ -59,6 +65,50 @@ export default function Home() {
 
     return () => clearInterval(intervalId);
   }, [apiState]);
+
+  const faqData = [
+    {
+      question: "Kolik přednášek / teorie musím absolvovat?",
+      answer: "Celkem 4 přednášky, ve kterých je zahrnut i zdravotnický kurz. Bez splnění této podmínky nelze žáka připustit k závěrečné zkoušce."
+    },
+    {
+      question: "Jak probíhá výuka?",
+      answer: "Délka a intenzita závisí na typu kurzu. Například standardní lekce trvá 2x 45 minut (tedy 90 minut čistého času)."
+    },
+    {
+      question: "Mohu si vybrat, s jakým autem chci kurz absolvovat?",
+      answer: "Výběr vozu je vázán na konkrétního instruktora. Pokud si zvolíte kurz s automatickou převodovkou, v naší autoškole momentálně disponujeme moderním vozem Škoda Kodiaq."
+    },
+    {
+      question: "Musím mít nějaké potvrzení od lékaře?",
+      answer: "Ano, to je zcela klíčové. Bez platné lékařské prohlídky a potvrzení o zdravotní způsobilosti není ze zákona možné zahájit praktický výcvik."
+    },
+    {
+      question: "Jak vypadá závěrečná zkouška?",
+      answer: "Zkouška začíná písemným testem z pravidel silničního provozu. Po jeho úspěšném absolvování následuje praktická jízda s komisařem, kde prokážete své řidičské dovednosti."
+    },
+    {
+      question: "Bojím se řídit, je možné si to nejdřív vyzkoušet na simulátoru?",
+      answer: "Samozřejmě! To je u nás běžný postup. Nemusíte mít strach – začneme v naprostém klidu na trenažéru. Do ostrého provozu půjdeme až ve chvíli, kdy získáte potřebnou jistotu. Rozumíme stresu začátečníků a rozhodně vás nebudeme tlačit do složitých situací dříve, než na ně budete připraveni."
+    },
+    {
+      question: "Jak se nejlépe připravit na závěrečnou zkoušku?",
+      answer: "Základem je pravidelná docházka a aktivní příprava během celého kurzu. Doporučujeme průběžně procvičovat online testy – naše autoškola vám poskytne přístup k aplikaci, kde si můžete testy zkoušet neomezeně a zcela zdarma."
+    }
+  ];
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  };
   const reviews = [
     {
       name: "Viktorie Ž.",
@@ -197,40 +247,14 @@ export default function Home() {
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Kde se nachází Autoškola RED?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Autoškola RED sídlí v Praze 6 na Puškinově náměstí 681/3, v Dejvicích (Archi HUB)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Jaké vozy používáte k výcviku?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "K výcviku používáme moderní vozy Škoda Kodiaq 2024. Nabízíme výcvik s manuální i automatickou převodovkou."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Jak dlouho trvá kurz v autoškole?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Standardní délka kurzu je přibližně 3 měsíce. Nabízíme také rychlokurz Expres, který lze stihnout za 1 měsíc, nebo Economy tempo v délce 4-6 měsíců."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Nabízíte studentské slevy?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ano, pro studenty máme speciální balíček Standard - Student se slevou 2 000 Kč oproti běžné ceně."
-          }
+      "mainEntity": faqData.map(item => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer
         }
-      ]
+      }))
     }
   ];
 
@@ -998,6 +1022,37 @@ export default function Home() {
               <div className="absolute inset-0 pointer-events-none rounded-[2.5rem] ring-1 ring-inset ring-black/10" />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-24 bg-white relative">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-5xl font-black text-foreground">
+              Často kladené otázky
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Vše, co potřebujete vědět před zahájením kurzu v Autoškole RED.
+            </p>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            {faqData.map((faq, index) => (
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`}
+                className="bg-secondary/20 rounded-2xl px-6 border-none transition-all duration-200 data-[state=open]:bg-secondary/40"
+              >
+                <AccordionTrigger className="text-lg font-bold hover:no-underline py-6">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-base pb-6 leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
 
