@@ -469,12 +469,12 @@ export default function Home() {
             {/* VIP */}
             <Card className="border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <CardHeader>
-                <CardTitle className="text-2xl font-bold">VIP Expres</CardTitle>
+                <CardTitle className="text-2xl font-bold">Expres</CardTitle>
                 <CardDescription>Individuální přístup</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div>
-                  <span className="text-4xl font-extrabold text-foreground">37.900 Kč</span>
+                  <span className="text-4xl font-extrabold text-foreground">29.900 Kč</span>
                   <span className="text-muted-foreground ml-2">/ kurz</span>
                 </div>
                 <ul className="space-y-3">
@@ -482,9 +482,9 @@ export default function Home() {
                     "Všechny výhody balíčků Economy a Standard",
                     "Expresní kurz (cca 1 měsíc)",
                     "Individuální plánování jízd",
-                    "Vyzvednutí doma/v práci",
+                    "Intenzivní výuka",
                     "Přistavení vozu ke zkoušce",
-                    "Individuální konzultace",
+                    "Možnost přikoupit VIP za 8 000 Kč",
                     "Možnost splátek na 3x"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
@@ -495,7 +495,7 @@ export default function Home() {
                 </ul>
                 <Button asChild variant="outline" className="w-full rounded-full h-11 border-primary/20 hover:border-primary hover:text-primary">
                   <Link href="/registrace?variant=expres&course=B">
-                    Vybrat VIP
+                    Vybrat Expres
                   </Link>
                 </Button>
               </CardContent>

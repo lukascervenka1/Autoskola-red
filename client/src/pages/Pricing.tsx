@@ -39,13 +39,13 @@ export const PRICING = {
             tag: "Nejvýhodnější balíček"
         },
         expres: {
-            price: 37900,
-            originalPrice: 39900,
-            name: "VIP Expres",
+            price: 29900,
+            originalPrice: null,
+            name: "Expres",
             duration: "1 měsíc",
-            description: "Nejrychlejší cesta s VIP servisem a individuálním přístupem.",
-            features: ["Individuální plánování jízd", "Vyzvednutí doma/v práci", "Prioritní plánování", "Intenzivní výuka", "Zkouška ihned po ukončení", "Manuál i automat za stejnou cenu", "Možnost splátek na 3x"],
-            tag: "Nejvyšší standard"
+            description: "Nejrychlejší cesta k řidičáku s intenzivní výukou.",
+            features: ["Individuální plánování jízd", "Intenzivní výuka", "Prioritní plánování", "Zkouška ihned po ukončení", "Manuál i automat za stejnou cenu", "Možnost přikoupit VIP za 8 000 Kč", "Možnost splátek na 3x"],
+            tag: "Nejrychlejší kurz"
         }
     },
     motorcycles: {
