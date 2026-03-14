@@ -652,7 +652,7 @@ export default function Home() {
       </section>
 
       {/* License Types Section */}
-      <section id="instruktori" className="py-24 bg-white">
+      <section id="vozovy-park" className="py-24 bg-white">
         <div className="container">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl font-bold">Řidičská oprávnění</h2>
