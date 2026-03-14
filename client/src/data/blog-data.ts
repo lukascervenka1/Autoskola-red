@@ -48,16 +48,77 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "2",
-    slug: "jak-zvladnout-jizdy-v-zime",
-    title: "Jak zvládnout první jízdy v zimním provozu?",
-    excerpt: "Sníh, náledí a brzká tma. Zimní měsíce jsou pro začínající řidiče výzvou. Přinášíme tipy, jak se nebát a jezdit bezpečně.",
-    date: "15. Leden 2026",
-    dateIso: "2026-01-15",
-    author: "Jan Novák, Instruktor",
-    category: "Tipy pro řidiče",
-    readTime: "5 min čtení",
-    image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=2070&auto=format&fit=crop",
-    content: "Obsah článku připravujeme..."
+    slug: "kolik-stoji-ridicak-v-praze",
+    title: "Kolik dnes stojí řidičák v Praze a na co si dát pozor při výběru autoškoly",
+    excerpt: "Zjistěte, kolik dnes stojí řidičák v Praze, na co si dát pozor při výběru autoškoly a proč je důležitá transparentní cena bez skrytých poplatků.",
+    date: "14. Březen 2026",
+    dateIso: "2026-03-14",
+    author: "Tým Autoškola RED",
+    category: "Tipy a rady",
+    readTime: "7 min čtení",
+    image: "/images/kolik-stoji-ridicak-v-praze.png",
+    content: `
+      <p class="mb-4 text-lg font-medium">Vybrat si dnes správnou autoškolu v Praze není jen o tom najít nejnižší cenu. Na první pohled mohou vypadat nabídky podobně, ale když se člověk začne dívat detailněji, zjistí, že rozdíly mezi jednotlivými autoškolami jsou často opravdu velké.</p>
+
+      <p class="mb-4">Někde vás zaujme nízká startovní cena, ale až později zjistíte, že některé důležité položky nejsou v ceně zahrnuté. Jinde zase zaplatíte víc, ale dostanete jasné podmínky, kvalitní přístup a férové jednání bez nepříjemných překvapení.</p>
+
+      <p class="mb-6">Pokud tedy řešíte, kolik dnes stojí řidičák v Praze a jak vybrat autoškolu, aby vás později nic nepřekvapilo, tady je to nejdůležitější, na co se zaměřit.</p>
+
+      <h2 class="text-2xl font-black mb-4 mt-8">Kolik stojí řidičák v Praze</h2>
+      <p class="mb-4">Cena za řidičský průkaz skupiny B se dnes v Praze nejčastěji pohybuje v řádu vyšších desítek tisíc korun. Rozdíly mezi autoškolami ale nejsou jen v samotné ceně kurzu. Často rozhoduje hlavně to, co všechno je v ceně skutečně zahrnuto a kolik vás bude stát případné pokračování, doplňkové jízdy nebo opakování.</p>
+      
+      <p class="mb-6">Právě proto se nevyplácí dívat jen na první číslo v ceníku. Důležité je porovnávat nabídky jako celek. Na naší stránce <a href="/cenik" class="text-primary font-bold hover:underline">Ceník</a> najdete vždy transparentní ceny všech našich balíčků.</p>
+
+      <h2 class="text-3xl font-black mb-6 mt-12">Na co si dát při výběru autoškoly opravdu pozor</h2>
+      
+      <h3 class="text-xl font-bold mb-3 mt-8">1. Podezřele nízká cena nemusí znamenat výhodu</h3>
+      <p class="mb-4">Mnoho lidí vybírá autoškolu hlavně podle ceny. To je pochopitelné. Jenže nejnižší cena na webu ještě automaticky neznamená nejvýhodnější nabídku. U některých autoškol může být základní kurz nastavený tak, aby vypadal atraktivně, ale další důležité věci se dopočítávají zvlášť. A právě tam se může původně „výhodná“ nabídka rychle prodražit.</p>
+      
+      <div class="bg-primary/5 p-6 rounded-2xl border border-primary/20 my-6">
+        <p class="font-bold mb-3">Proto je dobré si vždy ověřit:</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>co přesně je v ceně kurzu,</li>
+          <li>kolik stojí doplňkové jízdy,</li>
+          <li>kolik stojí opakování zkoušek,</li>
+          <li>zda jsou někde další příplatky,</li>
+          <li>jestli je ceník veřejný, jasný a přehledný.</li>
+        </ul>
+      </div>
+
+      <h3 class="text-xl font-bold mb-3 mt-8">2. Skryté poplatky umí výslednou cenu výrazně navýšit</h3>
+      <p class="mb-6">Právě skryté nebo méně viditelné poplatky bývají při výběru autoškoly jeden z největších problémů. Člověk si vybere kurz podle ceny, ale až během výcviku zjistí, že konečná částka může být úplně jiná, než čekal. Proto se vyplatí vybírat takovou autoškolu, která hraje narovinu a má ceny zveřejněné otevřeně. Když je ceník veřejný, přehledný a bez mlžení, je to vždy dobré znamení.</p>
+
+      <h2 class="text-2xl font-black mb-4 mt-12">Dobrá autoškola není jen o ceně</h2>
+      <p class="mb-6">Cena je důležitá, ale není jediná. Ještě důležitější je často to, jak se v autoškole budete cítit a jaký přístup dostanete.</p>
+
+      <h3 class="text-xl font-bold mb-3 mt-8">3. Přístup instruktorů rozhoduje víc, než si lidé myslí</h3>
+      <p class="mb-4">Pro někoho je řízení radost, pro jiného stres. Zvlášť na začátku je důležité mít vedle sebe člověka, který umí vysvětlit chyby klidně, lidsky a srozumitelně. Autoškola by neměla být jen o splnění hodin, ale o tom, aby člověk získal jistotu za volantem a cítil se bezpečně.</p>
+
+      <h3 class="text-xl font-bold mb-3 mt-8">4. Lokalita hraje velkou roli</h3>
+      <p class="mb-4">Pokud hledáte autoškolu Praha 6 nebo autoškolu v Dejvicích, je výhodou mít zázemí právě v této části Prahy a nemuset kvůli každé jízdě cestovat přes celé město. Podívejte se na naše <a href="/kurzy" class="text-primary font-bold hover:underline">Kurzy</a> a zjistěte, jaké možnosti výcviku v naší lokalitě nabízíme.</p>
+
+      <h3 class="text-xl font-bold mb-3 mt-8">5. Důvěryhodnost a zkušenosti ostatních</h3>
+      <p class="mb-6">Recenze často napoví víc než samotný reklamní text. Pokud má autoškola dobré hodnocení, spokojené klienty a dlouhodobě si drží dobrou pověst, je to silný signál, že něco dělá správně. Důvěra vzniká férovým přístupem a jasnou komunikací.</p>
+
+      <div class="bg-secondary/20 p-8 rounded-3xl border border-border my-10 text-center">
+        <h3 class="text-2xl font-black mb-4">Hledáte férovou autoškolu v Praze 6?</h3>
+        <p class="mb-8">V Autoškole RED si zakládáme na transparentnosti, jasných podmínkách a lidském přístupu. Žádné skryté poplatky, jen kvalitní výcvik v klidu a v nových vozech Škoda Kodiaq.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/registrace" class="px-8 py-4 bg-primary text-white font-bold rounded-full hover:shadow-lg hover:shadow-primary/30 transition-all">
+            Přihlásit se do kurzu
+          </a>
+          <a href="/kontakt" class="px-8 py-4 bg-white border border-border text-foreground font-bold rounded-full hover:bg-secondary/50 transition-all">
+            Kontaktujte nás
+          </a>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-black mb-4 mt-12">Jak poznat férovou autoškolu</h2>
+      <p class="mb-4">Férová autoškola nepotřebuje lákat na nejasné sliby. Má jasně zveřejněný ceník, otevřeně komunikuje podmínky a zakládá si na spokojenosti svých žáků. Právě to je při výběru autoškoly v dnešní době často důležitější než pár stovek rozdílu v základní ceně.</p>
+
+      <h3 class="text-xl font-bold mb-3 mt-8">Závěr</h3>
+      <p class="mb-4">Řidičák je důležitý krok a výběr autoškoly by se neměl podceňovat. Pokud hledáte autoškolu v Praze 6 Dejvicích, která sází na transparentní ceny, férové jednání a spokojenost žáků, Autoškola RED je volba, která stojí za zvážení.</p>
+    `
   },
   {
     id: "3",
