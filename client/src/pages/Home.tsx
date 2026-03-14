@@ -956,7 +956,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-3">Jednoduché rezervace</h3>
               <p className="text-muted-foreground">
-                Jízdy si plánujete online přes náš rezervační systém. Kdykoliv a odkudkoliv.
+                Jízdy si plánujete jednoduše přes online kalendáře pro lepší a efektivní plánování času vašich jízd.
               </p>
             </div>
           </div>
