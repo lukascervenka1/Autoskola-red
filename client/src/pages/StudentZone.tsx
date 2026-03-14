@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Lock, Unlock, CalendarDays, Car, ChevronDown, ChevronUp, Phone, Bike, Monitor } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const SHARED_PASSWORD = "Autoskolared1";
+const SHARED_PASSWORD = "Autoskola123456";
 const STORAGE_KEY = "autoskola_student_auth";
 
 export default function StudentZone() {
