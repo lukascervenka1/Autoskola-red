@@ -137,10 +137,9 @@ export default function ReviewsSection({ reviews = reviewsData }: ReviewsSection
                         {reviews.map((review, i) => (
                             <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3 p-4">
                                 <motion.div
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5 }}
-                                    viewport={{ once: true }}
                                     className="h-full p-8 bg-background rounded-[2rem] border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 relative flex flex-col"
                                 >
                                     <div className="flex text-amber-500 mb-4">
