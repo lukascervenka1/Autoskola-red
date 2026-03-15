@@ -8,8 +8,6 @@ import { useEffect } from "react";
 import { MobileNav } from "@/components/MobileNav";
 import { Navbar } from "@/components/Navbar";
 import { BentoGrid, BentoItem } from "@/components/BentoGrid";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Carousel, CarouselContent, CarouselItem, CarouselApi } from "@/components/ui/carousel";
 import { motion, AnimatePresence } from "framer-motion";
 import * as React from "react";
 import {
@@ -18,6 +16,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { lazy, Suspense } from "react";
+
+const PricingSection = lazy(() => import("@/components/PricingSection"));
+const ReviewsSection = lazy(() => import("@/components/ReviewsSection"));
+const LicenseTypesSection = lazy(() => import("@/components/LicenseTypesSection"));
 
 import { MotorcycleIcon } from "@/components/icons/MotorcycleIcon";
 
@@ -53,18 +56,6 @@ export default function Home() {
       }, 100);
     }
   }, [location]);
-
-  const [apiState, setApiState] = React.useState<CarouselApi>();
-
-  useEffect(() => {
-    if (!apiState) return;
-
-    const intervalId = setInterval(() => {
-      apiState.scrollNext();
-    }, 5000);
-
-    return () => clearInterval(intervalId);
-  }, [apiState]);
 
   const faqData = [
     {
@@ -109,58 +100,6 @@ export default function Home() {
       }
     }))
   };
-  const reviews = [
-    {
-      name: "Viktorie Ž.",
-      text: "Vynikající organizace a vysoce profesionální, individuální přístup ke každému studentovi. Autoškolu RED mohu jen doporučit.",
-      date: "před měsícem"
-    },
-    {
-      name: "Filip F.",
-      text: "Zkoušky jsem udělal hned na první pokus. Skvělý přístup instruktorů a moderní auta. Rozhodně doporučuji Autoškolu RED!",
-      date: "před 2 měsíci"
-    },
-    {
-      name: "Elena S.",
-      text: "Začala jsem s řidičákem v 39 letech a měla jsem velký respekt. Pan instruktor Macek mě ale svým klidným a trpělivým přístupem naučil vše krok za krokem. Skvělá zkušenost.",
-      date: "před 3 měsíci"
-    },
-    {
-      name: "Denise A.",
-      text: "Úžasná zkušenost, velmi flexibilní plánování jízd a moderní prostředí pro teorii. Moc děkuji panu Mackovi za trpělivost a skvělou přípravu na zkoušky.",
-      date: "před měsícem"
-    },
-    {
-      name: "Paul A.",
-      text: "Amazing service and very flexible scheduling. The afternoon lectures were interesting and Mr. Macek is a very patient instructor who explains everything clearly.",
-      date: "před 4 měsíci"
-    },
-    {
-      name: "Petra K.",
-      text: "Velké poděkování celé autoškole a speciálně panu Draškovičovi za profesionální a lidský přístup během celého kurzu.",
-      date: "před 2 měsíci"
-    },
-    {
-      name: "Marie S.",
-      text: "Moje zkušenost s Autoškolou RED byla naprosto skvělá. Vše proběhlo hladce a bez stresu. Doporučuji všem, kdo hledají kvalitu.",
-      date: "před 5 měsíci"
-    },
-    {
-      name: "Jakub K.",
-      text: "Super autoškola, jízdy v novém Kodiaqu jsou pecka. Instruktoři jsou v pohodě a všechno vysvětlí v klidu.",
-      date: "před měsícem"
-    },
-    {
-      name: "Veronika H.",
-      text: "Oceňuji individuální přístup a trpělivost. S řidičákem jsem spokojená a cítím se za volantem jistě.",
-      date: "před 3 měsíci"
-    },
-    {
-      name: "Marek N.",
-      text: "Profesionální trénink a zkušení instruktoři. Všechno klaplo na první dobrou. Díky moc!",
-      date: "před 2 měsíci"
-    }
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -341,45 +280,46 @@ export default function Home() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative lg:h-[700px] hidden lg:block"
+            className="relative h-[400px] md:h-[600px] lg:h-[700px] mt-8 lg:mt-0"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-[3rem] rotate-3 blur-sm transform scale-95" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-[2rem] md:rounded-[3rem] rotate-3 blur-sm transform scale-95" />
             <img
               src="/images/skoda-kodiaq-dejvice.png"
               alt="Instrukční vůz Škoda Kodiaq 2024 na Vítězném náměstí"
-              className="relative rounded-[2.5rem] shadow-2xl object-cover h-full w-full z-10 border-4 border-white"
+              className="relative rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl object-cover h-full w-full z-10 border-4 border-white"
+              loading="eager"
             />
 
-            {/* Floating Badge 1 */}
+            {/* Floating Badge 1 - Hidden on small mobile */}
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1 }}
-              className="absolute -left-12 top-1/4 z-20 glass p-4 rounded-2xl shadow-xl flex items-center gap-4 max-w-[250px]"
+              className="absolute -left-4 md:-left-12 top-1/4 z-20 glass p-3 md:p-4 rounded-xl md:rounded-2xl shadow-xl flex items-center gap-3 md:gap-4 max-w-[180px] md:max-w-[250px]"
             >
-              <div className="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                <Shield className="w-6 h-6" />
+              <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                <Shield className="w-5 h-5 md:w-6 md:h-6" />
               </div>
               <div>
-                <p className="font-bold text-foreground">Bezpečnost</p>
-                <p className="text-xs text-muted-foreground">Moderní asistenti vozu</p>
+                <p className="font-bold text-xs md:text-base text-foreground">Bezpečnost</p>
+                <p className="text-[10px] md:text-xs text-muted-foreground whitespace-nowrap">Moderní asistenti</p>
               </div>
             </motion.div>
 
-            {/* Floating Badge 2 */}
+            {/* Floating Badge 2 - Hidden on small mobile */}
             <motion.div
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               whileHover={{ scale: 1.05 }}
               transition={{ delay: 1.2 }}
-              className="absolute -right-8 bottom-[45%] z-20 glass p-4 rounded-2xl shadow-xl flex items-center gap-4"
+              className="absolute -right-4 md:-right-8 bottom-[45%] z-20 glass p-3 md:p-4 rounded-xl md:rounded-2xl shadow-xl flex items-center gap-3 md:gap-4"
             >
-              <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                <CarIcon className="w-6 h-6" />
+              <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                <CarIcon className="w-5 h-5 md:w-6 md:h-6" />
               </div>
               <div>
-                <p className="font-bold text-foreground">Nové vozy</p>
-                <p className="text-xs text-muted-foreground">Škoda Kodiaq 2024</p>
+                <p className="font-bold text-xs md:text-base text-foreground">Nové vozy</p>
+                <p className="text-[10px] md:text-xs text-muted-foreground whitespace-nowrap">Kodiaq 2024</p>
               </div>
             </motion.div>
           </motion.div>
@@ -387,469 +327,19 @@ export default function Home() {
       </section>
 
       {/* Promotional Packages Section */}
-      <section id="kurzy" className="py-24 bg-secondary/30 relative">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none" />
+      <Suspense fallback={<div className="h-96" />}>
+        <PricingSection />
+      </Suspense>
 
-        <div className="container relative">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl font-bold tracking-tight">Ceny kurzů Autoškoly RED v Dejvicích</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Transparentní ceník pro rok 2026. Možnost platby na splátky bez navýšení a kondiční jízdy v Praze 6.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
-            {/* Economy */}
-            <Card className="border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold">Economy</CardTitle>
-                <CardDescription>Pro studenty s časem</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div>
-                  <span className="text-4xl font-extrabold text-foreground">22.900 Kč</span>
-                  <span className="text-muted-foreground ml-2">/ kurz</span>
-                </div>
-                <ul className="space-y-3">
-                  {[
-                    "Standardní délka kurzu 4-6 měsíce",
-                    "Jízdy 1x týdně",
-                    "Základní teoretická příprava",
-                    "E-learning zdarma",
-                    "Simulátor zdarma",
-                    "Kurz první pomoci v ceně",
-                    "Možnost připlatit si automat 1500 Kč",
-                    "Možnost splátek na 3x"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                      <CheckCircle2 className="w-5 h-5 text-red-500 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <Button asChild variant="outline" className="w-full rounded-full h-11 border-primary/20 hover:border-primary hover:text-primary">
-                  <Link href="/registrace?variant=economy&course=B">
-                    Vybrat Economy
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Standard - Highlighted */}
-            <Card className="relative border-primary bg-background shadow-2xl scale-105 z-10 hover:scale-110 transition-transform duration-300">
-              <div className="absolute top-0 right-0 left-0 -mt-4 flex justify-center">
-                <span className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Nejoblíbenější</span>
-              </div>
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold text-primary">Standard</CardTitle>
-                <CardDescription>Ideální poměr cena/výkon</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-extrabold text-foreground">25.900 Kč</span>
-                    <span className="text-muted-foreground line-through decoration-red-500/50 decoration-2">27.900 Kč</span>
-                  </div>
-                  <p className="text-xs font-semibold text-green-600 mt-1">Ušetříte 2.000 Kč</p>
-                </div>
-
-                <div className="bg-emerald-100 p-3 rounded-lg border border-emerald-200">
-                  <p className="text-sm font-medium text-emerald-800 leading-relaxed">
-                    <span className="font-bold">Největší benefit:</span> Maximální flexibilita. Začněte s manuálem a pokud vám nebude vyhovovat, kdykoliv zdarma přejdeme na automat. Cena se nemění!
-                  </p>
-                </div>
-
-                <ul className="space-y-3">
-                  {[
-                    "Všechny výhody balíčku Economy",
-                    "Rychlokurz (2-3 měsíce)",
-                    "Přednostní plánování jízd",
-                    "Garance termínu zkoušky",
-                    "Možnost zrušení jízd do 24h zdarma",
-                    "Simulace závěrečné zkoušky",
-                    "Možnost splátek na 3x"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm font-medium">
-                      <CheckCircle2 className="w-5 h-5 shrink-0 text-green-500" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="space-y-3 pt-2">
-                  <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white rounded-full h-11 shadow-lg shadow-primary/20">
-                    <Link href="/registrace?variant=standard&course=B">
-                      Vybrat Standard
-                    </Link>
-                  </Button>
-                  <p className="text-center">
-                    <Link href="/cenik" className="text-xs font-medium text-muted-foreground hover:text-primary transition-colors hover:underline">
-                      Jste student? Zobrazit zvýhodněný balíček
-                    </Link>
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* VIP */}
-            <Card className="border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold">Expres</CardTitle>
-                <CardDescription>Individuální přístup</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div>
-                  <span className="text-4xl font-extrabold text-foreground">29.900 Kč</span>
-                  <span className="text-muted-foreground ml-2">/ kurz</span>
-                </div>
-                <ul className="space-y-3">
-                  {[
-                    "Všechny výhody balíčků Economy a Standard",
-                    "Expresní kurz (cca 1 měsíc)",
-                    "Individuální plánování jízd",
-                    "Intenzivní výuka",
-                    "Přistavení vozu ke zkoušce",
-                    "Možnost přikoupit VIP za 8 000 Kč",
-                    "Možnost splátek na 3x"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                      <CheckCircle2 className={`w-5 h-5 shrink-0 ${i === 0 ? "text-purple-500 font-bold" : "text-purple-500"}`} />
-                      <span className={i === 0 ? "font-bold" : ""}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button asChild variant="outline" className="w-full rounded-full h-11 border-primary/20 hover:border-primary hover:text-primary">
-                  <Link href="/registrace?variant=expres&course=B">
-                    Vybrat Expres
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        <div className="mt-24 text-center">
-          <Button asChild size="lg" variant="secondary" className="h-12 px-8 rounded-full font-semibold hover:bg-primary hover:text-white transition-all relative z-10 hover:scale-105 shadow-sm hover:shadow-lg">
-            <Link href="/cenik">
-              Zobrazit kompletní ceník <ChevronRight className="w-4 h-4 ml-2" />
-            </Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* Testimonials / Google Reviews Section - Moved here for better conversion */}
-      <section id="recenze" className="py-24 bg-white relative overflow-hidden">
-        <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto text-center mb-16 space-y-8">
-            <div className="relative inline-flex flex-col items-center group">
-              {/* Specialized Animated Gold Border */}
-              <div className="absolute -inset-[2px] bg-gradient-to-r from-amber-200 via-yellow-500 to-amber-200 rounded-[2.6rem] opacity-75 blur-[2px] group-hover:opacity-100 transition-opacity animate-pulse" />
-              <div className="absolute -inset-[1px] bg-gradient-to-r from-amber-300 via-yellow-600 to-amber-300 rounded-[2.55rem] animate-shimmer bg-[length:200%_100%]" />
-
-              <div className="relative flex flex-col items-center gap-6 p-10 md:p-14 bg-white rounded-[2.5rem] shadow-2xl z-10 w-full max-w-2xl">
-                <div className="flex flex-col items-center space-y-2">
-                  <div className="flex items-center gap-4">
-                    <span className="text-8xl md:text-9xl font-black text-foreground tracking-tighter drop-shadow-sm">5.0</span>
-                  </div>
-                  <div className="flex text-amber-500 gap-1 pb-2">
-                    <Star className="w-10 h-10 md:w-12 h-12 fill-current drop-shadow-md" />
-                    <Star className="w-10 h-10 md:w-12 h-12 fill-current drop-shadow-md" />
-                    <Star className="w-10 h-10 md:w-12 h-12 fill-current drop-shadow-md" />
-                    <Star className="w-10 h-10 md:w-12 h-12 fill-current drop-shadow-md" />
-                    <Star className="w-10 h-10 md:w-12 h-12 fill-current drop-shadow-md" />
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-center text-center space-y-6">
-                  <div className="space-y-2">
-                    <p className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight">Excelentní hodnocení</p>
-                    <p className="text-sm font-bold text-amber-600 uppercase tracking-[0.2em]">Nejlépe hodnocená autoškola na Googlu</p>
-                  </div>
-
-                  <Button asChild size="lg" className="rounded-full bg-white border-2 border-amber-500/30 text-amber-700 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 h-14 px-10 text-lg font-bold shadow-lg hover:shadow-primary/40 group-hover:scale-105 active:scale-95">
-                    <a href="https://search.google.com/local/writereview?placeid=ChIJ8-bh676VC0cRx9a6vFNu-i4" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                      Napsat recenzi na Google
-                    </a>
-                  </Button>
-                </div>
-
-                {/* Subtle elite glow elements */}
-                <div className="absolute top-0 right-0 p-4 opacity-10">
-                  <Star className="w-12 h-12 text-amber-500 fill-current rotate-12" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-4 opacity-10">
-                  <Star className="w-12 h-12 text-amber-500 fill-current -rotate-12" />
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-6xl font-black text-foreground tracking-tight">
-                Co o nás říkají žáci?
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Vaše spokojenost je pro nás nejlepší vizitkou. S hodnocením 5.0 na Googlu patříme mezi nejlépe hodnocené autoškoly v Praze.
-              </p>
-            </div>
-          </div>
-
-          <Carousel
-            setApi={setApiState}
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full relative"
-          >
-            <CarouselContent>
-              {reviews.map((review, i) => (
-                <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3 p-4">
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
-                    className="h-full p-8 bg-background rounded-[2rem] border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 relative flex flex-col"
-                  >
-                    <div className="flex text-amber-500 mb-4">
-                      <Star className="w-4 h-4 fill-current" />
-                      <Star className="w-4 h-4 fill-current" />
-                      <Star className="w-4 h-4 fill-current" />
-                      <Star className="w-4 h-4 fill-current" />
-                      <Star className="w-4 h-4 fill-current" />
-                    </div>
-                    <p className="text-foreground/90 italic mb-6 flex-grow">"{review.text}"</p>
-                    <div className="flex items-center justify-between border-t pt-4">
-                      <span className="font-bold">{review.name}</span>
-                      <span className="text-xs text-muted-foreground">{review.date}</span>
-                    </div>
-                    {/* Google Icon Badge */}
-                    <div className="absolute top-6 right-8 opacity-10">
-                      <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current">
-                        <path d="M12.48 10.92v3.28h4.74c-.2 1.06-.9 1.95-1.82 2.56l2.84 2.2c1.66-1.53 2.62-3.79 2.62-6.48 0-.46-.04-.9-.11-1.32H12.48z" fill="#4285F4" />
-                        <path d="M12.48 21c2.43 0 4.47-.81 5.96-2.18l-2.84-2.2c-.81.54-1.85.86-3.12.86-2.38 0-4.4-1.61-5.12-3.77L4.4 16.03C5.89 19 8.94 21 12.48 21z" fill="#34A853" />
-                        <path d="M7.36 13.75c-.18-.54-.28-1.12-.28-1.75s.1-1.21.28-1.75V7.92H4.4c-.65 1.25-1.02 2.67-1.02 4.18s.37 2.93 1.02 4.18l2.96-2.53z" fill="#FBBC05" />
-                        <path d="M12.48 6.44c1.32 0 2.5.45 3.44 1.35l2.58-2.58C16.94 3.65 14.91 3 12.48 3c-3.54 0-6.59 2-8.08 4.92l2.96 2.33c.72-2.16 2.74-3.77 5.12-3.77z" fill="#EA4335" />
-                      </svg>
-                    </div>
-                  </motion.div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            {/* Conditional navigation arrows if needed, but autoplay is primary */}
-          </Carousel>
-
-          <div className="mt-16 text-center">
-            <a
-              href="https://search.google.com/local/reviews?placeid=ChIJ8-bh676VC0cRx9a6vFNu-i4"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 text-primary font-bold hover:underline"
-            >
-              Zobrazit všech 37+ recenzí na Google <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* Testimonials / Google Reviews Section */}
+      <Suspense fallback={<div className="h-96" />}>
+        <ReviewsSection />
+      </Suspense>
 
       {/* License Types Section */}
-      <section id="vozovy-park" className="py-24 bg-white">
-        <div className="container">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl font-bold">Řidičská oprávnění</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Vyberte si skupinu, kterou chcete získat. Klikněte pro více informací o tom, co můžete řídit.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Dialog>
-              <DialogTrigger asChild>
-                <Card className="group relative overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-primary/10 bg-gradient-to-br from-white to-gray-50">
-                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <CarIcon className="w-24 h-24 text-primary" />
-                  </div>
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
-                      <CarIcon className="w-6 h-6" />
-                    </div>
-                    <CardTitle className="text-xl">Skupina B</CardTitle>
-                    <CardDescription>Osobní automobil (Manuál)</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">Klasický řidičák na auto s manuální převodovkou. Základ pro každého řidiče.</p>
-                  </CardContent>
-                </Card>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[500px]">
-                <DialogHeader>
-                  <DialogTitle className="flex items-center gap-2 text-2xl">
-                    <CarIcon className="w-6 h-6 text-primary" /> Skupina B
-                  </DialogTitle>
-                  <DialogDescription>
-                    Oprávnění k řízení osobních automobilů s manuální převodovkou.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="space-y-4 py-4">
-                  <h4 className="font-semibold">Co můžete řídit?</h4>
-                  <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                    <li>Motorová vozidla do 3.500 kg (osobní auta, dodávky)</li>
-                    <li>Vozidla s max. 8 místy k sezení kromě řidiče</li>
-                    <li>K vozidlu smí být připojeno přípojné vozidlo do 750 kg</li>
-                    <li>Traktory a samojízdné pracovní stroje do 3.500 kg</li>
-                    <li>Mopedy a malé motocykly (AM) a vozidla A1 s automatickou převodovkou (pouze v ČR)</li>
-                  </ul>
-                  <div className="bg-muted/50 p-4 rounded-lg mt-4">
-                    <p className="text-xs text-muted-foreground"><span className="font-semibold text-foreground">Podmínky:</span> Věk min. 18 let (výcvik od 16.5 let s mentorem).</p>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
-
-            <Dialog>
-              <DialogTrigger asChild>
-                <Card className="group relative overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-primary/10 bg-gradient-to-br from-white to-gray-50">
-                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <CarIcon className="w-24 h-24 text-primary" />
-                  </div>
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
-                      <CarIcon className="w-6 h-6" />
-                    </div>
-                    <CardTitle className="text-xl">Skupina B - Automat</CardTitle>
-                    <CardDescription>Osobní automobil (Automat)</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">Moderní cesta k řízení. Bez spojky, bez stresu, plné soustředění na provoz.</p>
-                  </CardContent>
-                </Card>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[500px]">
-                <DialogHeader>
-                  <DialogTitle className="flex items-center gap-2 text-2xl">
-                    <CarIcon className="w-6 h-6 text-primary" /> Skupina B - Automat
-                  </DialogTitle>
-                  <DialogDescription>
-                    Oprávnění k řízení osobních automobilů pouze s automatickou převodovkou.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="space-y-4 py-4">
-                  <h4 className="font-semibold">Co můžete řídit?</h4>
-                  <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                    <li>Motorová vozidla do 3.500 kg vybavená automatickou převodovkou</li>
-                    <li>Ideální pro jízdu ve městě a moderní vozy</li>
-                    <li>Stejný rozsah jako skupina B, ale omezeno na automat (kód 78 v řidičáku)</li>
-                    <li>Mopedy a malé motocykly (AM)</li>
-                  </ul>
-                  <div className="bg-yellow-500/10 p-4 rounded-lg mt-4 border border-yellow-500/20">
-                    <p className="text-xs text-yellow-700"><span className="font-semibold">Pozor:</span> S tímto oprávněním nesmíte řídit manuál. Pro zrušení omezení je nutná doplňovací zkouška.</p>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
-
-            <Dialog>
-              <DialogTrigger asChild>
-                <Card className="group relative overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-primary/10 bg-gradient-to-br from-white to-gray-50">
-                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <MotorcycleIcon className="w-24 h-24 text-primary" />
-                  </div>
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
-                      <MotorcycleIcon className="w-6 h-6" />
-                    </div>
-                    <CardTitle className="text-xl">Skupina AM / A1</CardTitle>
-                    <CardDescription>Motorky pro začínající</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">První krok do světa jedné stopy. Pro mladé řidiče od 15 nebo 16 let.</p>
-                  </CardContent>
-                </Card>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[500px]">
-                <DialogHeader>
-                  <DialogTitle className="flex items-center gap-2 text-2xl">
-                    <MotorcycleIcon className="w-6 h-6 text-primary" /> Skupina AM / A1
-                  </DialogTitle>
-                  <DialogDescription>
-                    Oprávnění pro malé motocykly a skútry.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="space-y-4 py-4">
-                  <h4 className="font-semibold">Co můžete řídit?</h4>
-                  <div className="space-y-4">
-                    <div>
-                      <strong className="text-sm">Skupina AM (od 15 let):</strong>
-                      <ul className="list-disc pl-5 text-sm text-muted-foreground mt-1">
-                        <li>Motorová vozidla s konstrukční rychlostí do 45 km/h</li>
-                        <li>Dvoukolová, tříkolová i lehká čtyřkolová vozidla</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <strong className="text-sm">Skupina A1 (od 16 let):</strong>
-                      <ul className="list-disc pl-5 text-sm text-muted-foreground mt-1">
-                        <li>Lehké motocykly do objemu 125 ccm</li>
-                        <li>Výkon nejvýše 11 kW</li>
-                        <li>Poměr výkon/hmotnost nejvýše 0.1 kW/kg</li>
-                        <li>Tříkolky do 15 kW</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
-
-            <Dialog>
-              <DialogTrigger asChild>
-                <Card className="group relative overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-primary/10 bg-gradient-to-br from-white to-gray-50">
-                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <MotorcycleIcon className="w-24 h-24 text-primary" />
-                  </div>
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
-                      <MotorcycleIcon className="w-6 h-6" />
-                    </div>
-                    <CardTitle className="text-xl">Skupina A2 / A</CardTitle>
-                    <CardDescription>Silné motocykly</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">Pro zkušenější jezdce. Od středně silných strojů až po neomezené mašiny.</p>
-                  </CardContent>
-                </Card>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[500px]">
-                <DialogHeader>
-                  <DialogTitle className="flex items-center gap-2 text-2xl">
-                    <MotorcycleIcon className="w-6 h-6 text-primary" /> Skupina A2 / A
-                  </DialogTitle>
-                  <DialogDescription>
-                    Oprávnění pro řízení výkonných motocyklů.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="space-y-4 py-4">
-                  <h4 className="font-semibold">Co můžete řídit?</h4>
-                  <div className="space-y-4">
-                    <div>
-                      <strong className="text-sm">Skupina A2 (od 18 let):</strong>
-                      <ul className="list-disc pl-5 text-sm text-muted-foreground mt-1">
-                        <li>Motocykly s výkonem do 35 kW</li>
-                        <li>Poměr výkon/hmotnost nejvýše 0.2 kW/kg</li>
-                        <li>Nesmějí být upraveny z motocyklu s více než dvojnásobným výkonem</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <strong className="text-sm">Skupina A (od 24 let nebo 2 roky po A2):</strong>
-                      <ul className="list-disc pl-5 text-sm text-muted-foreground mt-1">
-                        <li>Všechny druhy motocyklů bez omezení výkonu</li>
-                        <li>"Velká motorka" - královská třída</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
-          </div>
-        </div>
-      </section>
+      <Suspense fallback={<div className="h-96" />}>
+        <LicenseTypesSection />
+      </Suspense>
 
       {/* Mid-Page CTA - Redesigned */}
       <section className="py-12">
