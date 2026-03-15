@@ -72,7 +72,7 @@ export default function StudentZone() {
         {
             id: "octavia3",
             name: "Škoda Octavia III",
-            src: "https://calendar.google.com/calendar/embed?src=0e893f2345f220f3780438943b494f6302dfa1034e2166e10fa85b65f46b069c%40group.calendar.google.com&ctz=Europe%2FPrague",
+            src: "https://calendar.google.com/calendar/embed?src=OWU4OTNmMjM0NWYyMjBmMzc4MDQzODk0M2I0OTRmNjMwMmRmYTEwMzRlMjE2NmUxMGZhODViNjVmNDZiMDY5Y0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&ctz=Europe%2FPrague",
             color: "purple",
             type: "car",
             teacher: "Jiří Červenka",
