@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
@@ -57,6 +58,7 @@ function App() {
           <Toaster />
           <Router />
           <Analytics />
+          <SpeedInsights />
           <CookieConsent />
         </TooltipProvider>
       </ThemeProvider>
