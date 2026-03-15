@@ -99,7 +99,7 @@ export default function StudentZone() {
         {
             id: "simulator",
             name: "Trenažér",
-            src: "https://calendar.google.com/calendar/embed?src=073fd01bb7ba98b5655c749d4a88a4164875ba765782022477d303a204f6da7a%40group.calendar.google.com&ctz=Europe%2FPrague",
+            src: "https://calendar.google.com/calendar/embed?src=MDczZmQwMWJiN2JhYzhiNTY1NWM3NDlkNGE4OGE0MTY0ODc1YmE3NjU3ODIwMjI0NzdkMzAzYTIwNGY2ZGE3YUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&ctz=Europe%2FPrague",
             color: "slate",
             type: "simulator"
         }
