@@ -106,7 +106,8 @@ export default function Home() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.2
       }
     }
   } as any;
@@ -117,8 +118,8 @@ export default function Home() {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
-        stiffness: 100
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   } as any;
@@ -209,16 +210,16 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-20 md:pt-48 md:pb-32 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/5 via-background to-background">
-        <div className="absolute top-0 right-0 -z-10 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl opacity-50 translate-x-1/3 -translate-y-1/4" />
-        <div className="absolute bottom-0 left-0 -z-10 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl opacity-50 -translate-x-1/3 translate-y-1/4" />
+      <section className="relative overflow-hidden pt-32 pb-20 md:pt-48 md:pb-32 bg-background">
+        <div className="absolute top-0 right-0 -z-10 w-[800px] h-[800px] rounded-full opacity-30 translate-x-1/3 -translate-y-1/4 bg-[radial-gradient(circle,_var(--color-primary)_0%,_transparent_70%)]" />
+        <div className="absolute bottom-0 left-0 -z-10 w-[600px] h-[600px] rounded-full opacity-20 -translate-x-1/3 translate-y-1/4 bg-[radial-gradient(circle,_var(--color-accent)_0%,_transparent_70%)]" />
 
         <div className="container grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="space-y-8"
+            className="space-y-8 will-change-transform will-change-opacity"
           >
             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-white/50 backdrop-blur-sm border border-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">
               <span className="relative flex h-2 w-2 mr-2">
@@ -279,10 +280,10 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative h-[400px] md:h-[600px] lg:h-[700px] mt-8 lg:mt-0"
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative h-[400px] md:h-[600px] lg:h-[700px] mt-8 lg:mt-0 will-change-transform"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-[2rem] md:rounded-[3rem] rotate-3 blur-sm transform scale-95" />
+            <div className="absolute inset-0 bg-primary/10 rounded-[2rem] md:rounded-[3rem] rotate-3 transform scale-95" />
             <img
               src="/images/skoda-kodiaq-dejvice.png"
               alt="Instrukční vůz Škoda Kodiaq 2024 na Vítězném náměstí"
