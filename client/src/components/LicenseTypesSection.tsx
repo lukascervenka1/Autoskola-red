@@ -162,6 +162,56 @@ export default function LicenseTypesSection() {
                             </div>
                         </DialogContent>
                     </Dialog>
+
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Card className="group relative overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-primary/10 bg-gradient-to-br from-white to-gray-50">
+                                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                    <MotorcycleIcon className="w-24 h-24 text-primary" />
+                                </div>
+                                <CardHeader>
+                                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                                        <MotorcycleIcon className="w-6 h-6" />
+                                    </div>
+                                    <CardTitle className="text-xl">Skupina A2 / A</CardTitle>
+                                    <CardDescription>Silné motocykly</CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-sm text-muted-foreground">Pro zkušenější jezdce. Od středně silných strojů až po neomezené mašiny.</p>
+                                </CardContent>
+                            </Card>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[500px]">
+                            <DialogHeader>
+                                <DialogTitle className="flex items-center gap-2 text-2xl">
+                                    <MotorcycleIcon className="w-6 h-6 text-primary" /> Skupina A2 / A
+                                </DialogTitle>
+                                <DialogDescription>
+                                    Oprávnění pro řízení výkonných motocyklů.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <div className="space-y-4 py-4">
+                                <h4 className="font-semibold">Co můžete řídit?</h4>
+                                <div className="space-y-4">
+                                    <div>
+                                        <strong className="text-sm">Skupina A2 (od 18 let):</strong>
+                                        <ul className="list-disc pl-5 text-sm text-muted-foreground mt-1">
+                                            <li>Motocykly s výkonem do 35 kW</li>
+                                            <li>Poměr výkon/hmotnost nejvýše 0.2 kW/kg</li>
+                                            <li>Nesmějí být upraveny z motocyklu s více než dvojnásobným výkonem</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <strong className="text-sm">Skupina A (od 24 let nebo 2 roky po A2):</strong>
+                                        <ul className="list-disc pl-5 text-sm text-muted-foreground mt-1">
+                                            <li>Všechny druhy motocyklů bez omezení výkonu</li>
+                                            <li>"Velká motorka" - královská třída</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </DialogContent>
+                    </Dialog>
                 </div>
             </div>
         </section>
