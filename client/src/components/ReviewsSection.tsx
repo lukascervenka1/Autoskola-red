@@ -84,10 +84,10 @@ export default function ReviewsSection({ reviews = reviewsData }: ReviewsSection
             <div className="container relative z-10">
                 <div className="max-w-4xl mx-auto text-center mb-16 space-y-8">
                     <div className="relative inline-flex flex-col items-center group">
-                        <div className="absolute -inset-[2px] bg-gradient-to-r from-amber-200 via-yellow-500 to-amber-200 rounded-[2.6rem] opacity-75 blur-[2px] group-hover:opacity-100 transition-opacity animate-pulse" />
-                        <div className="absolute -inset-[1px] bg-gradient-to-r from-amber-300 via-yellow-600 to-amber-300 rounded-[2.55rem] animate-shimmer bg-[length:200%_100%]" />
-
-                        <div className="relative flex flex-col items-center gap-6 p-10 md:p-14 bg-white rounded-[2.5rem] shadow-2xl z-10 w-full max-w-2xl">
+                        {/* Simplified Premium Glow - Single layer, less CPU intensive */}
+                        <div className="absolute -inset-[3px] bg-gradient-to-r from-amber-400/20 via-yellow-500/40 to-amber-400/20 rounded-[2.7rem] blur-sm opacity-70" />
+                        
+                        <div className="relative flex flex-col items-center gap-6 p-10 md:p-14 bg-white rounded-[2.5rem] shadow-2xl z-10 w-full max-w-2xl border border-amber-500/20">
                             <div className="flex flex-col items-center space-y-2">
                                 <div className="flex items-center gap-4">
                                     <span className="text-8xl md:text-9xl font-black text-foreground tracking-tighter drop-shadow-sm">5.0</span>
@@ -106,7 +106,7 @@ export default function ReviewsSection({ reviews = reviewsData }: ReviewsSection
                                     <p className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight">Excelentní hodnocení</p>
                                     <p className="text-sm font-bold text-amber-600 uppercase tracking-[0.2em]">Nejlépe hodnocená autoškola na Googlu</p>
                                 </div>
-                                <Button asChild size="lg" className="rounded-full bg-white border-2 border-amber-500/30 text-amber-700 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 h-14 px-10 text-lg font-bold shadow-lg hover:shadow-primary/40 group-hover:scale-105 active:scale-95">
+                                <Button asChild size="lg" className="rounded-full bg-white border-2 border-amber-500/30 text-amber-700 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 h-14 px-10 text-lg font-bold shadow-lg hover:shadow-primary/40 active:scale-95">
                                     <a href="https://search.google.com/local/writereview?placeid=ChIJ8-bh676VC0cRx9a6vFNu-i4" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                                         Napsat recenzi na Google
                                     </a>

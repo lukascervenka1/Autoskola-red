@@ -42,6 +42,134 @@ const CarIcon = ({ className }: { className?: string }) => (
 
 import { SEO } from "@/components/SEO";
 
+const faqData = [
+  {
+    question: "Kolik přednášek / teorie musím absolvovat?",
+    answer: "Celkem 4 přednášky, ve kterých je zahrnut i zdravotnický kurz. Bez splnění této podmínky nelze žáka připustit k závěrečné zkoušce."
+  },
+  {
+    question: "Jak probíhá výuka?",
+    answer: "Délka a intenzita závisí na typu kurzu. Například standardní lekce trvá 2x 45 minut (tedy 90 minut čistého času)."
+  },
+  {
+    question: "Mohu si vybrat, s jakým autem chci kurz absolvovat?",
+    answer: "Výběr vozu je vázán na konkrétního instruktora. Pokud si zvolíte kurz s automatickou převodovkou, v naší autoškole momentálně disponujeme moderním vozem Škoda Kodiaq."
+  },
+  {
+    question: "Musím mít nějaké potvrzení od lékaře?",
+    answer: "Ano, to je zcela klíčové. Bez platné lékařské prohlídky a potvrzení o zdravotní způsobilosti není ze zákona možné zahájit praktický výcvik."
+  },
+  {
+    question: "Jak vypadá závěrečná zkouška?",
+    answer: "Zkouška začíná písemným testem z pravidel silničního provozu. Po jeho úspěšném absolvování následuje praktická jízda s komisařem, kde prokážete své řidičské dovednosti."
+  },
+  {
+    question: "Bojím se řídit, je možné si to nejdřív vyzkoušet na simulátoru?",
+    answer: "Samozřejmě! To je u nás běžný postup. Nemusíte mít strach – začneme v naprostém klidu na trenažéru. Do ostrého provozu půjdeme až ve chvíli, kdy získáte potřebnou jistotu. Rozumíme stresu začátečníků a rozhodně vás nebudeme tlačit do složitých situací dříve, než na ně budete připraveni."
+  },
+  {
+    question: "Jak se nejlépe připravit na závěrečnou zkoušku?",
+    answer: "Základem je pravidelná docházka a aktivní příprava během celého kurzu. Doporučujeme průběžně procvičovat online testy – naše autoškola vám poskytne přístup k aplikaci, kde si můžete testy zkoušet neomezeně a zcela zdarma."
+  }
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+} as any;
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+} as any;
+
+const structuredDataStatic = [
+  {
+    "@context": "https://schema.org",
+    "@type": "DrivingSchool",
+    "name": "Autoškola RED",
+    "alternateName": "Autoškola Praha 6 RED",
+    "image": "https://autoskola.red/images/skoda-kodiaq-dejvice.png",
+    "description": "Prémiová autoškola v Praze 6 Dejvicích. Nabízíme individuální přístup, moderní vozy Škoda Kodiaq 2024 a výcvik v klidu a pohodě pro skupiny B a A.",
+    "@id": "https://autoskola.red/#organization",
+    "url": "https://autoskola.red",
+    "telephone": "+420608913000",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Puškinovo náměstí 681/3",
+      "addressLocality": "Praha 6 - Bubeneč",
+      "postalCode": "160 00",
+      "addressCountry": "CZ"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 50.1018,
+      "longitude": 14.4034
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Praha 6" },
+      { "@type": "City", "name": "Dejvice" },
+      { "@type": "City", "name": "Bubeneč" },
+      { "@type": "City", "name": "Hradčany" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "37"
+    },
+    "knowsAbout": ["Řidičský průkaz skupina B", "Řidičský průkaz skupina A", "Kondiční jízdy", "Vrácení řidičského průkazu"],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Thursday"],
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61569570703723",
+      "https://www.instagram.com/autoskola_red/"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Autoškola RED",
+    "url": "https://autoskola.red",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://autoskola.red/blog?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+
 export default function Home() {
   const [location] = useLocation();
 
@@ -57,146 +185,6 @@ export default function Home() {
     }
   }, [location]);
 
-  const faqData = [
-    {
-      question: "Kolik přednášek / teorie musím absolvovat?",
-      answer: "Celkem 4 přednášky, ve kterých je zahrnut i zdravotnický kurz. Bez splnění této podmínky nelze žáka připustit k závěrečné zkoušce."
-    },
-    {
-      question: "Jak probíhá výuka?",
-      answer: "Délka a intenzita závisí na typu kurzu. Například standardní lekce trvá 2x 45 minut (tedy 90 minut čistého času)."
-    },
-    {
-      question: "Mohu si vybrat, s jakým autem chci kurz absolvovat?",
-      answer: "Výběr vozu je vázán na konkrétního instruktora. Pokud si zvolíte kurz s automatickou převodovkou, v naší autoškole momentálně disponujeme moderním vozem Škoda Kodiaq."
-    },
-    {
-      question: "Musím mít nějaké potvrzení od lékaře?",
-      answer: "Ano, to je zcela klíčové. Bez platné lékařské prohlídky a potvrzení o zdravotní způsobilosti není ze zákona možné zahájit praktický výcvik."
-    },
-    {
-      question: "Jak vypadá závěrečná zkouška?",
-      answer: "Zkouška začíná písemným testem z pravidel silničního provozu. Po jeho úspěšném absolvování následuje praktická jízda s komisařem, kde prokážete své řidičské dovednosti."
-    },
-    {
-      question: "Bojím se řídit, je možné si to nejdřív vyzkoušet na simulátoru?",
-      answer: "Samozřejmě! To je u nás běžný postup. Nemusíte mít strach – začneme v naprostém klidu na trenažéru. Do ostrého provozu půjdeme až ve chvíli, kdy získáte potřebnou jistotu. Rozumíme stresu začátečníků a rozhodně vás nebudeme tlačit do složitých situací dříve, než na ně budete připraveni."
-    },
-    {
-      question: "Jak se nejlépe připravit na závěrečnou zkoušku?",
-      answer: "Základem je pravidelná docházka a aktivní příprava během celého kurzu. Doporučujeme průběžně procvičovat online testy – naše autoškola vám poskytne přístup k aplikaci, kde si můžete testy zkoušet neomezeně a zcela zdarma."
-    }
-  ];
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqData.map(item => ({
-      "@type": "Question",
-      "name": item.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": item.answer
-      }
-    }))
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  } as any;
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
-  } as any;
-
-  const structuredData = [
-    {
-      "@context": "https://schema.org",
-      "@type": "DrivingSchool",
-      "name": "Autoškola RED",
-      "alternateName": "Autoškola Praha 6 RED",
-      "image": "https://autoskola.red/images/skoda-kodiaq-dejvice.png",
-      "description": "Prémiová autoškola v Praze 6 Dejvicích. Nabízíme individuální přístup, moderní vozy Škoda Kodiaq 2024 a výcvik v klidu a pohodě pro skupiny B a A.",
-      "@id": "https://autoskola.red/#organization",
-      "url": "https://autoskola.red",
-      "telephone": "+420608913000",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Puškinovo náměstí 681/3",
-        "addressLocality": "Praha 6 - Bubeneč",
-        "postalCode": "160 00",
-        "addressCountry": "CZ"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 50.1018,
-        "longitude": 14.4034
-      },
-      "areaServed": [
-        { "@type": "City", "name": "Praha 6" },
-        { "@type": "City", "name": "Dejvice" },
-        { "@type": "City", "name": "Bubeneč" },
-        { "@type": "City", "name": "Hradčany" }
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "37"
-      },
-      "knowsAbout": ["Řidičský průkaz skupina B", "Řidičský průkaz skupina A", "Kondiční jízdy", "Vrácení řidičského průkazu"],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Thursday"],
-          "opens": "14:00",
-          "closes": "18:00"
-        }
-      ],
-      "sameAs": [
-        "https://www.facebook.com/profile.php?id=61569570703723",
-        "https://www.instagram.com/autoskola_red/"
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Autoškola RED",
-      "url": "https://autoskola.red",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://autoskola.red/blog?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqData.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": item.answer
-        }
-      }))
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20 selection:text-primary">
@@ -205,7 +193,7 @@ export default function Home() {
         description="Prémiová autoškola v srdci Dejvic. Moderní výcvik v nových vozech Škoda Kodiaq 2024. Individuální přístup, klidné jízdy a vysoká úspěšnost u zkoušek v Praze 6."
         canonical="https://autoskola.red/"
         image="/images/skoda-kodiaq-dejvice.png"
-        structuredData={structuredData}
+        structuredData={structuredDataStatic}
       />
       <Navbar />
 
