@@ -1,10 +1,15 @@
 {
+    "trailingSlash": false,
     "redirects": [
         { "source": "/about-1", "destination": "/", "permanent": true },
         { "source": "/ceník", "destination": "/cenik", "permanent": true },
+        { "source": "/cen%C3%ADk", "destination": "/cenik", "permanent": true },
         { "source": "/chci-se-přihlásit", "destination": "/registrace", "permanent": true },
+        { "source": "/chci-se-p%C5%99ihl%C3%A1sit", "destination": "/registrace", "permanent": true },
         { "source": "/vozový-park", "destination": "/#vozovy-park", "permanent": true },
+        { "source": "/vozov%C3%BD-park", "destination": "/#vozovy-park", "permanent": true },
         { "source": "/vánoční-voucher", "destination": "/cenik", "permanent": true },
+        { "source": "/v%C3%A1no%C4%8Dn%C3%AD-voucher", "destination": "/cenik", "permanent": true },
         { "source": "/blank", "destination": "/obchodni-podminky", "permanent": true },
         { "source": "/gdpr", "destination": "/ochrana-osobnich-udaju", "permanent": true },
         { "source": "/b", "destination": "/", "permanent": true },
