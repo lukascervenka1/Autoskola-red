@@ -159,5 +159,89 @@ export const blogPosts: BlogPost[] = [
 
       <p class="mt-8 italic text-sm text-muted-foreground">Klíčová slova: Autoškola Praha 6, Autoškola Dejvice, řidičský průkaz Praha 6, výcvik v Praze, Škoda Kodiaq autoškola, Vítězné náměstí doprava.</p>
     `
+  },
+  {
+    id: "4",
+    slug: "co-muzete-ridit-s-jakym-opravnenim",
+    title: "Přehled řidičských oprávnění: Co můžete řídit s jakým průkazem?",
+    excerpt: "Neztrácejte se v kategoriích! Zjistěte zřetelně a jasně, k čemu vás opravňují jednotlivé skupiny řidičáků. Od mopedu AM přes motorky A až po osobní auta skupiny B v Autoškole RED.",
+    date: "22. Březen 2026",
+    dateIso: "2026-03-22",
+    author: "Tým Autoškola RED",
+    category: "Tipy a rady",
+    readTime: "7 min čtení",
+    image: "/images/driving_licenses_thumbnail.png",
+    content: `
+      <p class="mb-4 text-lg font-medium">Vyznat se v jednotlivých skupinách řidičských oprávnění může být na první pohled docela oříšek. Co vlastně znamená skupina AM, jak se od sebe liší A1, A2 a A, a s čím vším můžete vyrazit na silnici, jakmile získáte oblíbené "Béčko"?</p>
+      <p class="mb-6">Připravili jsme pro vás srozumitelný přehled, který vám v tom udělá pořádek. Ať už toužíte po svobodě na dvou kolech nebo potřebujete vozit rodinu v bezpečí velkého vozu, po přečtení tohoto článku budete mít naprosto jasno.</p>
+
+      <h2 class="text-3xl font-black mb-6 mt-12 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Motocykly a skútry (Skupiny AM, A1, A2, A)</h2>
+      <p class="mb-6">Jízda na dvou kolech je symbolem svobody. Oprávnění se zde dělí primárně podle věku a výkonu stroje.</p>
+
+      <h3 class="text-xl font-bold mb-3 mt-8">Skupina AM (Od 15 let)</h3>
+      <p class="mb-2">Tohle je vaše první vstupenka do světa motorů. S oprávněním AM můžete řídit:</p>
+      <ul class="list-disc pl-5 mb-4 space-y-1 text-muted-foreground hover:text-foreground transition-colors">
+        <li>Dvoukolová, tříkolová i čtyřkolová vozidla s konstrukční rychlostí do 45 km/h.</li>
+        <li>Spalovací motory do objemu 50 cm³.</li>
+        <li>Elektromotory s výkonem do 4 kW.</li>
+      </ul>
+      <p class="mb-6"><span class="font-bold text-primary">Tip Autoškoly Praha 6:</span> Pro studenty v Dejvicích je skútr ideální cestou, jak se vyhnout ranním zácpám. V Autoškole RED vás na první kilometry v provozu připravíme bezpečně a v klidu, přímo v srdci Prahy 6.</p>
+
+      <h3 class="text-xl font-bold mb-3 mt-8">Skupina A1 (Od 16 let)</h3>
+      <p class="mb-2">O stupeň vyšší liga pro mladé motorkáře. Umožňuje řídit:</p>
+      <ul class="list-disc pl-5 mb-4 space-y-1 text-muted-foreground hover:text-foreground transition-colors">
+        <li>Lehké motocykly s postranním vozíkem i bez něj do objemu 125 cm³ a výkonu max 11 kW.</li>
+        <li>Tříkolky do výkonu 15 kW.</li>
+        <li>Čtyřkolky do výkonu 15 kW a hmotnosti 400 kg.</li>
+      </ul>
+
+      <h3 class="text-xl font-bold mb-3 mt-8">Skupina A2 (Od 18 let)</h3>
+      <p class="mb-2">Předstupeň pro velké mašiny, který dává smysl, pokud už máte v 18 letech jasno, že chcete víc než jen A1.</p>
+      <ul class="list-disc pl-5 mb-6 space-y-1 text-muted-foreground hover:text-foreground transition-colors">
+        <li>Motocykly s výkonem max 35 kW.</li>
+        <li>Poměr výkon/hmotnost nesmí přesáhnout 0,2 kW/kg.</li>
+      </ul>
+
+      <h3 class="text-xl font-bold mb-3 mt-8">Skupina A (Od 24 let, nebo 20 let s praxí)</h3>
+      <p class="mb-4">Královská disciplína. Toto oprávnění vás pouští na jakékoliv motocykly bez omezení výkonu a objemu. Můžete s ním řídit všechny silné stroje a tříkolky nad 15 kW (zde platí věk 21 let).</p>
+
+      <h2 class="text-3xl font-black mb-6 mt-12 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Osobní automobily (Skupina B)</h2>
+      <p class="mb-6">Skupina, kterou řeší téměř každý student v Praze. S řidičákem skupiny B toho můžete řídit překvapivě hodně, nejen "obyčejné auto".</p>
+
+      <div class="bg-primary/5 p-6 rounded-2xl border border-primary/20 my-8 shadow-sm">
+        <h3 class="text-xl font-bold mb-3">Co vše lze řídit s oprávněním B?</h3>
+        <ul class="list-disc pl-5 space-y-2 text-foreground/90">
+          <li><strong>Motorová vozidla do 3,5 tuny</strong> s max. 8 místy k sezení mimo řidiče (dodávky, SUV, rodinná auta).</li>
+          <li><strong>Přípojná vozidla do 750 kg</strong>. Pokud je vozík těžší, celková hmotnost soupravy nesmí přesáhnout 3 500 kg.</li>
+          <li>Vozidla zařazená do <strong>skupiny AM</strong> (skútry do 45 km/h).</li>
+          <li>Motocykly o objemu <strong>do 125 cm³ s automatickou převodovkou</strong> (ideální pro ranní cestu na přednášku přes Dejvice).</li>
+        </ul>
+      </div>
+
+      <h3 class="text-xl font-bold mb-3 mt-8">Rozšíření B96 a Skupina B+E</h3>
+      <p class="mb-4">Chcete tahat těžší přívěsy např. s koňmi nebo velký karavan? Pak se vám hodí rozšíření. Zatímco s <strong>B96</strong> můžete řídit soupravu až do 4 250 kg (stačí absolvovat zkoušku z jízdy), <strong>Skupina B+E</strong> vám dovolí táhnout přívěs až do hmotnosti 3 500 kg za vozidlem do 3 500 kg.</p>
+
+      <div class="bg-secondary/20 p-8 rounded-3xl border border-border my-10 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none"></div>
+        <div class="relative z-10">
+          <h3 class="text-2xl font-black mb-4">Nejlepší Autoškola v Praze 6 Dejvicích</h3>
+          <p class="mb-6 text-lg text-foreground/80">Hledáte autoškolu v Dejvicích, kde vás opravdu naučí řídit v reálném pražském provozu? V **Autoškole RED** sázíme na moderní přístup, lidské jednání a zázemí přímo u kampusu vysokých škol. Naučíme vás suverénně zvládat Kulaťák i úzké uličky Bubenče s naprostým přehledem.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/kurzy" class="px-8 py-4 bg-primary text-white font-bold rounded-full hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1 transition-all">
+              Chci řidičák v Dejvicích
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-black mb-4 mt-12">Ostatní skupiny: C a D</h2>
+      <p class="mb-4">Pro úplnost zmiňme skupiny <strong>C (nákladní automobily nad 3,5 t)</strong> a <strong>D (autobusy – vozidla nad 8 míst)</strong>. Řízení těchto kolosů vyžaduje pokročilé schopnosti, přísnější lékařské prohlídky a zpravidla také profesní průkaz, pokud řízením plánujete vydělávat.</p>
+
+      <h3 class="text-xl font-bold mb-3 mt-8">Závěr</h3>
+      <p class="mb-4">Ať už vás láká mrštný skútr na dojíždění na ČVUT, nebo potřebujete plnohodnotné "Béčko" pro budoucí kariéru, Autoškola RED v Praze 6 Dejvicích je Vaším partnerem, který Vás nenechá ve štychu.</p>
+      <p class="mb-8">Jsme tu od toho, abychom z vás udělali sebevědomé řidiče. Těšíme se na vás v Autoškole Praha 6 Dejvice!</p>
+
+      <p class="mt-8 italic text-sm text-muted-foreground border-t border-border pt-4">Klíčová slova: Autoškola Praha 6, Autoškola Dejvice, řidičské oprávnění, skupiny řidičských průkazů, co můžu řídit, řidičák B Praha 6, autoškola pro studenty ČVUT, řidičák v Dejvicích.</p>
+    `
   }
 ];
