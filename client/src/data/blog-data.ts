@@ -56,7 +56,7 @@ export const blogPosts: BlogPost[] = [
     author: "Tým Autoškola RED",
     category: "Tipy a rady",
     readTime: "7 min čtení",
-    image: "/images/kolik-stoji-ridicak-v-praze.png",
+    image: "/images/kolik-stoji-ridicak-v-praze.webp",
     content: `
       <p class="mb-4 text-lg font-medium">Vybrat si dnes správnou autoškolu v Praze není jen o tom najít nejnižší cenu. Na první pohled mohou vypadat nabídky podobně, ale když se člověk začne dívat detailněji, zjistí, že rozdíly mezi jednotlivými autoškolami jsou často opravdu velké.</p>
 
@@ -130,7 +130,7 @@ export const blogPosts: BlogPost[] = [
     author: "Tým Autoškola RED",
     category: "Tipy a rady",
     readTime: "6 min čtení",
-    image: "/images/dejvice-white-kodiaq-blog.png",
+    image: "/images/dejvice-white-kodiaq-blog.webp",
     content: `
       <p class="mb-4">Výběr autoškoly je jedním z nejdůležitějších rozhodnutí pro vaši budoucí bezpečnost na cestách. Pokud bydlíte nebo studujete v Praze 6, máte obrovskou výhodu. Dejvice jsou totiž pro výcvik budoucích řidičů naprosto unikátní lokalitou. Proč je ale \"řidičák v Dejvicích\" tak vyhledávaným pojmem?</p>
 
@@ -170,7 +170,7 @@ export const blogPosts: BlogPost[] = [
     author: "Tým Autoškola RED",
     category: "Tipy a rady",
     readTime: "7 min čtení",
-    image: "/images/driving_licenses_thumbnail.png",
+    image: "/images/driving_licenses_thumbnail.webp",
     content: `
       <p class="mb-4 text-lg font-medium">Vyznat se v jednotlivých skupinách řidičských oprávnění může být na první pohled docela oříšek. Co vlastně znamená skupina AM, jak se od sebe liší A1, A2 a A, a s čím vším můžete vyrazit na silnici, jakmile získáte oblíbené "Béčko"?</p>
       <p class="mb-6">Připravili jsme pro vás srozumitelný přehled, který vám v tom udělá pořádek. Ať už toužíte po svobodě na dvou kolech nebo potřebujete vozit rodinu v bezpečí velkého vozu, po přečtení tohoto článku budete mít naprosto jasno.</p>

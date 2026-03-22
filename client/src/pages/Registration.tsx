@@ -131,7 +131,7 @@ export default function Registration() {
         title="Online přihláška | Autoškola Praha 6 Dejvice 2026"
         description="Závazná online přihláška do Autoškoly RED v Dejvicích. Vyberte si kurz B, B automat nebo motocykl. Začněte v Praze 6 ještě dnes."
         canonical="https://autoskola.red/registrace"
-        image="/images/skoda-kodiaq-dejvice.png"
+        image="/images/skoda-kodiaq-dejvice.webp"
         structuredData={structuredData}
       />
       <Navbar />

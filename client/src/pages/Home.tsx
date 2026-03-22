@@ -102,7 +102,7 @@ const structuredDataStatic = [
     "@type": "DrivingSchool",
     "name": "Autoškola RED",
     "alternateName": "Autoškola Praha 6 RED",
-    "image": "https://autoskola.red/images/skoda-kodiaq-dejvice.png",
+    "image": "https://autoskola.red/images/skoda-kodiaq-dejvice.webp",
     "description": "Prémiová autoškola v Praze 6 Dejvicích. Nabízíme individuální přístup, moderní vozy Škoda Kodiaq 2024 a výcvik v klidu a pohodě pro skupiny B a A.",
     "@id": "https://autoskola.red/#organization",
     "url": "https://autoskola.red",
@@ -167,6 +167,19 @@ const structuredDataStatic = [
         "text": item.answer
       }
     }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Autoškola RED Praha 6 Dejvice",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".seo-speakable", "h1", ".hero-description"]
+    },
+    "mainEntity": {
+      "@type": "DrivingSchool",
+      "@id": "https://autoskola.red/#organization"
+    }
   }
 ];
 
@@ -192,7 +205,7 @@ export default function Home() {
         title="Autoškola RED Praha 6 Dejvice | Řidičák snadno a v pohodě"
         description="Prémiová autoškola v srdci Dejvic. Moderní výcvik v nových vozech Škoda Kodiaq 2024. Individuální přístup, klidné jízdy a vysoká úspěšnost u zkoušek v Praze 6."
         canonical="https://autoskola.red/"
-        image="/images/skoda-kodiaq-dejvice.png"
+        image="/images/skoda-kodiaq-dejvice.webp"
         structuredData={structuredDataStatic}
       />
       <Navbar />
@@ -224,7 +237,7 @@ export default function Home() {
               </span>
             </motion.h1>
 
-            <motion.p variants={itemVariants} className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-6">
+            <motion.p variants={itemVariants} className="hero-description text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-6">
               Získejte řidičák v klidu a bez stresu přímo v srdci Dejvic. Spojujeme moderní
               přístup s precizním výcvikem v nejnovějších vozech pro váš jistý start do provozu.
             </motion.p>
@@ -273,10 +286,12 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-primary/10 rounded-[2rem] md:rounded-[3rem] rotate-3 transform scale-95" />
             <img
-              src="/images/skoda-kodiaq-dejvice.png"
+              src="/images/skoda-kodiaq-dejvice.webp"
               alt="Instrukční vůz Škoda Kodiaq 2024 na Vítězném náměstí"
               className="relative rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl object-cover h-full w-full z-10 border-4 border-white"
               loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
 
             {/* Floating Badge 1 - Hidden on small mobile */}
@@ -367,7 +382,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-5xl font-black text-foreground">
               Proč si vybrat nás?
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="seo-speakable text-lg text-muted-foreground max-w-2xl mx-auto">
               Děláme autoškolu jinak. Moderně, v klidu a s úsměvem.
             </p>
           </div>

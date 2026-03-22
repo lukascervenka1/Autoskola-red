@@ -23,7 +23,7 @@ export default function Contact() {
             "url": "https://autoskola.red/kontakt",
             "telephone": "+420608913000",
             "email": "info@autoskola.red",
-            "image": "https://autoskola.red/images/skoda-kodiaq-dejvice.png",
+            "image": "https://autoskola.red/images/skoda-kodiaq-dejvice.webp",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Puškinovo náměstí 681/3",
@@ -78,7 +78,7 @@ export default function Contact() {
                 title="Kontakt a kudy k nám | Autoškola Praha 6 Dejvice"
                 description="Hledáte nás v Dejvicích? Sídlíme na Puškinově náměstí 3, Praha 6. Zastavte se za námi nebo nás kontaktujte telefonicky na +420 608 913 000."
                 canonical="https://autoskola.red/kontakt"
-                image="/images/skoda-kodiaq-dejvice.png"
+                image="/images/skoda-kodiaq-dejvice.webp"
                 structuredData={structuredData}
             />
             <Navbar />

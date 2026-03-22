@@ -27,7 +27,7 @@ export default function Blog() {
                 title="Blog Autoškola Praha 6 | Rady pro řidiče z Dejvic"
                 description="Magazín Autoškoly RED. Tipy k řízení v Praze 6, novinky v předpisech a rady pro studenty z Dejvic, jak zvládnout řidičák v klidu."
                 canonical="https://autoskola.red/blog"
-                image="/images/skoda-kodiaq-dejvice.png"
+                image="/images/skoda-kodiaq-dejvice.webp"
                 structuredData={structuredData}
             />
             <Navbar />

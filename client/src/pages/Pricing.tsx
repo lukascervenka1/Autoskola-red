@@ -260,7 +260,7 @@ export default function Pricing() {
                 title="Ceník autoškoly Praha 6 Dejvice 2026 | Autoškola RED"
                 description="Transparentní ceník řidičských průkazů v Praze 6. Skupiny B (manuál i automat), motocykly A, A1, A2, AM. Férové ceny bez skrytých poplatků v centru Dejvic."
                 canonical="https://autoskola.red/cenik"
-                image="/images/skoda-kodiaq-dejvice.png"
+                image="/images/skoda-kodiaq-dejvice.webp"
                 structuredData={structuredData}
             />
             <Navbar />
