@@ -78,20 +78,20 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2
+      staggerChildren: 0.05,
+      delayChildren: 0
     }
   }
 } as any;
 
 const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: 10, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1]
+      duration: 0.3,
+      ease: "easeOut"
     }
   }
 } as any;
@@ -257,9 +257,9 @@ export default function Home() {
 
             <motion.div variants={itemVariants} className="pt-8 flex items-center gap-8 text-sm font-medium text-muted-foreground">
               <div className="flex -space-x-3">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-background bg-muted flex items-center justify-center overflow-hidden">
-                    <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt={`Spokojený student autoškoly v Praze 6 č. ${i}`} className="w-full h-full object-cover" />
+                {["VN", "JK", "TP", "MS"].map((initials, i) => (
+                  <div key={i} className="w-10 h-10 rounded-full border-2 border-background bg-primary/10 flex items-center justify-center overflow-hidden">
+                    <span className="text-[10px] font-bold text-primary">{initials}</span>
                   </div>
                 ))}
               </div>
@@ -281,7 +281,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="relative h-[400px] md:h-[600px] lg:h-[700px] mt-8 lg:mt-0 will-change-transform"
           >
             <div className="absolute inset-0 bg-primary/10 rounded-[2rem] md:rounded-[3rem] rotate-3 transform scale-95" />
@@ -298,7 +298,7 @@ export default function Home() {
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 1 }}
+              transition={{ delay: 0.3, duration: 0.3 }}
               className="absolute -left-4 md:-left-12 top-1/4 z-20 glass p-3 md:p-4 rounded-xl md:rounded-2xl shadow-xl flex items-center gap-3 md:gap-4 max-w-[180px] md:max-w-[250px]"
             >
               <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
@@ -314,8 +314,7 @@ export default function Home() {
             <motion.div
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ delay: 1.2 }}
+              transition={{ delay: 0.4, duration: 0.3 }}
               className="absolute -right-4 md:-right-8 bottom-[45%] z-20 glass p-3 md:p-4 rounded-xl md:rounded-2xl shadow-xl flex items-center gap-3 md:gap-4"
             >
               <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">

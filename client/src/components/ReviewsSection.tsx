@@ -1,5 +1,4 @@
 
-import { motion } from "framer-motion";
 import { Star, ArrowRight } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselApi } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
@@ -73,10 +72,20 @@ export default function ReviewsSection({ reviews = reviewsData }: ReviewsSection
 
     React.useEffect(() => {
         if (!apiState) return;
-        const intervalId = setInterval(() => {
-            apiState.scrollNext();
-        }, 5000);
-        return () => clearInterval(intervalId);
+        let rafId: number;
+        let lastTime = 0;
+        const INTERVAL = 5000;
+
+        const tick = (timestamp: number) => {
+            if (timestamp - lastTime >= INTERVAL) {
+                lastTime = timestamp;
+                apiState.scrollNext();
+            }
+            rafId = requestAnimationFrame(tick);
+        };
+
+        rafId = requestAnimationFrame(tick);
+        return () => cancelAnimationFrame(rafId);
     }, [apiState]);
 
     return (
@@ -136,12 +145,7 @@ export default function ReviewsSection({ reviews = reviewsData }: ReviewsSection
                     <CarouselContent>
                         {reviews.map((review, i) => (
                             <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3 p-4">
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5 }}
-                                    className="h-full p-8 bg-background rounded-[2rem] border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 relative flex flex-col"
-                                >
+                                <div className="h-full p-8 bg-background rounded-[2rem] border border-border/50 shadow-sm hover:shadow-xl transition-shadow duration-300 relative flex flex-col">
                                     <div className="flex text-amber-500 mb-4">
                                         <Star className="w-4 h-4 fill-current" />
                                         <Star className="w-4 h-4 fill-current" />
@@ -162,7 +166,7 @@ export default function ReviewsSection({ reviews = reviewsData }: ReviewsSection
                                             <path d="M12.48 6.44c1.32 0 2.5.45 3.44 1.35l2.58-2.58C16.94 3.65 14.91 3 12.48 3c-3.54 0-6.59 2-8.08 4.92l2.96 2.33c.72-2.16 2.74-3.77 5.12-3.77z" fill="#EA4335" />
                                         </svg>
                                     </div>
-                                </motion.div>
+                                </div>
                             </CarouselItem>
                         ))}
                     </CarouselContent>
