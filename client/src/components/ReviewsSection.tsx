@@ -72,20 +72,12 @@ export default function ReviewsSection({ reviews = reviewsData }: ReviewsSection
 
     React.useEffect(() => {
         if (!apiState) return;
-        let rafId: number;
-        let lastTime = 0;
-        const INTERVAL = 5000;
-
-        const tick = (timestamp: number) => {
-            if (timestamp - lastTime >= INTERVAL) {
-                lastTime = timestamp;
+        const id = setInterval(() => {
+            if (!document.hidden) {
                 apiState.scrollNext();
             }
-            rafId = requestAnimationFrame(tick);
-        };
-
-        rafId = requestAnimationFrame(tick);
-        return () => cancelAnimationFrame(rafId);
+        }, 5000);
+        return () => clearInterval(id);
     }, [apiState]);
 
     return (
