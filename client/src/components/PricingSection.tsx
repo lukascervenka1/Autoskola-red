@@ -19,7 +19,7 @@ export default function PricingSection() {
 
                 <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
                     {/* Economy */}
-                    <Card className="border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <Card className="border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-xl transition-[box-shadow,transform] duration-300 hover:-translate-y-1">
                         <CardHeader>
                             <CardTitle className="text-2xl font-bold">Economy</CardTitle>
                             <CardDescription>Pro studenty s časem</CardDescription>
@@ -110,7 +110,7 @@ export default function PricingSection() {
                     </Card>
 
                     {/* VIP */}
-                    <Card className="border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <Card className="border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-xl transition-[box-shadow,transform] duration-300 hover:-translate-y-1">
                         <CardHeader>
                             <CardTitle className="text-2xl font-bold">Expres</CardTitle>
                             <CardDescription>Individuální přístup</CardDescription>
@@ -147,7 +147,7 @@ export default function PricingSection() {
             </div>
 
             <div className="mt-24 text-center">
-                <Button asChild size="lg" variant="secondary" className="h-12 px-8 rounded-full font-semibold hover:bg-primary hover:text-white transition-all relative z-10 hover:scale-105 shadow-sm hover:shadow-lg">
+                <Button asChild size="lg" variant="secondary" className="h-12 px-8 rounded-full font-semibold hover:bg-primary hover:text-white transition-[color,background-color,box-shadow,transform] duration-200 relative z-10 hover:scale-105 shadow-sm hover:shadow-lg">
                     <Link href="/cenik">
                         Zobrazit kompletní ceník <ChevronRight className="w-4 h-4 ml-2" />
                     </Link>

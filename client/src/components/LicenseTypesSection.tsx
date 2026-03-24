@@ -29,7 +29,7 @@ export default function LicenseTypesSection() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <Dialog>
                         <DialogTrigger asChild>
-                            <Card className="group relative overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-primary/10 bg-gradient-to-br from-white to-gray-50">
+                            <Card className="group relative overflow-hidden cursor-pointer hover:shadow-2xl transition-[box-shadow,transform] duration-300 hover:-translate-y-1 border-primary/10 bg-gradient-to-br from-white to-gray-50">
                                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <CarIcon className="w-24 h-24 text-primary" />
                                 </div>
@@ -72,7 +72,7 @@ export default function LicenseTypesSection() {
 
                     <Dialog>
                         <DialogTrigger asChild>
-                            <Card className="group relative overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-primary/10 bg-gradient-to-br from-white to-gray-50">
+                            <Card className="group relative overflow-hidden cursor-pointer hover:shadow-2xl transition-[box-shadow,transform] duration-300 hover:-translate-y-1 border-primary/10 bg-gradient-to-br from-white to-gray-50">
                                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <CarIcon className="w-24 h-24 text-primary" />
                                 </div>
@@ -114,7 +114,7 @@ export default function LicenseTypesSection() {
 
                     <Dialog>
                         <DialogTrigger asChild>
-                            <Card className="group relative overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-primary/10 bg-gradient-to-br from-white to-gray-50">
+                            <Card className="group relative overflow-hidden cursor-pointer hover:shadow-2xl transition-[box-shadow,transform] duration-300 hover:-translate-y-1 border-primary/10 bg-gradient-to-br from-white to-gray-50">
                                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <MotorcycleIcon className="w-24 h-24 text-primary" />
                                 </div>
@@ -165,7 +165,7 @@ export default function LicenseTypesSection() {
 
                     <Dialog>
                         <DialogTrigger asChild>
-                            <Card className="group relative overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-primary/10 bg-gradient-to-br from-white to-gray-50">
+                            <Card className="group relative overflow-hidden cursor-pointer hover:shadow-2xl transition-[box-shadow,transform] duration-300 hover:-translate-y-1 border-primary/10 bg-gradient-to-br from-white to-gray-50">
                                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <MotorcycleIcon className="w-24 h-24 text-primary" />
                                 </div>

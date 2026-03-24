@@ -5,7 +5,7 @@ import { MobileNav } from "@/components/MobileNav";
 
 export function Navbar() {
     return (
-        <nav className="fixed top-0 w-full z-50 bg-white shadow-sm transition-all duration-300 border-b border-gray-100">
+        <nav className="fixed top-0 w-full z-50 bg-white shadow-sm transition-shadow duration-300 border-b border-gray-100">
             <div className="container flex items-center justify-between h-20">
                 <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <div className="flex items-center gap-3 cursor-pointer">

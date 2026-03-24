@@ -124,7 +124,7 @@ const PriceCard = ({ item, type, variantId, courseId }: { item: any, type: 'car'
     const isHighlighted = item.highlight;
 
     return (
-        <Card className={`relative flex flex-col border-2 transition-all duration-300 hover:shadow-xl ${isHighlighted ? 'border-primary ring-2 ring-primary/20 z-10 shadow-xl' : 'border-border/50 hover:border-primary/50'} ${!item.tag ? 'mt-8' : ''}`}>
+        <Card className={`relative flex flex-col border-2 transition-[box-shadow,border-color] duration-300 hover:shadow-xl ${isHighlighted ? 'border-primary ring-2 ring-primary/20 z-10 shadow-xl' : 'border-border/50 hover:border-primary/50'} ${!item.tag ? 'mt-8' : ''}`}>
             {item.tag && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
                     {item.tag}

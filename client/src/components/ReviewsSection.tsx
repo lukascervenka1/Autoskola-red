@@ -107,7 +107,7 @@ export default function ReviewsSection({ reviews = reviewsData }: ReviewsSection
                                     <p className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight">Excelentní hodnocení</p>
                                     <p className="text-sm font-bold text-amber-600 uppercase tracking-[0.2em]">Nejlépe hodnocená autoškola na Googlu</p>
                                 </div>
-                                <Button asChild size="lg" className="rounded-full bg-white border-2 border-amber-500/30 text-amber-700 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 h-14 px-10 text-lg font-bold shadow-lg hover:shadow-primary/40 active:scale-95">
+                                <Button asChild size="lg" className="rounded-full bg-white border-2 border-amber-500/30 text-amber-700 hover:bg-primary hover:text-white hover:border-primary transition-[color,background-color,border-color,box-shadow] duration-300 h-14 px-10 text-lg font-bold shadow-lg hover:shadow-primary/40 active:scale-95">
                                     <a href="https://search.google.com/local/writereview?placeid=ChIJ8-bh676VC0cRx9a6vFNu-i4" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                                         Napsat recenzi na Google
                                     </a>

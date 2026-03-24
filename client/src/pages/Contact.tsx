@@ -287,7 +287,7 @@ export default function Contact() {
                     width="100%"
                     height="100%"
                     src="https://maps.google.com/maps?saddr=Dejvick%C3%A1&daddr=Pu%C5%A1kinovo+n%C3%A1m%C4%9Bst%C3%AD+681%2F3,+Praha+6&output=embed"
-                    className="grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
+                    className="grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-[filter,opacity] duration-700"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"

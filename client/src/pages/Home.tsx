@@ -243,7 +243,7 @@ export default function Home() {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="h-14 px-8 text-lg font-bold rounded-full bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all cursor-pointer">
+              <Button asChild size="lg" className="h-14 px-8 text-lg font-bold rounded-full bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-[color,background-color,box-shadow,transform] duration-200 cursor-pointer">
                 <Link href="/registrace">
                   Chci řidičák <ChevronRight className="w-5 h-5 ml-2" />
                 </Link>
@@ -363,7 +363,7 @@ export default function Home() {
               </div>
 
               <div className="shrink-0">
-                <Button asChild size="lg" className="h-14 px-8 text-lg rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all cursor-pointer">
+                <Button asChild size="lg" className="h-14 px-8 text-lg rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-[color,background-color,box-shadow,transform] duration-200 cursor-pointer">
                   <Link href="/registrace">
                     Přihlásit se online <ChevronRight className="w-5 h-5 ml-2" />
                   </Link>
@@ -388,7 +388,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Highlight 1 */}
-            <div className="flex flex-col items-center text-center p-6 bg-background rounded-3xl border border-border/50 hover:shadow-lg transition-all duration-300">
+            <div className="flex flex-col items-center text-center p-6 bg-background rounded-3xl border border-border/50 hover:shadow-lg transition-shadow duration-300">
               <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
                 <Heart className="w-8 h-8" />
               </div>
@@ -399,7 +399,7 @@ export default function Home() {
             </div>
 
             {/* Highlight 2 */}
-            <div className="flex flex-col items-center text-center p-6 bg-background rounded-3xl border border-border/50 hover:shadow-lg transition-all duration-300">
+            <div className="flex flex-col items-center text-center p-6 bg-background rounded-3xl border border-border/50 hover:shadow-lg transition-shadow duration-300">
               <div className="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-6">
                 <Car className="w-8 h-8" />
               </div>
@@ -410,7 +410,7 @@ export default function Home() {
             </div>
 
             {/* Highlight 3 */}
-            <div className="flex flex-col items-center text-center p-6 bg-background rounded-3xl border border-border/50 hover:shadow-lg transition-all duration-300">
+            <div className="flex flex-col items-center text-center p-6 bg-background rounded-3xl border border-border/50 hover:shadow-lg transition-shadow duration-300">
               <div className="w-16 h-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center mb-6">
                 <GraduationCap className="w-8 h-8" />
               </div>
@@ -421,7 +421,7 @@ export default function Home() {
             </div>
 
             {/* Highlight 4 */}
-            <div className="flex flex-col items-center text-center p-6 bg-background rounded-3xl border border-border/50 hover:shadow-lg transition-all duration-300">
+            <div className="flex flex-col items-center text-center p-6 bg-background rounded-3xl border border-border/50 hover:shadow-lg transition-shadow duration-300">
               <div className="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-6">
                 <Banknote className="w-8 h-8" />
               </div>
@@ -432,7 +432,7 @@ export default function Home() {
             </div>
 
             {/* Highlight 5 */}
-            <div className="flex flex-col items-center text-center p-6 bg-background rounded-3xl border border-border/50 hover:shadow-lg transition-all duration-300">
+            <div className="flex flex-col items-center text-center p-6 bg-background rounded-3xl border border-border/50 hover:shadow-lg transition-shadow duration-300">
               <div className="w-16 h-16 bg-teal-100 text-teal-600 rounded-2xl flex items-center justify-center mb-6">
                 <BookOpen className="w-8 h-8" />
               </div>
@@ -443,7 +443,7 @@ export default function Home() {
             </div>
 
             {/* Highlight 6 */}
-            <div className="flex flex-col items-center text-center p-6 bg-background rounded-3xl border border-border/50 hover:shadow-lg transition-all duration-300">
+            <div className="flex flex-col items-center text-center p-6 bg-background rounded-3xl border border-border/50 hover:shadow-lg transition-shadow duration-300">
               <div className="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6">
                 <CalendarCheck className="w-8 h-8" />
               </div>
@@ -505,7 +505,7 @@ export default function Home() {
                 width="100%"
                 height="100%"
                 src="https://maps.google.com/maps?saddr=Dejvick%C3%A1&daddr=Pu%C5%A1kinovo+n%C3%A1m%C4%9Bst%C3%AD+681%2F3,+Praha+6&output=embed"
-                className="grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
+                className="grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-[filter,opacity] duration-700"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
@@ -535,7 +535,7 @@ export default function Home() {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-secondary/20 rounded-2xl px-6 border-none transition-all duration-200 data-[state=open]:bg-secondary/40"
+                className="bg-secondary/20 rounded-2xl px-6 border-none transition-colors duration-200 data-[state=open]:bg-secondary/40"
               >
                 <AccordionTrigger className="text-lg font-bold hover:no-underline py-6">
                   {faq.question}
