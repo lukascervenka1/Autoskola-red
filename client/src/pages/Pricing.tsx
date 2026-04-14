@@ -89,6 +89,7 @@ export const PRICING = {
     services: [
         { name: "Vrácení řidičského oprávnění", price: 7500, note: "Po zákazu řízení" },
         { name: "Výměna ŘP pro cizince", price: 9500, note: "Příprava + zkouška" },
+        { name: "Jízda nad rámec kurzu", price: 990, note: "Každá další jízda" },
         { name: "Kondiční jízda (45 min)", price: 1100, note: "Pro držitele ŘP" },
         { name: "Balíček 10 kondičních jízd", price: 8900, note: "Výhodnější cena" },
         { name: "VIP Servis", price: 8000, note: "Přistavení vozu domů/do práce, absolutní priorita" },
