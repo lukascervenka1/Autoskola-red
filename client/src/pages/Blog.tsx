@@ -47,7 +47,7 @@ export default function Blog() {
             <section className="py-20 flex-grow">
                 <div className="container">
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {blogPosts.map((post) => (
+                        {[...blogPosts].sort((a, b) => b.dateIso.localeCompare(a.dateIso)).map((post) => (
                             <Link key={post.id} href={`/blog/${post.slug}`}>
                                 <Card className="h-full group hover:shadow-xl transition-all duration-300 border-border/50 overflow-hidden cursor-pointer flex flex-col">
                                     {/* Image Container */}

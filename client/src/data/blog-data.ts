@@ -243,5 +243,102 @@ export const blogPosts: BlogPost[] = [
 
       <p class="mt-8 italic text-sm text-muted-foreground border-t border-border pt-4">Klíčová slova: Autoškola Praha 6, Autoškola Dejvice, řidičské oprávnění, skupiny řidičských průkazů, co můžu řídit, řidičák B Praha 6, autoškola pro studenty ČVUT, řidičák v Dejvicích.</p>
     `
+  },
+  {
+    id: "5",
+    slug: "paliva-zdrazuji-autoskola-red-drzi-ceny-2026",
+    title: "Benzín za 42 Kč, autoškoly zdražují — Autoškola RED ceny drží",
+    excerpt: "Vláda poprvé v historii zastropovala ceny paliv. Pražské autoškoly zdražily na 25 000–29 000 Kč. My ceny nezvýšili — kurz B stále od 22 900 Kč. A moto sezóna 2026 právě začíná.",
+    date: "14. Duben 2026",
+    dateIso: "2026-04-14",
+    author: "Tým Autoškola RED",
+    category: "Tipy a rady",
+    readTime: "5 min čtení",
+    image: "/images/moto-sezona-blog.webp",
+    content: `
+      <p class="mb-4 text-lg font-medium">Duben 2026 přinesl něco, co Česko ještě nezažilo: stát musel poprvé v historii zastropovat ceny benzínu a nafty. Natural 95 překročil 41 Kč za litr, nafta atakuje 46 Kč. Pražské autoškoly zdražily meziročně o více než 10 %. My jsme se rozhodli jinak.</p>
+
+      <h2 class="text-2xl font-black mb-4 mt-8">Média bijí na poplach: autoškoly v Praze za 25 000–29 000 Kč</h2>
+
+      <p class="mb-4">TN Nova nedávno přinesla <a href="https://tn.nova.cz/zpravodajstvi/clanek/645087-autoskoly-vyrazne-zdrazuji-uchazeci-mnohdy-zaplati-i-desitky-tisic-korun" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline">reportáž</a>, která mnohé uchazeče o řidičák překvapila: pražské autoškoly zdražily meziročně o více než 10 % a ceny kurzu skupiny B se v hlavním městě pohybují mezi <strong>25 000 a 29 000 Kč</strong>. Majitelé to vysvětlují růstem cen benzínu, energií a platů instruktorů — a mají pravdu. Provoz autoškoly dnes stojí víc než před rokem.</p>
+
+      <p class="mb-6">Jenže to neznamená, že zdražit <em>musíte</em>.</p>
+
+      <h2 class="text-2xl font-black mb-4 mt-8">Autoškola RED: kurz B od 22 900 Kč — a ceny jsme nezvýšili</h2>
+
+      <p class="mb-4">Výdaje rostou i nám. Benzín, servis, provoz zázemí — to vše dnes stojí víc. Přesto jsme se rozhodli ceny kurzů <strong>nezvyšovat</strong>. Věříme, že férové jednání se dlouhodobě vyplatí víc než krátkodobý zisk.</p>
+
+      <div class="bg-primary/5 p-6 rounded-2xl border border-primary/20 my-6">
+        <p class="font-bold mb-3 text-lg">Co dostanete za pevnou cenu od 22 900 Kč:</p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>Výcvik v <strong>Škodě Kodiaq 2024</strong> — nejmodernější asistenti, maximální bezpečnost</li>
+          <li>Malé skupiny a individuální přístup bez spěchu</li>
+          <li>Výuka přímo v Dejvicích — snadno dostupná metrem a tramvají</li>
+          <li>Transparentní <a href="/cenik" class="text-primary font-bold hover:underline">ceník</a> bez skrytých poplatků</li>
+        </ul>
+      </div>
+
+      <p class="mb-6">Zatímco konkurence v Praze začíná od 25 000 Kč, náš nejdostupnější kurz skupiny B startuje na <strong>22 900 Kč</strong> — to je rozdíl až 6 000 Kč, které zůstanou ve vaší kapse.</p>
+
+      <h2 class="text-2xl font-black mb-4 mt-8">🏍️ Moto sezóna 2026 — nábor právě probíhá</h2>
+
+      <p class="mb-4">Zdražování neobešlo ani motorkářské kurzy u konkurence. U nás ceny skupin <strong>AM, A1, A2 i A</strong> zůstávají nezměněné — a přihlásit se můžete hned teď.</p>
+
+      <p class="mb-4">Navíc máte v Autoškole RED výhodu, kterou jen tak jinde nenajdete: kurzy vede <strong>Jiří Červenka</strong>, majitel školy a celoživotní motorkář. Není to jen instruktor z papíru — je to člověk, který motocykl miluje, zná každou past, na kterou začínající motorkář narazí, a osobně vás připraví na provoz tak, abyste zvládli nejen zkoušky, ale hlavně silnici.</p>
+
+      <div class="bg-secondary/20 p-6 rounded-2xl border border-border my-6">
+        <p class="font-bold text-lg mb-2">Jiří Červenka, majitel Autoškoly RED:</p>
+        <p class="italic text-foreground/80">"Motorkářem jsem celý život. Vím, co nováčka čeká na silnici a co mu dá jistotu. Rádi vás připravíme tak, aby vaše první sezóna byla bezpečná a plná radosti."</p>
+      </div>
+
+      <p class="mb-6 font-semibold text-primary">⏰ Místa jsou omezená — moto sezóna začíná.</p>
+
+      <h2 class="text-2xl font-black mb-4 mt-8">Jediné co nám roste? Recenze.</h2>
+
+      <p class="mb-4">Zatímco ceny u konkurence stoupají, naše hodnocení se drží na <strong>5,0 ⭐ z více než 37 recenzí na Googlu</strong>. Žáci oceňují klidný přístup instruktorů, moderní vozy a férové jednání bez překvapení.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+        <div class="bg-background p-4 rounded-xl border border-border shadow-sm">
+          <p class="text-sm text-muted-foreground mb-2">Viktorie Ž. ★★★★★</p>
+          <p class="italic">"Vynikající organizace a vysoce profesionální, individuální přístup ke každému studentovi. Autoškolu RED mohu jen doporučit."</p>
+        </div>
+        <div class="bg-background p-4 rounded-xl border border-border shadow-sm">
+          <p class="text-sm text-muted-foreground mb-2">Filip F. ★★★★★</p>
+          <p class="italic">"Zkoušky jsem udělal hned na první pokus. Skvělý přístup instruktorů a moderní auta. Rozhodně doporučuji Autoškolu RED!"</p>
+        </div>
+      </div>
+
+      <div class="bg-secondary/20 p-8 rounded-3xl border border-border my-10 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none"></div>
+        <div class="relative z-10">
+          <h3 class="text-2xl font-black mb-3">Přihlaste se dnes — ceny držíme</h3>
+          <p class="mb-6 text-foreground/80">Kurz B od 22 900 Kč. Moto kurzy za nezměněné ceny. Výcvik v Dejvicích s celoživotními nadšenci za řízení.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/registrace" class="px-8 py-4 bg-primary text-white font-bold rounded-full hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1 transition-all">
+              Přihlásit se do kurzu
+            </a>
+            <a href="/cenik" class="px-8 py-4 bg-white border border-border text-foreground font-bold rounded-full hover:bg-secondary/50 transition-all">
+              Zobrazit ceník
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-black mb-4 mt-12">Nejčastější otázky</h2>
+
+      <h3 class="text-lg font-bold mb-2 mt-6">Kolik stojí kurz skupiny B v Autoškole RED?</h3>
+      <p class="mb-4">Náš nejdostupnější kurz skupiny B startuje na 22 900 Kč. Ceny jsme v roce 2026 nezvyšovali, i přes rostoucí náklady na provoz.</p>
+
+      <h3 class="text-lg font-bold mb-2 mt-6">Jaké moto kurzy nabízíte?</h3>
+      <p class="mb-4">Provádíme výcvik pro skupiny AM, A1, A2 a A. Kurzy vede Jiří Červenka, majitel školy a celoživotní motorkář. Nábor na moto sezónu 2026 právě probíhá.</p>
+
+      <h3 class="text-lg font-bold mb-2 mt-6">Kde se Autoškola RED nachází?</h3>
+      <p class="mb-4">Působíme v Dejvicích, Praha 6 — snadno dostupné metrem (Dejvická) i tramvají. Zázemí najdete v Archi HUBu na Puškinově náměstí.</p>
+
+      <h3 class="text-lg font-bold mb-2 mt-6">Budou ceny i nadále pevné?</h3>
+      <p class="mb-6">Naším záměrem je ceny držet. Přihlaste se dnes a máte jistotu aktuální sazby.</p>
+
+      <p class="mt-8 italic text-sm text-muted-foreground border-t border-border pt-4">Klíčová slova: autoškola Praha cena 2026, levná autoškola Praha, kurz řidičského průkazu B Praha, moto kurz Praha 2026, autoškola Dejvice, autoškola Praha 6.</p>
+    `
   }
 ];
