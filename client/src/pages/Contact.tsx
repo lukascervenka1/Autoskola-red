@@ -10,7 +10,7 @@ import { useForm, ValidationError } from "@formspree/react";
 import { toast } from "sonner";
 
 export default function Contact() {
-    const [state, handleSubmit] = useForm("xvzbowwd", {
+    const [state, handleSubmit] = useForm("mzdydbjw", {
         data: {
             _subject: "Nová zpráva z kontaktního formuláře",
         }
