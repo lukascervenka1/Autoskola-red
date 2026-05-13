@@ -1,3 +1,4 @@
+import { trackRegistration } from "@/lib/analytics";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -111,6 +112,7 @@ export default function Registration() {
         ...values,
         _subject: `Nová závazná přihláška: ${values.firstName} ${values.lastName}`,
       });
+      trackRegistration(values.courseType);
       setIsSubmitted(true);
       toast.success("Přihláška odeslána!", {
         description: "Potvrzení vám přijde na email. Brzy se vám ozveme.",

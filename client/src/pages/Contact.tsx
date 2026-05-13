@@ -8,6 +8,7 @@ import { MapPin, Phone, Mail, Clock, Send, Navigation, Facebook, Instagram } fro
 import { Footer } from "@/components/Footer";
 import { useForm, ValidationError } from "@formspree/react";
 import { toast } from "sonner";
+import { trackContactForm } from "@/lib/analytics";
 
 export default function Contact() {
     const [state, handleSubmit] = useForm("mzdydbjw", {
@@ -67,10 +68,10 @@ export default function Contact() {
     ];
 
     if (state.succeeded) {
+        trackContactForm();
         toast.success("Zpráva odeslána", {
             description: "Děkujeme, brzy se vám ozveme."
         });
-        // Optionally reset form if needed, but Formspree hook handles state nicely
     }
     return (
         <div className="min-h-screen bg-background">
