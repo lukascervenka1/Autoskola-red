@@ -46,7 +46,7 @@ export default function PricingSection() {
                                     </li>
                                 ))}
                             </ul>
-                            <Button asChild variant="outline" className="w-full rounded-full h-11 border-primary/20 hover:border-primary hover:text-primary">
+                            <Button asChild variant="outline" className="w-full rounded-full h-11 border-primary/20 hover:bg-primary hover:border-primary hover:text-white">
                                 <Link href="/registrace?variant=economy&course=B">
                                     Vybrat Economy
                                 </Link>
@@ -136,7 +136,7 @@ export default function PricingSection() {
                                     </li>
                                 ))}
                             </ul>
-                            <Button asChild variant="outline" className="w-full rounded-full h-11 border-primary/20 hover:border-primary hover:text-primary">
+                            <Button asChild variant="outline" className="w-full rounded-full h-11 border-primary/20 hover:bg-primary hover:border-primary hover:text-white">
                                 <Link href="/registrace?variant=expres&course=B">
                                     Vybrat Expres
                                 </Link>
