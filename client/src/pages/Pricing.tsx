@@ -170,7 +170,7 @@ const PriceCard = ({ item, type, variantId, courseId }: { item: any, type: 'car'
             </CardContent>
             <CardFooter className="mt-auto pt-6">
                 <Link href={registrationUrl} className="w-full">
-                    <Button className={`w-full text-lg h-12 ${isHighlighted ? 'bg-primary hover:bg-primary/90' : ''}`} variant={isHighlighted ? 'default' : 'outline'}>
+                    <Button className={`w-full text-lg h-12 ${isHighlighted ? 'bg-primary hover:bg-primary/90' : 'hover:bg-secondary hover:text-foreground'}`} variant={isHighlighted ? 'default' : 'outline'}>
                         Chci se přihlásit
                     </Button>
                 </Link>
