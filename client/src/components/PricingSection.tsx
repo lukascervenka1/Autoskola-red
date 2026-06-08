@@ -37,7 +37,7 @@ export default function PricingSection() {
                                     "E-learning zdarma",
                                     "Simulátor zdarma",
                                     "Kurz první pomoci v ceně",
-                                    "Možnost připlatit si automat 1500 Kč",
+                                    "Možnost automatu (+3000 Kč)",
                                     "Možnost splátek na 3x"
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
@@ -74,7 +74,7 @@ export default function PricingSection() {
 
                             <div className="bg-emerald-100 p-3 rounded-lg border border-emerald-200">
                                 <p className="text-sm font-medium text-emerald-800 leading-relaxed">
-                                    <span className="font-bold">Největší benefit:</span> Maximální flexibilita. Začněte s manuálem a pokud vám nebude vyhovovat, kdykoliv zdarma přejdeme na automat. Cena se nemění!
+                                    <span className="font-bold">Největší benefit:</span> Maximální flexibilita. Začněte s manuálem a pokud vám nebude vyhovovat, kdykoli přejdeme na automat za příplatek 1999 Kč.
                                 </p>
                             </div>
 

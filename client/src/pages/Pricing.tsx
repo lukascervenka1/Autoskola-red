@@ -16,7 +16,7 @@ export const PRICING = {
             name: "Economy",
             duration: "4-6 měsíců",
             description: "Nejpohodovější tempo pro ty, kteří nikam nespěchají.",
-            features: ["1h jízdy týdně", "E-learning zdarma", "Simulátor zdarma", "Kurz první pomoci v ceně", "Možnost automatu (+1500 Kč)", "Možnost splátek na 3x"],
+            features: ["1h jízdy týdně", "E-learning zdarma", "Simulátor zdarma", "Kurz první pomoci v ceně", "Možnost automatu (+3000 Kč)", "Možnost splátek na 3x"],
         },
         student: {
             price: 23900,
@@ -24,7 +24,7 @@ export const PRICING = {
             name: "Standard - Student",
             duration: "3 měsíce",
             description: "Zlatá střední cesta. Ideální ke škole.",
-            features: ["2 až 4 hodiny jízd týdně", "Online testy zdarma", "Kurz první pomoci v ceně", "Možnost automatu (+1000 Kč)", "Vyžadujeme potvrzení o studiu (např. ISIC)", "Knížka autoškoly zdarma", "Možnost splátek na 3x"],
+            features: ["2 až 4 hodiny jízd týdně", "Online testy zdarma", "Kurz první pomoci v ceně", "Možnost automatu (+3000 Kč)", "Vyžadujeme potvrzení o studiu (např. ISIC)", "Knížka autoškoly zdarma", "Možnost splátek na 3x"],
             highlight: false,
             tag: "Nejoblíbenější pro studenty"
         },
@@ -34,17 +34,17 @@ export const PRICING = {
             name: "Standard",
             duration: "3 měsíce",
             description: "Klasický kurz pro pracující a ostatní.",
-            features: ["Všechny výhody Economy", "Rychlejší výcvik (2-3 měsíce)", "Garance termínu zkoušky", "Možnost přechodu MAN → AUT zdarma", "Možnost splátek na 3x"],
+            features: ["Všechny výhody Economy", "Rychlejší výcvik (2-3 měsíce)", "Garance termínu zkoušky", "Možnost přechodu MAN → AUT (+1999 Kč)", "Možnost splátek na 3x"],
             highlight: true,
             tag: "Nejvýhodnější balíček"
         },
         expres: {
-            price: 29900,
+            price: 30900,
             originalPrice: null,
             name: "Expres",
             duration: "1 měsíc",
             description: "Nejrychlejší cesta k řidičáku s intenzivní výukou.",
-            features: ["Individuální plánování jízd", "Intenzivní výuka", "Prioritní plánování", "Zkouška ihned po ukončení", "Manuál i automat za stejnou cenu", "Možnost přikoupit VIP za 8 000 Kč", "Možnost splátek na 3x"],
+            features: ["Individuální plánování jízd", "Intenzivní výuka", "Prioritní plánování", "Zkouška ihned po ukončení", "Možnost automatu (+1999 Kč)", "Možnost přikoupit VIP za 8 000 Kč", "Možnost splátek na 3x"],
             tag: "Nejrychlejší kurz"
         }
     },
