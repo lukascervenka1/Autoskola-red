@@ -295,7 +295,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2 class="text-2xl font-black mb-4 mt-8">Jediné co nám roste? Recenze.</h2>
 
-      <p class="mb-4">Zatímco ceny u konkurence stoupají, naše hodnocení se drží na <strong>5,0 ⭐ z více než 37 recenzí na Googlu</strong>. Žáci oceňují klidný přístup instruktorů, moderní vozy a férové jednání bez překvapení.</p>
+      <p class="mb-4">Zatímco ceny u konkurence stoupají, naše hodnocení se drží na <strong>5,0 ⭐ z více než 40 recenzí na Googlu</strong>. Žáci oceňují klidný přístup instruktorů, moderní vozy a férové jednání bez překvapení.</p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
         <div class="bg-background p-4 rounded-xl border border-border shadow-sm">

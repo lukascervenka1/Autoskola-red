@@ -129,7 +129,7 @@ const structuredDataStatic = [
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "37"
+      "reviewCount": "40"
     },
     "knowsAbout": ["Řidičský průkaz skupina B", "Řidičský průkaz skupina A", "Kondiční jízdy", "Vrácení řidičského průkazu"],
     "openingHoursSpecification": [
@@ -272,7 +272,7 @@ export default function Home() {
                   <Star className="w-4 h-4 fill-current" />
                 </div>
                 <a href="https://search.google.com/local/reviews?placeid=ChIJ8-bh676VC0cRx9a6vFNu-i4" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                  <span className="font-bold text-foreground">5.0 na Google</span> (37+ recenzí)
+                  <span className="font-bold text-foreground">5.0 na Google</span> (40+ recenzí)
                 </a>
               </div>
             </motion.div>
@@ -504,7 +504,7 @@ export default function Home() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://maps.google.com/maps?saddr=Dejvick%C3%A1&daddr=Pu%C5%A1kinovo+n%C3%A1m%C4%9Bst%C3%AD+681%2F3,+Praha+6&output=embed"
+                src="https://maps.google.com/maps?q=Pu%C5%A1kinovo+n%C3%A1m%C4%9Bst%C3%AD+681%2F3%2C+Praha+6-Bubene%C4%8D&output=embed&z=16"
                 className="grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-[filter,opacity] duration-700"
                 style={{ border: 0 }}
                 allowFullScreen

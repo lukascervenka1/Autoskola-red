@@ -171,7 +171,7 @@ export default function ReviewsSection({ reviews = reviewsData }: ReviewsSection
                         rel="noopener noreferrer"
                         className="group inline-flex items-center gap-2 text-primary font-bold hover:underline"
                     >
-                        Zobrazit všech 37+ recenzí na Google <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        Zobrazit všech 40+ recenzí na Google <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                 </div>
             </div>
