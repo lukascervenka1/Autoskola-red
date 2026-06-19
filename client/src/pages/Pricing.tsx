@@ -440,6 +440,17 @@ export default function Pricing() {
                             <p className="text-muted-foreground text-sm leading-relaxed">
                                 Kurz je možné absolvovat i v <strong>anglickém jazyce</strong> za příplatek 4 000 Kč.
                             </p>
+                            <div className="border-t border-border/50 pt-4 space-y-2">
+                                <p className="font-semibold text-sm text-foreground">Motokurzy — vratná záloha za motorku</p>
+                                <p className="text-muted-foreground text-sm leading-relaxed">
+                                    Účastníci motokurzu skládají <strong>vratnou zálohu 10 000 Kč</strong> (u motorek do 125 cm³ je záloha <strong>5 000 Kč</strong>).
+                                    Záloha vám bude v plné výši vrácena po úspěšném absolvování kurzu.
+                                </p>
+                                <p className="text-muted-foreground text-sm leading-relaxed">
+                                    Záloha odpovídá spoluúčasti pojištění motorky. V případě nehody pojišťovna uhradí celou škodu na vozidle,
+                                    přičemž spoluúčast (10 000 Kč / 5 000 Kč u 125 cm³) je kryta právě touto zálohou.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </section>
