@@ -504,7 +504,7 @@ export default function Home() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=14.3934%2C50.0978%2C14.4134%2C50.1058&layer=mapnik&marker=50.1018%2C14.4034"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.08102457398!2d14.40012827695696!3d50.103490371528046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b95beebe1e6f3%3A0x2efa6e53bcbad6c7!2sAuto%C5%A1kola%20RED!5e0!3m2!1scs!2scz!4v1781860560700!5m2!1scs!2scz"
                 className="grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-[filter,opacity] duration-700"
                 style={{ border: 0 }}
                 allowFullScreen
