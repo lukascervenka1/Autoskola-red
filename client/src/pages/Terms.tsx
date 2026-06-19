@@ -71,7 +71,24 @@ export default function Terms() {
                     </section>
 
                     <section>
-                        <h2 className="text-2xl font-bold text-foreground mb-4">III. Předčasné ukončení Smlouvy a finanční vypořádání</h2>
+                        <h2 className="text-2xl font-bold text-foreground mb-4">III. Záloha za výcvikové vozidlo — motokurzy</h2>
+                        <p>
+                            Účastníci motokurzu (skupiny AM, A1, A2, A) jsou před zahájením výcviku povinni složit <strong>vratnou zálohu za výcvikové vozidlo</strong>. Výše zálohy činí:
+                        </p>
+                        <ul className="list-disc pl-6 space-y-1 my-4">
+                            <li><strong>10 000 Kč</strong> — pro motocykly skupin A1 (nad 125 cm³), A2 a A</li>
+                            <li><strong>5 000 Kč</strong> — pro motocykly a skútry skupiny AM a A1 do 125 cm³</li>
+                        </ul>
+                        <p>
+                            Záloha odpovídá výši smluvní spoluúčasti pojištění výcvikového vozidla. V případě škodní události způsobené žadatelem při výcviku pojišťovna uhradí celou vzniklou škodu na výcvikovém vozidle; smluvní spoluúčast ve výši zálohy je kryta právě složenou zálohou.
+                        </p>
+                        <p>
+                            Záloha bude žadateli vrácena v plné výši po úspěšném absolvování kurzu a řádném předání výcvikového vozidla bez poškození. V případě škody na výcvikovém vozidle zaviněné žadatelem bude záloha nebo její část použita k úhradě smluvní spoluúčasti.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-foreground mb-4">IV. Předčasné ukončení Smlouvy a finanční vypořádání</h2>
                         <p>
                             Smluvní strany mohou Smlouvu kdykoli v průběhu jejího trvání ukončit písemnou dohodou. Žadatel a/nebo zákonný zástupce nezletilého žadatele je oprávněn Smlouvu vypovědět kdykoli v průběhu jejího trvání, a to i bez uvedení důvodu. Výpověď musí být učiněna písemně a doručena autoškole. Výpovědní doba činí pět (5) pracovních dnů a počíná běžet dnem následujícím po dni doručení výpovědi autoškole.
                         </p>
