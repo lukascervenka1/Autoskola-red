@@ -504,13 +504,12 @@ export default function Home() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://maps.google.com/maps?q=Pu%C5%A1kinovo+n%C3%A1m%C4%9Bst%C3%AD+681%2F3%2C+Praha+6-Bubene%C4%8D&output=embed&z=16"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=14.3934%2C50.0978%2C14.4134%2C50.1058&layer=mapnik&marker=50.1018%2C14.4034"
                 className="grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-[filter,opacity] duration-700"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Mapa trasy do Autoškoly RED"
+                title="Mapa Autoškola RED Praha 6"
               />
               <div className="absolute inset-0 pointer-events-none rounded-[2.5rem] ring-1 ring-inset ring-black/10" />
             </div>
