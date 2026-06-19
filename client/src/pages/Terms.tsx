@@ -73,11 +73,11 @@ export default function Terms() {
                     <section>
                         <h2 className="text-2xl font-bold text-foreground mb-4">III. Záloha za výcvikové vozidlo — motokurzy</h2>
                         <p>
-                            Účastníci motokurzu (skupiny AM, A1, A2, A) jsou před zahájením výcviku povinni složit <strong>vratnou zálohu za výcvikové vozidlo</strong>. Výše zálohy činí:
+                            Účastníci motokurzu jsou před zahájením výcviku povinni složit <strong>vratnou zálohu za výcvikové vozidlo</strong>. Výše zálohy činí:
                         </p>
                         <ul className="list-disc pl-6 space-y-1 my-4">
-                            <li><strong>10 000 Kč</strong> — pro motocykly skupin A1 (nad 125 cm³), A2 a A</li>
-                            <li><strong>5 000 Kč</strong> — pro motocykly a skútry skupiny AM a A1 do 125 cm³</li>
+                            <li><strong>10 000 Kč</strong> — skupiny A2 a A</li>
+                            <li><strong>5 000 Kč</strong> — skupiny AM, AM automat, A1 a A1 automat</li>
                         </ul>
                         <p>
                             Záloha odpovídá výši smluvní spoluúčasti pojištění výcvikového vozidla. V případě škodní události způsobené žadatelem při výcviku pojišťovna uhradí celou vzniklou škodu na výcvikovém vozidle; smluvní spoluúčast ve výši zálohy je kryta právě složenou zálohou.
