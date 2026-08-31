@@ -84,6 +84,7 @@ export default function Contact() {
             />
             <Navbar />
 
+            <main>
             {/* Hero Section */}
             <section className="pt-40 pb-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
@@ -297,6 +298,7 @@ export default function Contact() {
                 />
                 <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-background to-transparent pointer-events-none" />
             </section>
+            </main>
 
             <Footer />
         </div>

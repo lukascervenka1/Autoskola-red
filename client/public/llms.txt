@@ -1,0 +1,19 @@
+# Autoškola RED
+
+> Autoškola RED je moderní autoškola v Praze 6 – Dejvicích nabízející výcvik na skupiny B, A, A1, A2 a AM. Transparentní ceník, individuální přístup a online přihláška ke kurzu.
+
+Autoškola sídlí na adrese Puškinovo náměstí 681/3, Praha 6 – Archi HUB. Kontakt: +420 608 913 000, info@autoskola.red.
+
+## Stránky
+
+- [Domů](https://autoskola.red/): Přehled kurzů, vozového parku a základní informace o autoškole.
+- [Ceník](https://autoskola.red/cenik): Kompletní ceník balíčků pro řidičské a motocyklové kurzy.
+- [Přihláška](https://autoskola.red/registrace): Online přihláška ke kurzu.
+- [Kontakt](https://autoskola.red/kontakt): Kontaktní údaje, adresa a mapa.
+- [Blog](https://autoskola.red/blog): Články o autoškole, změnách v legislativě a bezpečné jízdě.
+- [Obchodní podmínky](https://autoskola.red/obchodni-podminky): Všeobecné obchodní podmínky autoškoly.
+- [Ochrana osobních údajů](https://autoskola.red/ochrana-osobnich-udaju): Zásady zpracování osobních údajů (GDPR).
+
+## Optional
+
+- [Studentská zóna](https://autoskola.red/studenti): Rozvrh jízd pro přihlášené žáky (vyžaduje heslo, neindexováno).

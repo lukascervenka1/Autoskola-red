@@ -46,7 +46,7 @@ export default function Terms() {
                             Cenu za sjednanou výuku a výcvik (dále jen „školné“) uhradí žadatel a/nebo zákonný zástupce nezletilého žadatele nejpozději dva (2) kalendářní dny před stanoveným dnem zahájení příslušné výuky či výcviku na bankovní účet autoškoly.
                         </p>
                         <div className="my-6 p-6 bg-primary/5 rounded-xl border border-primary/20">
-                            <h4 className="text-lg font-bold mb-2">Bankovní spojení Autoškola Czech:</h4>
+                            <h3 className="text-lg font-bold mb-2">Bankovní spojení Autoškola Czech:</h3>
                             <p className="text-xl font-mono text-primary font-bold mb-0">Účet č. 5698698/5500</p>
                             <p className="text-sm text-muted-foreground mt-1">vedený u Raiffeisenbank</p>
                         </div>

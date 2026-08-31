@@ -210,6 +210,7 @@ export default function Home() {
       />
       <Navbar />
 
+      <main>
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-20 md:pt-48 md:pb-32 bg-background">
         <div className="absolute top-0 right-0 -z-10 w-[800px] h-[800px] rounded-full opacity-30 translate-x-1/3 -translate-y-1/4 bg-[radial-gradient(circle,_var(--color-primary)_0%,_transparent_70%)]" />
@@ -480,7 +481,7 @@ export default function Home() {
                     <p className="text-muted-foreground">
                       Puškinovo náměstí 681/3<br />
                       160 00 Praha 6 - Bubeneč<br />
-                      <span className="text-sm opacity-70">(Vchod z boku budovy Archi HUB)</span>
+                      <span className="text-sm">(Vchod z boku budovy Archi HUB)</span>
                     </p>
                   </div>
                 </div>
@@ -632,6 +633,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <Footer />

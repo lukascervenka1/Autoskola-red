@@ -117,7 +117,7 @@ export default function StudentZone() {
             />
             <Navbar />
 
-            <div className="pt-32 pb-20 container min-h-[calc(100vh-80px)]">
+            <main className="pt-32 pb-20 container min-h-[calc(100vh-80px)]">
                 {!isAuthenticated ? (
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
@@ -129,7 +129,7 @@ export default function StudentZone() {
                                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary">
                                     <Lock className="w-8 h-8" />
                                 </div>
-                                <CardTitle className="text-2xl">Studentská zóna</CardTitle>
+                                <h1 className="leading-none font-semibold text-2xl">Studentská zóna</h1>
                                 <CardDescription>
                                     Zadejte heslo pro přístup k rozvrhu jízd.
                                 </CardDescription>
@@ -290,7 +290,7 @@ export default function StudentZone() {
                         </section>
                     </motion.div>
                 )}
-            </div>
+            </main>
             <Footer />
         </div>
     );

@@ -32,27 +32,31 @@ export function Navbar() {
                     >
                         Kurzy
                     </a>
-                    <Link href="/cenik">
-                        <a className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors cursor-pointer">
-                            Ceník
-                        </a>
+                    <Link
+                        href="/cenik"
+                        className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                    >
+                        Ceník
                     </Link>
 
-                    <Link href="/blog">
-                        <a className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors cursor-pointer">
-                            Blog
-                        </a>
+                    <Link
+                        href="/blog"
+                        className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                    >
+                        Blog
                     </Link>
-                    <Link href="/kontakt">
-                        <a className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors cursor-pointer">
-                            Kontakt
-                        </a>
+                    <Link
+                        href="/kontakt"
+                        className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                    >
+                        Kontakt
                     </Link>
-                    <Link href="/studenti">
-                        <a className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors cursor-pointer flex items-center gap-1 border border-primary/20 bg-primary/5 px-3 py-1.5 rounded-full">
-                            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                            Pro žáky
-                        </a>
+                    <Link
+                        href="/studenti"
+                        className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors cursor-pointer flex items-center gap-1 border border-primary/20 bg-primary/5 px-3 py-1.5 rounded-full"
+                    >
+                        <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                        Pro žáky
                     </Link>
                     <Button asChild className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25 rounded-full px-6 cursor-pointer">
                         <Link href="/registrace">

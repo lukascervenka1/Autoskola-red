@@ -31,12 +31,12 @@ export default function BlogPost() {
                     noindex={true}
                 />
                 <Navbar />
-                <div className="flex-grow flex flex-col items-center justify-center container">
+                <main className="flex-grow flex flex-col items-center justify-center container">
                     <h1 className="text-3xl font-bold mb-4">Článek nenalezen</h1>
                     <Link href="/blog">
                         <Button>Zpět na blog</Button>
                     </Link>
-                </div>
+                </main>
                 <Footer />
             </div>
         );
@@ -73,6 +73,7 @@ export default function BlogPost() {
             />
             <Navbar />
 
+            <main>
             {/* Hero Header with Image Background */}
             <section className="relative h-[50vh] min-h-[400px] flex items-end pb-12 w-full overflow-hidden">
                 <div className="absolute inset-0">
@@ -150,6 +151,7 @@ export default function BlogPost() {
                     </div>
                 </div>
             </section>
+            </main>
 
             <Footer />
         </div>

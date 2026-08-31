@@ -138,7 +138,7 @@ export default function Registration() {
       />
       <Navbar />
 
-      <div className="pt-24 pb-12 container max-w-2xl">
+      <main className="pt-24 pb-12 container max-w-2xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -171,7 +171,7 @@ export default function Registration() {
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
                   <div className="space-y-4">
-                    <h3 className="text-3xl font-black text-gray-900 tracking-tight">Gratulujeme, jste v systému! 🎉</h3>
+                    <h2 className="text-3xl font-black text-gray-900 tracking-tight">Gratulujeme, jste v systému! 🎉</h2>
                     <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed">
                       Děkujeme za důvěru. Vaše přihláška dorazila k nám do týmu RED. Teď si dejte kávu, my se na to podíváme a <span className="font-bold text-foreground">do 24 hodin se vám ozveme</span> s detaily první jízdy.
                     </p>
@@ -361,9 +361,9 @@ export default function Registration() {
               <FileText className="w-6 h-6" />
             </div>
             <div className="flex-1 text-center sm:text-left space-y-1">
-              <h3 className="font-bold text-base flex items-center justify-center sm:justify-start gap-2">
+              <h2 className="font-bold text-base flex items-center justify-center sm:justify-start gap-2">
                 Nezapomeňte na lékařský posudek <Info className="w-3.5 h-3.5 text-primary/60" />
-              </h3>
+              </h2>
               <p className="text-xs text-muted-foreground leading-snug max-w-md">
                 Pro začátek výcviku potřebujete potvrzení od lékaře. Stáhněte si formulář a nechte ho potvrdit.
               </p>
@@ -413,7 +413,7 @@ export default function Registration() {
             </div>
           </div>
         </motion.div>
-      </div>
+      </main>
       <Footer />
     </div>
   );

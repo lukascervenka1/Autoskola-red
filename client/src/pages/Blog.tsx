@@ -32,6 +32,7 @@ export default function Blog() {
             />
             <Navbar />
 
+            <main>
             {/* Hero Section */}
             <section className="pt-40 pb-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
@@ -100,6 +101,7 @@ export default function Blog() {
                     </div>
                 </div>
             </section>
+            </main>
 
             <Footer />
         </div>
