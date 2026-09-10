@@ -16,6 +16,13 @@
         { "source": "/kopie-b", "destination": "/", "permanent": true }
     ],
     "rewrites": [
+        { "source": "/cenik", "destination": "/cenik.html" },
+        { "source": "/registrace", "destination": "/registrace.html" },
+        { "source": "/kontakt", "destination": "/kontakt.html" },
+        { "source": "/blog", "destination": "/blog.html" },
+        { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
+        { "source": "/ochrana-osobnich-udaju", "destination": "/ochrana-osobnich-udaju.html" },
+        { "source": "/obchodni-podminky", "destination": "/obchodni-podminky.html" },
         {
             "source": "/(.*)",
             "destination": "/index.html"

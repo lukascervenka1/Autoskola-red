@@ -381,6 +381,15 @@ const blogPosts = [
     author: "Tým Autoškola RED",
     image: "/images/driving_licenses_thumbnail.png",
   },
+  {
+    slug: "paliva-zdrazuji-autoskola-red-drzi-ceny-2026",
+    title: "Benzín za 42 Kč, autoškoly zdražují — Autoškola RED ceny drží",
+    excerpt:
+      "Vláda poprvé v historii zastropovala ceny paliv. Pražské autoškoly zdražily na 25 000–29 000 Kč. My ceny nezvýšili — kurz B stále od 22 900 Kč. A moto sezóna 2026 právě začíná.",
+    dateIso: "2026-04-14",
+    author: "Tým Autoškola RED",
+    image: "/images/moto-sezona-blog.webp",
+  },
 ];
 
 for (const post of blogPosts) {
@@ -436,7 +445,7 @@ function generateHead(route) {
     <title>${route.title}</title>
     <meta name="description" content="${route.description}" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="${route.canonical}" />
+    <link rel="canonical" href="${route.canonical}" data-rh="true" />
     <link rel="alternate" hrefLang="cs-CZ" href="${route.canonical}" />
 
     <meta property="og:locale" content="cs_CZ" />
@@ -481,9 +490,15 @@ function run() {
     const headContent = generateHead(route);
     html = html.replace("</head>", `${headContent}\n  </head>`);
 
-    // Add noscript content for bots/AI that don't execute JS
-    const noscript = `<noscript><div class="seo-content">${route.noscriptContent}</div></noscript>`;
-    html = html.replace('<div id="root"></div>', `<div id="root"></div>\n    ${noscript}`);
+    // Pre-render key textual content (incl. H1) directly inside #root so crawlers
+    // and scanners that don't execute JS see real markup in the delivered HTML.
+    // React uses createRoot().render() (not hydrateRoot), so on mount it fully
+    // replaces these children — real visitors never see this, only a same-content
+    // flash before the app takes over.
+    html = html.replace(
+      '<div id="root"></div>',
+      `<div id="root"><div class="seo-content">${route.noscriptContent}</div></div>`
+    );
 
     // Write file
     const filePath = path.join(DIST, route.file);
