@@ -1,4 +1,9 @@
 declare function gtag(...args: unknown[]): void;
+declare global {
+  interface Window {
+    dataLayer?: unknown[];
+  }
+}
 
 const GA_ID = "G-S88E3P9X3Q";
 
@@ -16,6 +21,13 @@ export function trackRegistration(courseType?: string) {
     event_label: courseType ?? "unknown",
     value: 1,
   });
+  // GTM's dataLayer listener needs a plain {event: "..."} push (gtag() above
+  // pushes its raw arguments, which GTM's Custom Event trigger can't match)
+  window.dataLayer?.push({
+    event: "generate_lead",
+    event_category: "form",
+    event_label: courseType ?? "unknown",
+  });
 }
 
 /** Konverze: odeslání kontaktního formuláře */
@@ -25,5 +37,10 @@ export function trackContactForm() {
     event_category: "form",
     event_label: "contact",
     value: 1,
+  });
+  window.dataLayer?.push({
+    event: "generate_lead",
+    event_category: "form",
+    event_label: "contact",
   });
 }
