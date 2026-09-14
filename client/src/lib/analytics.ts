@@ -28,6 +28,14 @@ export function trackRegistration(courseType?: string) {
     event_category: "form",
     event_label: courseType ?? "unknown",
   });
+  // Google Ads konverze "Autoškola RED (web) ads_conversion_SUBMIT_LEAD_FORM_1"
+  // je importovaná z tohoto GA4 eventu — dřív byla navázaná jen na návštěvu
+  // staré URL /chci-se-přihlásit, která dnes jen redirectuje a nikdy se
+  // nenačte. Posíláme ji teď přímo při skutečném odeslání přihlášky.
+  gtag("event", "ads_conversion_SUBMIT_LEAD_FORM_1", {
+    event_category: "form",
+    event_label: courseType ?? "unknown",
+  });
 }
 
 /** Konverze: odeslání kontaktního formuláře */
