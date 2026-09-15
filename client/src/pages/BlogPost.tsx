@@ -75,7 +75,7 @@ export default function BlogPost() {
 
             <main>
             {/* Hero Header with Image Background */}
-            <section className="relative h-[50vh] min-h-[400px] flex items-end pb-12 w-full overflow-hidden">
+            <section className="relative min-h-[480px] flex items-end pt-28 pb-12 w-full overflow-hidden">
                 <div className="absolute inset-0">
                     <img
                         src={post.image}
