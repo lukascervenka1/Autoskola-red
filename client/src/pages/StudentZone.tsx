@@ -12,6 +12,19 @@ import { motion, AnimatePresence } from "framer-motion";
 const SHARED_PASSWORD = "Autoskola123456.";
 const STORAGE_KEY = "autoskola_student_auth";
 
+// Tailwind's scanner needs full literal class names to generate them — a template
+// literal like `bg-${cal.color}-500` never gets picked up, so the dot is invisible.
+const COLOR_DOT_CLASSES: Record<string, string> = {
+    blue: "bg-blue-500",
+    red: "bg-red-500",
+    green: "bg-green-500",
+    purple: "bg-purple-500",
+    orange: "bg-orange-500",
+    yellow: "bg-yellow-500",
+    slate: "bg-slate-500",
+    teal: "bg-teal-500",
+};
+
 export default function StudentZone() {
     const [password, setPassword] = useState("");
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -86,6 +99,15 @@ export default function StudentZone() {
             type: "car",
             teacher: "Karel Macek",
             phone: "602153394"
+        },
+        {
+            id: "fabia",
+            name: "Škoda Fabia",
+            src: "https://calendar.google.com/calendar/embed?src=fa4a6b2e6a167cfe5b5a8ee67f9aa6a88d4ff1ef4815b749ad92048803a19dde%40group.calendar.google.com&ctz=Europe%2FPrague",
+            color: "teal",
+            type: "car",
+            teacher: "Robert Nathan Němec",
+            phone: "736214335"
         },
         {
             id: "moto_jiri",
@@ -211,7 +233,7 @@ export default function StudentZone() {
                                             <CardHeader className="bg-muted/30 border-b py-4">
                                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                                                     <CardTitle className="flex items-center justify-center md:justify-start gap-2 text-lg lg:text-xl">
-                                                        <span className={`w-3 h-3 rounded-full bg-${cal.color}-500 shrink-0`} />
+                                                        <span className={`w-3 h-3 rounded-full shrink-0 ${COLOR_DOT_CLASSES[cal.color] ?? "bg-slate-500"}`} />
                                                         {cal.name}
                                                     </CardTitle>
                                                     {'teacher' in cal && cal.teacher && (
