@@ -493,11 +493,14 @@ function run() {
     // Pre-render key textual content (incl. H1) directly inside #root so crawlers
     // and scanners that don't execute JS see real markup in the delivered HTML.
     // React uses createRoot().render() (not hydrateRoot), so on mount it fully
-    // replaces these children — real visitors never see this, only a same-content
-    // flash before the app takes over.
+    // replaces these children. Until then the block is visually hidden (sr-only
+    // style, inline so it works before the CSS bundle applies) — otherwise
+    // visitors would see an unstyled flash of plain text while JS loads.
+    const srOnly =
+      "position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0";
     html = html.replace(
       '<div id="root"></div>',
-      `<div id="root"><div class="seo-content">${route.noscriptContent}</div></div>`
+      `<div id="root"><div class="seo-content" style="${srOnly}">${route.noscriptContent}</div></div>`
     );
 
     // Write file
