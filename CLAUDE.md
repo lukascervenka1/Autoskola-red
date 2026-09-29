@@ -52,14 +52,17 @@ client/public/images/      — obrázky (WebP formát)
 
 | Balíček | Cena | Automat příplatek |
 |---------|------|-------------------|
-| Economy | 22 900 Kč | +3 000 Kč |
-| Standard Student | 23 900 Kč (sleva z 25 900) | +3 000 Kč |
-| Standard | 25 900 Kč (sleva z 27 900) | +1 999 Kč |
-| Expres | 30 900 Kč | +1 999 Kč |
+| Economy | 23 900 Kč (sleva z 24 900) | +3 000 Kč |
+| Standard Student | 24 900 Kč (sleva z 25 900) | +3 000 Kč |
+| Standard | 27 900 Kč (sleva z 28 900) | +1 999 Kč |
+| Expres | 33 900 Kč (bez akce) | +1 999 Kč |
 
-Ceník je na **dvou místech** — vždy upravuj obě:
-1. `client/src/pages/Pricing.tsx` — plná stránka ceníku
-2. `client/src/components/PricingSection.tsx` — widget na homepage
+Ceník je na **třech místech** — vždy upravuj všechna:
+1. `client/src/pages/Pricing.tsx` — plná stránka ceníku (objekt `PRICING`)
+2. `client/src/components/PricingSection.tsx` — widget na homepage (hardcoded)
+3. `scripts/prerender.mjs` — SEO/noscript text a JSON-LD (hardcoded)
+
+V `Pricing.tsx` je i marketingové upozornění u motokurzů ("zafixujte si cenu do konce 2026") — po 31. 12. 2026 se samo skryje (`MOTO_PROMO_ACTIVE`).
 
 ## Google Analytics — jak funguje
 

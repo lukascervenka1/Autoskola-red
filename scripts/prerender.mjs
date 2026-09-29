@@ -163,10 +163,10 @@ const routes = [
       <p>Prémiová autoškola v srdci Dejvic. Moderní výcvik v nových vozech Škoda Kodiaq 2024. Individuální přístup, klidné jízdy a vysoká úspěšnost u zkoušek v Praze 6.</p>
       <h2>Ceník kurzů</h2>
       <ul>
-        <li>Economy — 22 900 Kč (4–6 měsíců)</li>
-        <li>Standard Student — 23 900 Kč (3 měsíce, sleva pro studenty)</li>
-        <li>Standard — 25 900 Kč (3 měsíce)</li>
-        <li>Expres — 29 900 Kč (1 měsíc)</li>
+        <li>Economy — 23 900 Kč (4–6 měsíců)</li>
+        <li>Standard Student — 24 900 Kč (3 měsíce, sleva pro studenty)</li>
+        <li>Standard — 27 900 Kč (3 měsíce)</li>
+        <li>Expres — 33 900 Kč (1 měsíc)</li>
       </ul>
       <h2>Kontakt</h2>
       <p>Adresa: Puškinovo náměstí 681/3, 160 00 Praha 6 - Bubeneč</p>
@@ -181,7 +181,7 @@ const routes = [
         <dt>Jak vypadá závěrečná zkouška?</dt><dd>Písemný test z pravidel a poté praktická jízda s komisařem.</dd>
       </dl>
       <h2>Rychlé odpovědi</h2>
-      <p><strong>Kolik stojí řidičák v Autoškole RED?</strong> Ceny kurzů skupiny B začínají na 22 900 Kč (Economy) a sahají do 29 900 Kč (Expres). Studentská sleva: Standard Student za 23 900 Kč.</p>
+      <p><strong>Kolik stojí řidičák v Autoškole RED?</strong> Ceny kurzů skupiny B začínají na 23 900 Kč (Economy) a sahají do 33 900 Kč (Expres). Studentská sleva: Standard Student za 24 900 Kč.</p>
       <p><strong>Kde se Autoškola RED nachází?</strong> Puškinovo náměstí 681/3, Praha 6 - Bubeneč (Archi HUB), 5 minut chůze od metra Dejvická.</p>
       <p><strong>Jaká auta se používají?</strong> Škoda Kodiaq 2024 (automat), Škoda Octavia, Škoda Yeti, Hyundai i20 a motocykly.</p>
       <p><strong>Jaké hodnocení má Autoškola RED?</strong> 5.0 z 5 hvězdiček na Google (37+ recenzí).</p>
@@ -201,10 +201,10 @@ const routes = [
         "@type": "ItemList",
         name: "Kurzy autoškoly RED",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Economy — 22 900 Kč", description: "4–6 měsíců, 1 hodina jízdy týdně" },
-          { "@type": "ListItem", position: 2, name: "Standard Student — 23 900 Kč", description: "3 měsíce, 2–4 hodiny jízd týdně, sleva pro studenty" },
-          { "@type": "ListItem", position: 3, name: "Standard — 25 900 Kč", description: "3 měsíce, garance termínu zkoušky" },
-          { "@type": "ListItem", position: 4, name: "Expres — 29 900 Kč", description: "1 měsíc, intenzivní výcvik, prioritní plánování" },
+          { "@type": "ListItem", position: 1, name: "Economy — 23 900 Kč", description: "4–6 měsíců, 1 hodina jízdy týdně" },
+          { "@type": "ListItem", position: 2, name: "Standard Student — 24 900 Kč", description: "3 měsíce, 2–4 hodiny jízd týdně, sleva pro studenty" },
+          { "@type": "ListItem", position: 3, name: "Standard — 27 900 Kč", description: "3 měsíce, garance termínu zkoušky" },
+          { "@type": "ListItem", position: 4, name: "Expres — 33 900 Kč", description: "1 měsíc, intenzivní výcvik, prioritní plánování" },
         ],
       },
       {
@@ -220,10 +220,10 @@ const routes = [
       <h1>Ceník autoškoly Praha 6 Dejvice 2026</h1>
       <h2>Osobní automobil — Skupina B</h2>
       <ul>
-        <li>Economy — 22 900 Kč (4–6 měsíců, 1h jízdy týdně)</li>
-        <li>Standard Student — 23 900 Kč (3 měsíce, sleva pro studenty s ISIC)</li>
-        <li>Standard — 25 900 Kč (3 měsíce, garance termínu zkoušky)</li>
-        <li>Expres — 29 900 Kč (1 měsíc, intenzivní výcvik)</li>
+        <li>Economy — 23 900 Kč (4–6 měsíců, 1h jízdy týdně)</li>
+        <li>Standard Student — 24 900 Kč (3 měsíce, sleva pro studenty s ISIC)</li>
+        <li>Standard — 27 900 Kč (3 měsíce, garance termínu zkoušky)</li>
+        <li>Expres — 33 900 Kč (1 měsíc, intenzivní výcvik)</li>
       </ul>
       <h2>Motocykly</h2>
       <ul>

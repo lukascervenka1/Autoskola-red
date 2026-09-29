@@ -26,8 +26,11 @@ export default function PricingSection() {
                         </CardHeader>
                         <CardContent className="space-y-6">
                             <div>
-                                <span className="text-4xl font-extrabold text-foreground">22.900 Kč</span>
-                                <span className="text-muted-foreground ml-2">/ kurz</span>
+                                <div className="flex flex-wrap items-baseline gap-x-2">
+                                    <span className="text-4xl font-extrabold text-foreground whitespace-nowrap">23.900 Kč</span>
+                                    <span className="text-muted-foreground line-through decoration-red-500/50 decoration-2 whitespace-nowrap">24.900 Kč</span>
+                                </div>
+                                <p className="text-xs font-semibold text-green-600 mt-1">Ušetříte 1.000 Kč</p>
                             </div>
                             <ul className="space-y-3">
                                 {[
@@ -65,11 +68,11 @@ export default function PricingSection() {
                         </CardHeader>
                         <CardContent className="space-y-6">
                             <div>
-                                <div className="flex items-baseline gap-2">
-                                    <span className="text-4xl font-extrabold text-foreground">25.900 Kč</span>
-                                    <span className="text-muted-foreground line-through decoration-red-500/50 decoration-2">27.900 Kč</span>
+                                <div className="flex flex-wrap items-baseline gap-x-2">
+                                    <span className="text-4xl font-extrabold text-foreground whitespace-nowrap">27.900 Kč</span>
+                                    <span className="text-muted-foreground line-through decoration-red-500/50 decoration-2 whitespace-nowrap">28.900 Kč</span>
                                 </div>
-                                <p className="text-xs font-semibold text-green-600 mt-1">Ušetříte 2.000 Kč</p>
+                                <p className="text-xs font-semibold text-green-600 mt-1">Ušetříte 1.000 Kč</p>
                             </div>
 
                             <div className="bg-emerald-100 p-3 rounded-lg border border-emerald-200">
@@ -117,7 +120,7 @@ export default function PricingSection() {
                         </CardHeader>
                         <CardContent className="space-y-6">
                             <div>
-                                <span className="text-4xl font-extrabold text-foreground">29.900 Kč</span>
+                                <span className="text-4xl font-extrabold text-foreground">33.900 Kč</span>
                                 <span className="text-muted-foreground ml-2">/ kurz</span>
                             </div>
                             <ul className="space-y-3">

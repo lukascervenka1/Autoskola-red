@@ -11,15 +11,15 @@ import { Separator } from "@/components/ui/separator";
 export const PRICING = {
     cars: {
         economy: {
-            price: 22900,
-            originalPrice: null,
+            price: 23900,
+            originalPrice: 24900,
             name: "Economy",
             duration: "4-6 měsíců",
             description: "Nejpohodovější tempo pro ty, kteří nikam nespěchají.",
             features: ["1h jízdy týdně", "E-learning zdarma", "Simulátor zdarma", "Kurz první pomoci v ceně", "Možnost automatu (+3000 Kč)", "Možnost splátek na 3x"],
         },
         student: {
-            price: 23900,
+            price: 24900,
             originalPrice: 25900,
             name: "Standard - Student",
             duration: "3 měsíce",
@@ -29,8 +29,8 @@ export const PRICING = {
             tag: "Nejoblíbenější pro studenty"
         },
         standard: {
-            price: 25900,
-            originalPrice: 27900,
+            price: 27900,
+            originalPrice: 28900,
             name: "Standard",
             duration: "3 měsíce",
             description: "Klasický kurz pro pracující a ostatní.",
@@ -39,7 +39,7 @@ export const PRICING = {
             tag: "Nejvýhodnější balíček"
         },
         expres: {
-            price: 30900,
+            price: 33900,
             originalPrice: null,
             name: "Expres",
             duration: "1 měsíc",
@@ -97,6 +97,9 @@ export const PRICING = {
         { name: "Převod z jiné autoškoly", price: 2000, note: "Administrativní poplatek" },
     ]
 };
+
+// Akce "zafixujte si cenu motokurzu" — po konci roku 2026 se upozornění samo skryje.
+const MOTO_PROMO_ACTIVE = Date.now() < new Date("2027-01-01T00:00:00+01:00").getTime();
 
 const CarIcon = ({ className }: { className?: string }) => (
     <svg
@@ -348,6 +351,27 @@ export default function Pricing() {
                             <p className="text-lg text-muted-foreground mt-1">Skupiny AM, A1, A2, A</p>
                         </div>
                     </div>
+
+                    {MOTO_PROMO_ACTIVE && (
+                        <div className="bg-primary/5 border border-primary/30 rounded-2xl p-6 md:p-8 mb-6 flex flex-col md:flex-row md:items-center gap-6">
+                            <div className="w-12 h-12 shrink-0 rounded-full bg-primary text-white flex items-center justify-center">
+                                <Calendar className="w-6 h-6" />
+                            </div>
+                            <div className="flex-1 space-y-2">
+                                <div className="text-xs font-bold uppercase tracking-wider text-primary">Platí do 31. 12. 2026</div>
+                                <h3 className="text-xl md:text-2xl font-black text-foreground">
+                                    Motokurzy v roce 2027 zdraží. Zafixujte si dnešní cenu.
+                                </h3>
+                                <p className="text-muted-foreground leading-relaxed">
+                                    Přihlaste se do konce roku 2026 a cena kurzu vám zůstane zafixovaná — i když začnete
+                                    až v létě, kdy je motorkářská sezóna v plném proudu.
+                                </p>
+                            </div>
+                            <Button asChild className="shrink-0 h-12 px-6 font-bold">
+                                <Link href="/registrace">Zafixovat cenu</Link>
+                            </Button>
+                        </div>
+                    )}
 
                     <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl p-4 mb-12 flex items-start gap-3">
                         <AlertCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
