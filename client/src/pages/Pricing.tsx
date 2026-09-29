@@ -436,7 +436,7 @@ export default function Pricing() {
                             <h3 className="font-bold text-lg">Důležité informace k poplatkům</h3>
                             <p className="text-muted-foreground text-sm leading-relaxed">
                                 Ceny kurzů nezahrnují správní poplatky magistrátu za závěrečné zkoušky (tzv. kolky). Tyto poplatky se hradí přímo magistrátu.
-                                První zkouška stojí 700 Kč, opakovaná zkouška 400 Kč a praktická zkouška jízda 800 Kč.
+                                První zkouška stojí 700 Kč, opakovaná zkouška z teorie (test) 100 Kč a opakovaná praktická jízda 400 Kč.
                             </p>
                             <p className="text-muted-foreground text-sm leading-relaxed">
                                 Kurz je možné absolvovat i v <strong>anglickém jazyce</strong> za příplatek 4 000 Kč.
