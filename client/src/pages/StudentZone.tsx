@@ -61,8 +61,7 @@ export default function StudentZone() {
             src: "https://calendar.google.com/calendar/embed?src=4266064c138f8dc8e70a7de1fac3f84fca6442df8d2c88799e72f05f05dae700%40group.calendar.google.com&ctz=Europe%2FPrague",
             color: "blue",
             type: "car",
-            teacher: "Leonit Bondarchuk",
-            phone: "774849487"
+            instructors: [{ name: "Leonit Bondarchuk", phone: "774849487" }]
         },
         {
             id: "kodiaq",
@@ -70,8 +69,7 @@ export default function StudentZone() {
             src: "https://calendar.google.com/calendar/embed?src=6d0b05514fdd3c64b94910dd301bb40e7ecbc17572962884ae046441969ba491%40group.calendar.google.com&ctz=Europe%2FPrague",
             color: "red",
             type: "car",
-            teacher: "Jiří Červenka",
-            phone: "608913000"
+            instructors: [{ name: "Jiří Červenka", phone: "608913000" }]
         },
         {
             id: "octavia2",
@@ -79,8 +77,7 @@ export default function StudentZone() {
             src: "https://calendar.google.com/calendar/embed?src=d618b48803fd8775dfefe6ec93e7cf6550289adf1053dcd417ee3cdb8a60bfba%40group.calendar.google.com&ctz=Europe%2FPrague",
             color: "green",
             type: "car",
-            teacher: "Dragan Drašković",
-            phone: "603553048"
+            instructors: [{ name: "Dragan Drašković", phone: "603553048" }]
         },
         {
             id: "octavia3",
@@ -88,8 +85,7 @@ export default function StudentZone() {
             src: "https://calendar.google.com/calendar/embed?src=OWU4OTNmMjM0NWYyMjBmMzc4MDQzODk0M2I0OTRmNjMwMmRmYTEwMzRlMjE2NmUxMGZhODViNjVmNDZiMDY5Y0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&ctz=Europe%2FPrague",
             color: "purple",
             type: "car",
-            teacher: "Jiří Červenka",
-            phone: "608913000"
+            instructors: [{ name: "Jiří Červenka", phone: "608913000" }]
         },
         {
             id: "yeti",
@@ -97,8 +93,10 @@ export default function StudentZone() {
             src: "https://calendar.google.com/calendar/embed?src=74f9d1152758a428f9f656365d1609305e91985c0d4a118624802a4596cd3ef8%40group.calendar.google.com&ctz=Europe%2FPrague",
             color: "orange",
             type: "car",
-            teacher: "Karel Macek",
-            phone: "602153394"
+            instructors: [
+                { name: "Karel Macek", phone: "602153394" },
+                { name: "Jaroslav Čos", phone: "605825190" }
+            ]
         },
         {
             id: "fabia",
@@ -106,8 +104,7 @@ export default function StudentZone() {
             src: "https://calendar.google.com/calendar/embed?src=fa4a6b2e6a167cfe5b5a8ee67f9aa6a88d4ff1ef4815b749ad92048803a19dde%40group.calendar.google.com&ctz=Europe%2FPrague",
             color: "teal",
             type: "car",
-            teacher: "Robert Nathan Němec",
-            phone: "736214335"
+            instructors: [{ name: "Robert Nathan Němec", phone: "736214335" }]
         },
         {
             id: "moto_jiri",
@@ -115,15 +112,15 @@ export default function StudentZone() {
             src: "https://calendar.google.com/calendar/embed?src=16c474cdd937cdac5f24b2612a58ed3a1e964ed159132710481055b8a1bdbefd%40group.calendar.google.com&ctz=Europe%2FPrague",
             color: "yellow",
             type: "moto",
-            teacher: "Jiří Červenka",
-            phone: "608913000"
+            instructors: [{ name: "Jiří Červenka", phone: "608913000" }]
         },
         {
             id: "simulator",
             name: "Trenažér",
             src: "https://calendar.google.com/calendar/embed?src=MDczZmQwMWJiN2JhYzhiNTY1NWM3NDlkNGE4OGE0MTY0ODc1YmE3NjU3ODIwMjI0NzdkMzAzYTIwNGY2ZGE3YUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&ctz=Europe%2FPrague",
             color: "slate",
-            type: "simulator"
+            type: "simulator",
+            instructors: []
         }
     ];
 
@@ -236,18 +233,25 @@ export default function StudentZone() {
                                                         <span className={`w-3 h-3 rounded-full shrink-0 ${COLOR_DOT_CLASSES[cal.color] ?? "bg-slate-500"}`} />
                                                         {cal.name}
                                                     </CardTitle>
-                                                    {'teacher' in cal && cal.teacher && (
-                                                        <div className="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-3 sm:gap-4 text-sm">
-                                                            <div className="flex items-center gap-2 font-medium text-muted-foreground italic text-center sm:text-left">
-                                                                Instruktor: {cal.teacher}
-                                                            </div>
-                                                            <a
-                                                                href={`tel:+420${cal.phone}`}
-                                                                className="flex items-center gap-2 bg-white px-4 py-2 sm:py-1.5 rounded-lg border border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-colors shadow-sm whitespace-nowrap"
-                                                            >
-                                                                <Phone className="w-4 h-4" />
-                                                                +420 {cal.phone?.replace(/(\d{3})(\d{3})(\d{3})/, '$1 $2 $3')}
-                                                            </a>
+                                                    {cal.instructors && cal.instructors.length > 0 && (
+                                                        <div className="flex flex-col gap-3 items-center md:items-end">
+                                                            {cal.instructors.map((instructor) => (
+                                                                <div
+                                                                    key={instructor.phone}
+                                                                    className="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-3 sm:gap-4 text-sm"
+                                                                >
+                                                                    <div className="flex items-center gap-2 font-medium text-muted-foreground italic text-center sm:text-left">
+                                                                        Instruktor: {instructor.name}
+                                                                    </div>
+                                                                    <a
+                                                                        href={`tel:+420${instructor.phone}`}
+                                                                        className="flex items-center gap-2 bg-white px-4 py-2 sm:py-1.5 rounded-lg border border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-colors shadow-sm whitespace-nowrap"
+                                                                    >
+                                                                        <Phone className="w-4 h-4" />
+                                                                        +420 {instructor.phone?.replace(/(\d{3})(\d{3})(\d{3})/, '$1 $2 $3')}
+                                                                    </a>
+                                                                </div>
+                                                            ))}
                                                         </div>
                                                     )}
                                                 </div>
