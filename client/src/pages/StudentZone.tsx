@@ -85,7 +85,10 @@ export default function StudentZone() {
             src: "https://calendar.google.com/calendar/embed?src=OWU4OTNmMjM0NWYyMjBmMzc4MDQzODk0M2I0OTRmNjMwMmRmYTEwMzRlMjE2NmUxMGZhODViNjVmNDZiMDY5Y0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&ctz=Europe%2FPrague",
             color: "purple",
             type: "car",
-            instructors: [{ name: "Jiří Červenka", phone: "608913000" }]
+            instructors: [
+                { name: "Jiří Červenka", phone: "608913000" },
+                { name: "Petr Šmída", phone: "608031428" } // dočasně
+            ]
         },
         {
             id: "yeti",
@@ -95,7 +98,8 @@ export default function StudentZone() {
             type: "car",
             instructors: [
                 { name: "Karel Macek", phone: "602153394" },
-                { name: "Jaroslav Čos", phone: "605825190" }
+                { name: "Jaroslav Čos", phone: "605825190" },
+                { name: "Petr Šmída", phone: "608031428" } // dočasně
             ]
         },
         {
