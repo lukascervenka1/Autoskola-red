@@ -129,7 +129,7 @@ const structuredDataStatic = [
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "40"
+      "reviewCount": "50"
     },
     "knowsAbout": ["Řidičský průkaz skupina B", "Řidičský průkaz skupina A", "Kondiční jízdy", "Vrácení řidičského průkazu"],
     "openingHoursSpecification": [
@@ -273,7 +273,7 @@ export default function Home() {
                   <Star className="w-4 h-4 fill-current" />
                 </div>
                 <a href="https://search.google.com/local/reviews?placeid=ChIJ8-bh676VC0cRx9a6vFNu-i4" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                  <span className="font-bold text-foreground">5.0 na Google</span> (40+ recenzí)
+                  <span className="font-bold text-foreground">5.0 na Google</span> (50+ recenzí)
                 </a>
               </div>
             </motion.div>

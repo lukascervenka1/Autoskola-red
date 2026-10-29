@@ -56,7 +56,7 @@ const routes = [
           { "@type": "City", name: "Bubeneč" },
           { "@type": "City", name: "Hradčany" },
         ],
-        aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "37" },
+        aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "50" },
         knowsAbout: [
           "Řidičský průkaz skupina B",
           "Řidičský průkaz skupina A",
@@ -184,7 +184,7 @@ const routes = [
       <p><strong>Kolik stojí řidičák v Autoškole RED?</strong> Ceny kurzů skupiny B začínají na 23 900 Kč (Economy) a sahají do 33 900 Kč (Expres). Studentská sleva: Standard Student za 24 900 Kč.</p>
       <p><strong>Kde se Autoškola RED nachází?</strong> Puškinovo náměstí 681/3, Praha 6 - Bubeneč (Archi HUB), 5 minut chůze od metra Dejvická.</p>
       <p><strong>Jaká auta se používají?</strong> Škoda Kodiaq 2024 (automat), Škoda Octavia, Škoda Yeti, Hyundai i20 a motocykly.</p>
-      <p><strong>Jaké hodnocení má Autoškola RED?</strong> 5.0 z 5 hvězdiček na Google (37+ recenzí).</p>
+      <p><strong>Jaké hodnocení má Autoškola RED?</strong> 5.0 z 5 hvězdiček na Google (50+ recenzí). Nejlépe hodnocená autoškola z Prahy 6.</p>
       <p><a href="/registrace">Online přihláška do autoškoly</a> | <a href="/cenik">Kompletní ceník</a> | <a href="/kontakt">Kontakt</a></p>
     `,
   },

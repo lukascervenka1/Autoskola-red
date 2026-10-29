@@ -105,7 +105,7 @@ export default function ReviewsSection({ reviews = reviewsData }: ReviewsSection
                             <div className="flex flex-col items-center text-center space-y-6">
                                 <div className="space-y-2">
                                     <p className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight">Excelentní hodnocení</p>
-                                    <p className="text-sm font-bold text-amber-600 uppercase tracking-[0.2em]">Nejlépe hodnocená autoškola na Googlu</p>
+                                    <p className="text-sm font-bold text-amber-600 uppercase tracking-[0.2em]">Nejlépe hodnocená autoškola z Prahy 6</p>
                                 </div>
                                 <Button asChild size="lg" className="rounded-full bg-white border-2 border-amber-500/30 text-amber-700 hover:bg-primary hover:text-white hover:border-primary transition-[color,background-color,border-color,box-shadow] duration-300 h-14 px-10 text-lg font-bold shadow-lg hover:shadow-primary/40 active:scale-95">
                                     <a href="https://search.google.com/local/writereview?placeid=ChIJ8-bh676VC0cRx9a6vFNu-i4" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
@@ -171,7 +171,7 @@ export default function ReviewsSection({ reviews = reviewsData }: ReviewsSection
                         rel="noopener noreferrer"
                         className="group inline-flex items-center gap-2 text-primary font-bold hover:underline"
                     >
-                        Zobrazit všech 40+ recenzí na Google <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        Zobrazit všech 50+ recenzí na Google <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                 </div>
             </div>
