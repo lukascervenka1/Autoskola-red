@@ -88,7 +88,12 @@ Použito v `Home.tsx` i `Contact.tsx`.
 
 ## Blog
 
-Články v `client/src/data/blog-data.ts`, seřazeny od nejnovějšího (`dateIso` DESC v `Blog.tsx`). Náhledy v `client/public/images/` jako WebP. Aktuálně 5 článků, poslední: "Benzín za 42 Kč, autoškoly zdražují — Autoškola RED ceny drží" (2026-04-14).
+Články v `client/src/data/blog-data.ts`, seřazeny od nejnovějšího (`dateIso` DESC v `Blog.tsx`). Náhledy v `client/public/images/` jako WebP. Aktuálně 6 článků, poslední: "Řidičák na podzim a v zimě: 5 důvodů, proč začít hned" (2026-10-29, autor Jiří Červenka).
+
+**Nový článek se zapisuje na třech místech** (jinak spadne na 404 / nebude v Google):
+1. `client/src/data/blog-data.ts` — obsah článku
+2. `scripts/prerender.mjs` — pole `blogPosts` (+ odkaz v `noscriptContent` routy `/blog`)
+3. `client/public/sitemap.xml` — nový `<url>`
 
 ## Hover efekt na outline tlačítkách
 

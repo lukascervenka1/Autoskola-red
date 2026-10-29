@@ -316,6 +316,7 @@ const routes = [
     noscriptContent: `
       <h1>Blog Autoškoly RED Praha 6 Dejvice</h1>
       <ul>
+        <li><a href="/blog/ridicak-na-podzim-a-v-zime">Řidičák na podzim a v zimě: 5 důvodů, proč začít hned</a></li>
         <li><a href="/blog/novinky-z-dopravy-pro-rok-2026">Novinky z dopravy pro rok 2026: Co čeká řidiče?</a></li>
         <li><a href="/blog/kolik-stoji-ridicak-v-praze">Kolik dnes stojí řidičák v Praze a na co si dát pozor</a></li>
         <li><a href="/blog/proc-delat-ridicak-v-dejvicich">Proč dělat řidičák právě v Dejvicích?</a></li>
@@ -390,6 +391,15 @@ const blogPosts = [
     author: "Tým Autoškola RED",
     image: "/images/moto-sezona-blog.webp",
   },
+  {
+    slug: "ridicak-na-podzim-a-v-zime",
+    title: "Řidičák na podzim a v zimě: 5 důvodů, proč začít hned",
+    excerpt:
+      "Podzim a zima jsou skvělá doba na řidičák: naučíte se jezdit v reálných podmínkách, stihnete to před maturitou a na jaře už řídíte sami. Radí instruktor.",
+    dateIso: "2026-10-29",
+    author: "Jiří Červenka",
+    image: "/images/ridicak-na-podzim-a-v-zime.webp",
+  },
 ];
 
 for (const post of blogPosts) {
@@ -399,6 +409,7 @@ for (const post of blogPosts) {
     title: `${post.title} | Magazín Autoškola RED`,
     description: post.excerpt,
     canonical: `${SITE}/blog/${post.slug}`,
+    ogImage: post.image.startsWith("http") ? post.image : `${SITE}${post.image}`,
     structuredData: [
       {
         "@context": "https://schema.org",
@@ -439,7 +450,7 @@ for (const post of blogPosts) {
 // Generate HTML files
 // ---------------------------------------------------------------------------
 function generateHead(route) {
-  const ogImage = route.path === "/" ? OG_IMAGE : `${SITE}/images/skoda-kodiaq-dejvice.webp`;
+  const ogImage = route.ogImage || (route.path === "/" ? OG_IMAGE : `${SITE}/images/skoda-kodiaq-dejvice.webp`);
 
   let head = `
     <title>${route.title}</title>

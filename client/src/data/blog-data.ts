@@ -340,5 +340,97 @@ export const blogPosts: BlogPost[] = [
 
       <p class="mt-8 italic text-sm text-muted-foreground border-t border-border pt-4">Klíčová slova: autoškola Praha cena 2026, levná autoškola Praha, kurz řidičského průkazu B Praha, moto kurz Praha 2026, autoškola Dejvice, autoškola Praha 6.</p>
     `
+  },
+  {
+    id: "6",
+    slug: "ridicak-na-podzim-a-v-zime",
+    title: "Řidičák na podzim a v zimě: 5 důvodů, proč začít hned",
+    excerpt: "Podzim a zima jsou skvělá doba na řidičák: naučíte se jezdit v reálných podmínkách, stihnete to před maturitou a na jaře už řídíte sami. Radí instruktor.",
+    date: "29. Říjen 2026",
+    dateIso: "2026-10-29",
+    author: "Jiří Červenka",
+    category: "Tipy a rady",
+    readTime: "4 min čtení",
+    image: "/images/ridicak-na-podzim-a-v-zime.webp",
+    content: `
+      <p class="mb-4 text-lg font-medium">Skoro každý rok se to opakuje. Jakmile poprvé nasněží, ozve se mi někdo se stejnou větou: „Počkám radši na jaro, v zimě se to přece blbě učí.“ Chápu to. Já ale říkám pravý opak.</p>
+
+      <p class="mb-4">Na svou první ledovku nikdy nezapomenu. Auto se najednou přestalo chovat podle pravidel, která jsem znal z léta, a právě tehdy jsem pochopil, že řidičem se člověk nestává na suchém asfaltu. Od té doby všem žákům říkám jedno: kdo se naučí řídit v zimě, tomu je potom jedno, jaké zrovna je počasí.</p>
+
+      <h2 class="text-2xl font-black mb-4 mt-8">5 důvodů, proč začít právě teď</h2>
+
+      <ol class="list-decimal pl-5 space-y-3 mb-6">
+        <li><strong>Naučíte se řídit v reálných podmínkách.</strong> Déšť, tma, mlha, mokré listí i kluzký povrch. Zkoušky se konají za každého počasí a po získání řidičáku se vás počasí taky nikdo nezeptá. Kdo si to vyzkouší hned na začátku s instruktorem po boku, získá jistotu, kterou z letních jízd nikdy nedostane.</li>
+        <li><strong>Řidičák můžete mít do jara.</strong> Balíčky Standard a Standard Student počítají s tříměsíčním kurzem, Expres dokonce s jedním měsícem. Kdo začne teď, může mít hotovo dřív, než na jaře přijde první tání.</li>
+        <li><strong>Dlouhé večery jsou ideální na teorii.</strong> Testy z pravidel se učí líp, když vás venku nic nelákají. E-learning i online testy máte u nás zdarma.</li>
+        <li><strong>V zimě bývá v autoškole klidněji.</strong> Mimo hektickou letní sezónu se snáz domlouvají termíny jízd, takže se kurz zbytečně neprotahuje.</li>
+        <li><strong>Studenti, tohle je váš čas.</strong> Kdo začne na podzim nebo v zimě, má řidičák vyřízený dřív, než se na jaře začne naplno učit na maturitu. Žádné shánění termínů uprostřed zkouškového stresu.</li>
+      </ol>
+
+      <h2 class="text-2xl font-black mb-4 mt-8">Co vás zima naučí (a co vás naučím já)</h2>
+
+      <p class="mb-4">Nikoho nepouštím na led bez přípravy. Nejdřív si vše probereme, pak jedeme v klidu a instruktor má vždycky v dosahu druhý pedál. Tohle jsou věci, na které se u nás soustředíme:</p>
+
+      <ul class="list-disc pl-5 space-y-2 mb-6">
+        <li><strong>Plynule a pomalu.</strong> Plyn, brzdu i volant ovládejte jemně. Trhavé pohyby jsou na kluzkém povrchu nejčastější příčinou smyku.</li>
+        <li><strong>Větší odstup.</strong> Na mokru, sněhu a ledu se brzdná dráha výrazně prodlužuje. Držte minimálně dvojnásobný odstup.</li>
+        <li><strong>Brzdit před zatáčkou, ne v ní.</strong> Rychlost srazíte předem a do oblouku najedete v klidu.</li>
+        <li><strong>Co dělat při smyku.</strong> Nepanikařit, nebrzdit naplno, dívat se tam, kam chcete jet, a opatrně srovnat volant.</li>
+        <li><strong>Pozor na ledovku.</strong> Mosty, stinná místa a ráno kolem nuly. Tam vás kluzko překvapí nejvíc.</li>
+        <li><strong>Výhled a výbava.</strong> Očištěná skla i střecha, funkční světla a zimní pneumatiky. V Česku jsou povinné od 1. listopadu do 31. března, když je na silnici sníh, led nebo námraza.</li>
+      </ul>
+
+      <h2 class="text-2xl font-black mb-4 mt-8">Manuál, nebo automat? Vyberete si</h2>
+
+      <p class="mb-4">Učíme na obojím. <strong>Manuál</strong> vás naučí řídit cokoliv. <strong>Automat</strong> (výcvik probíhá ve Škodě Kodiaq) je skvělá volba, pokud se chcete soustředit jen na provoz a kluzký povrch, bez spojky a řazení. Počítejte jen s tím, že řidičák ze zkoušky na automatu platí pouze pro automatické převodovky. A kdybyste si to rozmysleli, u balíčku Standard je možný přechod z manuálu na automat.</p>
+
+      <h2 class="text-2xl font-black mb-4 mt-8">Který balíček je pro vás?</h2>
+
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Economy:</strong> pohodové tempo 4 až 6 měsíců, jízdy jednou týdně. Pro ty, kdo nikam nespěchají.</li>
+        <li><strong>Standard Student:</strong> 3 měsíce, 2 až 4 hodiny jízd týdně, potřebujeme potvrzení o studiu (např. ISIC). Nejoblíbenější volba před maturitou.</li>
+        <li><strong>Standard:</strong> 3 měsíce a garance termínu zkoušky. Pro pracující a všechny, kdo chtějí jistotu.</li>
+        <li><strong>Expres:</strong> intenzivní kurz zhruba na měsíc s individuálním plánováním jízd. Pro ty, kdo spěchají.</li>
+      </ul>
+
+      <p class="mb-6">U všech balíčků můžete platit na tři splátky bez navýšení. Aktuální ceny včetně akčních slev najdete v <a href="/cenik" class="text-primary font-bold hover:underline">ceníku</a>.</p>
+
+      <div class="bg-secondary/20 p-6 rounded-2xl border border-border my-6">
+        <p class="font-bold text-lg mb-2">Jiří Červenka, majitel a instruktor Autoškoly RED:</p>
+        <p class="italic text-foreground/80">"Zima není překážka, je to nejlepší učitel. Přijďte se podívat do Dejvic, probereme, který kurz vám sedí, a já vám rád ukážu, že řídit se dá i v zimě klidně a s radostí."</p>
+      </div>
+
+      <div class="bg-secondary/20 p-8 rounded-3xl border border-border my-10 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none"></div>
+        <div class="relative z-10">
+          <h3 class="text-2xl font-black mb-3">Začněte teď, ať na jaře jedete sami</h3>
+          <p class="mb-6 text-foreground/80">Přihlaste se online, nebo se nám ozvěte a poradíme vám s výběrem kurzu.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/registrace" class="px-8 py-4 bg-primary text-white font-bold rounded-full hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1 transition-all">
+              Přihlásit se do kurzu
+            </a>
+            <a href="/cenik" class="px-8 py-4 bg-white border border-border text-foreground font-bold rounded-full hover:bg-secondary/50 transition-all">
+              Zobrazit ceník
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-black mb-4 mt-12">Nejčastější otázky</h2>
+
+      <h3 class="text-lg font-bold mb-2 mt-6">Je těžší dělat řidičák v zimě?</h3>
+      <p class="mb-4">Na začátku možná o něco náročnější, ale právě proto se naučíte víc. Těžší situace nacvičujeme postupně a vždy s instruktorem vedle vás.</p>
+
+      <h3 class="text-lg font-bold mb-2 mt-6">Stihnu řidičák před maturitou?</h3>
+      <p class="mb-4">Při včasném začátku obvykle ano. Standard Student a Standard počítají s tříměsíčním kurzem, Expres s jedním měsícem. Záleží také na tom, jak často můžete jezdit.</p>
+
+      <h3 class="text-lg font-bold mb-2 mt-6">Kolik trvá kurz?</h3>
+      <p class="mb-4">Podle balíčku od jednoho měsíce (Expres) po 4 až 6 měsíců (Economy). Který se hodí vám, vám rádi poradíme.</p>
+
+      <h3 class="text-lg font-bold mb-2 mt-6">Kde se Autoškola RED nachází?</h3>
+      <p class="mb-6">V Dejvicích, Praha 6, v Archi HUBu na Puškinově náměstí. Snadno se k nám dostanete metrem (Dejvická) i tramvají. Víc se dočtete v článku <a href="/blog/proc-delat-ridicak-v-dejvicich" class="text-primary font-bold hover:underline">Proč dělat řidičák právě v Dejvicích</a>.</p>
+
+      <p class="mt-8 text-xs text-muted-foreground border-t border-border pt-4">Foto: Shashidhar S / Unsplash</p>
+    `
   }
 ];
