@@ -450,6 +450,48 @@ export default function Pricing() {
                             ))}
                         </div>
                     </Card>
+
+                    {/* Cancellation rules / idle-time fee */}
+                    <Card className="border-border/60 bg-secondary/20">
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-3 text-xl">
+                                <Clock className="w-6 h-6 text-primary shrink-0" />
+                                Omluvení lekcí a poplatek za prostoj
+                            </CardTitle>
+                            <CardDescription className="text-base leading-relaxed">
+                                Na každou jízdu i přednášku máme vyhrazený čas, vůz a instruktora.
+                                Pokud se omluvíte <strong className="text-foreground">nejpozději 48 hodin předem</strong>,
+                                neplatíte nic a lekci rádi přesuneme. Při pozdějším odhlášení nebo nedostavení se
+                                bez omluvy účtujeme poplatek za prostoj.
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-5">
+                            <div className="grid sm:grid-cols-2 gap-4">
+                                <div className="bg-card border border-border/50 rounded-xl p-5 space-y-1">
+                                    <div className="text-sm font-semibold text-muted-foreground">Praktická jízda</div>
+                                    <div className="text-3xl font-extrabold text-foreground">
+                                        400 Kč <span className="text-base font-medium text-muted-foreground">/ 45 minut</span>
+                                    </div>
+                                    <p className="text-sm text-muted-foreground">
+                                        Standardní jízda (2 × 45 minut) tedy 800 Kč.
+                                    </p>
+                                </div>
+                                <div className="bg-card border border-border/50 rounded-xl p-5 space-y-1">
+                                    <div className="text-sm font-semibold text-muted-foreground">Přednáška</div>
+                                    <div className="text-3xl font-extrabold text-foreground">
+                                        400 Kč <span className="text-base font-medium text-muted-foreground">/ přednáška</span>
+                                    </div>
+                                    <p className="text-sm text-muted-foreground">
+                                        Platí při neomluvené absenci nebo pozdním zrušení.
+                                    </p>
+                                </div>
+                            </div>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                Poplatek se účtuje, pokud se z lekce odhlásíte později než 48 hodin před jejím začátkem,
+                                nebo se bez omluvy nedostavíte. Stačí dát včas vědět svému instruktorovi.
+                            </p>
+                        </CardContent>
+                    </Card>
                 </section>
 
                 {/* FAQ / Info regarding exams */}
