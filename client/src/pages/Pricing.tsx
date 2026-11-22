@@ -307,13 +307,14 @@ export default function Pricing() {
                                     <h2 className="text-3xl md:text-4xl font-black tracking-tight">Darujte řidičák k Vánocům</h2>
                                     <p className="text-muted-foreground leading-relaxed">
                                         Dárkový voucher na řidičský kurz v Autoškole RED. Vyberete kurz, my vám připravíme
-                                        voucher na jméno obdarovaného a domluvíme se na platbě a předání.
-                                        Kurz pak může začít, kdy se obdarovanému hodí.
+                                        voucher na jméno obdarovaného a pošleme vám ho předem, ať ho stihnete dát
+                                        pod stromeček. Kurz pak může začít, kdy se obdarovanému hodí.
                                     </p>
                                     <ul className="space-y-2 text-sm">
                                         <li className="flex items-start gap-2"><Check className="w-5 h-5 text-green-500 shrink-0" /> Na auto (manuál i automat) i na motorku</li>
                                         <li className="flex items-start gap-2"><Check className="w-5 h-5 text-green-500 shrink-0" /> Platnost voucheru do {VOUCHER_VALID_UNTIL_LABEL}</li>
                                         <li className="flex items-start gap-2"><Check className="w-5 h-5 text-green-500 shrink-0" /> Objednávka online, ozveme se do 24 hodin</li>
+                                        <li className="flex items-start gap-2"><Check className="w-5 h-5 text-green-500 shrink-0" /> Platba u nás v autoškole: QR kódem, kartou nebo hotově</li>
                                     </ul>
                                     <Button asChild size="lg" className="w-fit h-12 px-8 font-bold">
                                         <Link href="/registrace?course=voucher">Objednat voucher</Link>

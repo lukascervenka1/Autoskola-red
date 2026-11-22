@@ -243,7 +243,7 @@ export default function Registration() {
                       <>
                         <h2 className="text-3xl font-black text-gray-900 tracking-tight">Děkujeme za objednávku voucheru!</h2>
                         <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed">
-                          Objednávka dorazila k nám do týmu RED. <span className="font-bold text-foreground">Do 24 hodin se vám ozveme</span>, domluvíme platbu a předání voucheru, ať je pod stromečkem včas.
+                          Objednávka dorazila k nám do týmu RED. <span className="font-bold text-foreground">Do 24 hodin se vám ozveme</span>, doladíme balíček a voucher vám pošleme předem, ať je pod stromečkem včas. Zaplatíte ho pak u nás v autoškole QR kódem, kartou nebo hotově.
                         </p>
                       </>
                     ) : (
@@ -434,8 +434,9 @@ export default function Registration() {
                         <div className="flex items-start gap-3 text-sm">
                           <Gift className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                           <p className="text-muted-foreground leading-relaxed">
-                            Voucher připravíme na jméno obdarovaného s platností do {VOUCHER_VALID_UNTIL_LABEL}.
-                            Balíček (Economy, Standard…), cenu a předání s vámi doladíme po telefonu.
+                            Voucher připravíme na jméno obdarovaného s platností do {VOUCHER_VALID_UNTIL_LABEL}
+                            a pošleme vám ho předem, ať ho stihnete dát pod stromeček. Zaplatíte ho pak u nás
+                            v autoškole – QR kódem, kartou nebo hotově. Balíček (Economy, Standard…) s vámi doladíme po telefonu.
                           </p>
                         </div>
                         <FormField

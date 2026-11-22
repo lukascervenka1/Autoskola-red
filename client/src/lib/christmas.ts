@@ -9,7 +9,7 @@ export const VOUCHER_SALE_ENABLED = true;
 export const VOUCHER_SALE_UNTIL = new Date("2026-12-31T23:59:59+01:00");
 
 // Platnost voucheru (uvedená i na grafice voucheru)
-export const VOUCHER_VALID_UNTIL_LABEL = "31. 3. 2027";
+export const VOUCHER_VALID_UNTIL_LABEL = "31. 12. 2027";
 
 // Klíč pro "lightbox už jsem viděl" — s rokem, aby se příští sezónu zobrazil znovu
 export const VOUCHER_POPUP_STORAGE_KEY = "autoskola_xmas_voucher_popup_2026";
