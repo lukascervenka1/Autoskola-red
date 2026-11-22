@@ -1,7 +1,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronRight, MapPin, Phone, Mail, Star, Users, Zap, Award, CheckCircle2, Clock, Shield, Navigation, Heart, Car, GraduationCap, Banknote, BookOpen, CalendarCheck, ArrowRight } from "lucide-react";
+import { ChevronRight, MapPin, Phone, Mail, Star, Users, Zap, Award, CheckCircle2, Clock, Shield, Navigation, Heart, Car, GraduationCap, Banknote, BookOpen, CalendarCheck, ArrowRight, Gift } from "lucide-react";
+import { isVoucherSaleActive } from "@/lib/christmas";
 import { Footer } from "@/components/Footer";
 import { Link, useLocation } from "wouter";
 import { useEffect } from "react";
@@ -242,6 +243,24 @@ export default function Home() {
               Získejte řidičák v klidu a bez stresu přímo v srdci Dejvic. Spojujeme moderní
               přístup s precizním výcvikem v nejnovějších vozech pro váš jistý start do provozu.
             </motion.p>
+
+            {/* Vánoční voucher — jen v sezóně, viz lib/christmas.ts */}
+            {isVoucherSaleActive() && (
+              <motion.div variants={itemVariants}>
+                <Link
+                  href="/registrace?course=voucher"
+                  className="group inline-flex items-center gap-3 min-h-11 rounded-full border border-primary/20 bg-primary/5 pl-2 pr-5 py-1.5 text-sm md:text-base font-semibold text-foreground hover:bg-primary/10 hover:border-primary/40 transition-colors"
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-white">
+                    <Gift className="w-4 h-4" />
+                  </span>
+                  <span>
+                    Darujte řidičák k Vánocům <span className="text-primary">– vánoční voucher</span>
+                  </span>
+                  <ChevronRight className="w-4 h-4 text-primary transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </motion.div>
+            )}
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="h-14 px-8 text-lg font-bold rounded-full bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-[color,background-color,box-shadow,transform] duration-200 cursor-pointer">
