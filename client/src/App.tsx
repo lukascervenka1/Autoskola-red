@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import Registration from "./pages/Registration";
 import { CookieConsent } from "@/components/CookieConsent";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { ChristmasVoucherPopup } from "@/components/ChristmasVoucherPopup";
 
 import Pricing from "@/pages/Pricing";
 import Contact from "@/pages/Contact";
@@ -69,6 +70,7 @@ function App() {
           <Analytics />
           <SpeedInsights />
           <CookieConsent />
+          <ChristmasVoucherPopup />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

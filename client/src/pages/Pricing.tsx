@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, Info, AlertCircle, Phone, Mail, Clock, Calendar, Shield, Zap, Star, CreditCard, Wallet, QrCode } from "lucide-react";
+import { Check, Info, AlertCircle, Phone, Mail, Clock, Calendar, Shield, Zap, Star, CreditCard, Wallet, QrCode, Gift } from "lucide-react";
+import { isVoucherSaleActive, VOUCHER_VALID_UNTIL_LABEL } from "@/lib/christmas";
 import { Link } from "wouter";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -283,6 +284,45 @@ export default function Pricing() {
             </section>
 
             <div className="container relative z-20 mt-12">
+
+                {/* Christmas gift voucher — shown only in season, see lib/christmas.ts */}
+                {isVoucherSaleActive() && (
+                    <section id="vanocni-voucher" className="mb-20 scroll-mt-28">
+                        <Card className="overflow-hidden border-primary/30 shadow-xl">
+                            <div className="grid lg:grid-cols-2">
+                                <Link href="/registrace?course=voucher" className="block self-center p-4 lg:p-6">
+                                    <img
+                                        src="/images/vanocni-voucher.webp"
+                                        alt="Vánoční dárkový voucher na řidičský kurz v Autoškole RED"
+                                        width={1200}
+                                        height={600}
+                                        loading="lazy"
+                                        className="w-full h-auto rounded-xl shadow-md"
+                                    />
+                                </Link>
+                                <div className="p-6 md:p-10 flex flex-col justify-center gap-5">
+                                    <div className="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider">
+                                        <Gift className="w-5 h-5" /> Vánoční dárek, který dává smysl
+                                    </div>
+                                    <h2 className="text-3xl md:text-4xl font-black tracking-tight">Darujte řidičák k Vánocům</h2>
+                                    <p className="text-muted-foreground leading-relaxed">
+                                        Dárkový voucher na řidičský kurz v Autoškole RED. Vyberete kurz, my vám připravíme
+                                        voucher na jméno obdarovaného a domluvíme se na platbě a předání.
+                                        Kurz pak může začít, kdy se obdarovanému hodí.
+                                    </p>
+                                    <ul className="space-y-2 text-sm">
+                                        <li className="flex items-start gap-2"><Check className="w-5 h-5 text-green-500 shrink-0" /> Na auto (manuál i automat) i na motorku</li>
+                                        <li className="flex items-start gap-2"><Check className="w-5 h-5 text-green-500 shrink-0" /> Platnost voucheru do {VOUCHER_VALID_UNTIL_LABEL}</li>
+                                        <li className="flex items-start gap-2"><Check className="w-5 h-5 text-green-500 shrink-0" /> Objednávka online, ozveme se do 24 hodin</li>
+                                    </ul>
+                                    <Button asChild size="lg" className="w-fit h-12 px-8 font-bold">
+                                        <Link href="/registrace?course=voucher">Objednat voucher</Link>
+                                    </Button>
+                                </div>
+                            </div>
+                        </Card>
+                    </section>
+                )}
 
                 {/* Car Courses */}
                 <section className="mb-32">

@@ -86,6 +86,16 @@ Použito v `Home.tsx` i `Contact.tsx`.
 - Záloha = spoluúčast pojištění, vrací se po kurzu
 - Info je na dvou místech: `Pricing.tsx` (sekce Důležité informace) + `Terms.tsx` (oddíl III)
 
+## Vánoční voucher (sezónní)
+
+Vše řídí `client/src/lib/christmas.ts`:
+- `VOUCHER_SALE_UNTIL` — po tomto datu (aktuálně 31. 12. 2026) se akce **sama vypne** (lightbox, sekce `#vanocni-voucher` v ceníku, volba „Vánoční dárkový voucher" v přihlášce). Není potřeba nic nasazovat.
+- `VOUCHER_SALE_ENABLED = false` — okamžité ruční vypnutí (pak commit + push).
+- `VOUCHER_VALID_UNTIL_LABEL` — platnost voucheru zobrazená na webu (musí sedět s grafikou).
+- Na příští Vánoce: posunout data, změnit rok v `VOUCHER_POPUP_STORAGE_KEY` (aby se lightbox lidem znovu ukázal) a případně vyměnit obrázky `client/public/images/vanocni-voucher.webp` (1200×600) a `vanocni-voucher-lightbox.webp` (800×800).
+
+Objednávka voucheru jde přes stejný Formspree jako přihláška (`xvzbowwd`), předmět e-mailu „Objednávka vánočního voucheru: …". Lightbox (`ChristmasVoucherPopup.tsx`) se ukáže po 4 s, ne na `/registrace` a `/studenti`, a po zavření už ne (localStorage).
+
 ## Blog
 
 Články v `client/src/data/blog-data.ts`, seřazeny od nejnovějšího (`dateIso` DESC v `Blog.tsx`). Náhledy v `client/public/images/` jako WebP. Aktuálně 6 článků, poslední: "Řidičák na podzim a v zimě: 5 důvodů, proč začít hned" (2026-10-29, autor Jiří Červenka).

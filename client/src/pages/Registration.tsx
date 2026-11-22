@@ -23,32 +23,62 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 import { Navbar } from "@/components/Navbar";
-import { CheckCircle2, Wallet, GraduationCap, Trophy, MapPin, BadgePercent, FileText, Download, Info } from "lucide-react";
+import { CheckCircle2, Wallet, GraduationCap, Trophy, MapPin, BadgePercent, FileText, Download, Info, Gift } from "lucide-react";
+import { isVoucherSaleActive, VOUCHER_VALID_UNTIL_LABEL } from "@/lib/christmas";
 import { motion } from "framer-motion";
 import { SEO } from "@/components/SEO";
 
-const formSchema = z.object({
-  firstName: z.string().min(2, "Jméno musí mít alespoň 2 znaky"),
-  lastName: z.string().min(2, "Příjmení musí mít alespoň 2 znaky"),
-  age: z.string().refine((val) => !isNaN(Number(val)) && Number(val) >= 15, {
-    message: "Musíte být starší 15 let",
-  }),
-  email: z.string().email("Neplatný email"),
-  phone: z.string().min(9, "Telefon musí mít alespoň 9 znaků"),
-  course: z.enum(["B", "B_automat", "AM", "A1", "A2", "A", "combined"]),
-  variant: z.enum(["economy", "standard", "student", "expres", "return", "conditioning", "other"]),
-  consent: z.boolean().default(false).refine((val) => val === true, {
-    message: "Musíte souhlasit se zpracováním osobních údajů",
-  }),
-});
+// Vánoční voucher: na jaký kurz má být (popisky jdou do e-mailu z Formspree)
+const VOUCHER_FOR_LABELS: Record<string, string> = {
+  B: "Skupina B (manuál)",
+  B_automat: "Skupina B (automat)",
+  moto: "Motocykl (AM / A1 / A2 / A)",
+  nevim: "Ještě nevím – poraďte mi",
+};
+
+const formSchema = z
+  .object({
+    firstName: z.string().min(2, "Jméno musí mít alespoň 2 znaky"),
+    lastName: z.string().min(2, "Příjmení musí mít alespoň 2 znaky"),
+    age: z.string().optional(),
+    email: z.string().email("Neplatný email"),
+    phone: z.string().min(9, "Telefon musí mít alespoň 9 znaků"),
+    course: z.enum(["B", "B_automat", "AM", "A1", "A2", "A", "combined", "voucher"], { message: "Vyberte kurz" }),
+    variant: z.enum(["economy", "standard", "student", "expres", "return", "conditioning", "other"]).optional(),
+    voucherFor: z.string().optional(),
+    recipientName: z.string().optional(),
+    note: z.string().optional(),
+    consent: z.boolean().default(false).refine((val) => val === true, {
+      message: "Musíte souhlasit se zpracováním osobních údajů",
+    }),
+  })
+  .superRefine((v, ctx) => {
+    if (v.course === "voucher") {
+      if (!v.voucherFor) {
+        ctx.addIssue({ code: "custom", path: ["voucherFor"], message: "Vyberte, na jaký kurz má voucher být" });
+      }
+      return;
+    }
+    const age = Number(v.age);
+    if (!v.age || isNaN(age) || age < 15) {
+      ctx.addIssue({ code: "custom", path: ["age"], message: "Musíte být starší 15 let" });
+    }
+    if (!v.variant) {
+      ctx.addIssue({ code: "custom", path: ["variant"], message: "Zvolte variantu kurzu" });
+    }
+    // when: spustit i když jiná pole neprošla — ať uživatel vidí všechny chyby najednou
+  }, { when: () => true });
 
 import { useState, useEffect } from "react";
 
 export default function Registration() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedVoucher, setSubmittedVoucher] = useState(false);
+  const voucherSaleActive = isVoucherSaleActive();
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -78,9 +108,14 @@ export default function Registration() {
       phone: "",
       course: undefined,
       variant: undefined,
+      voucherFor: undefined,
+      recipientName: "",
+      note: "",
       consent: false,
     } as any,
   });
+
+  const isVoucher = form.watch("course") === "voucher";
 
   // Handle pre-selection from URL parameters and scroll to top
   useEffect(() => {
@@ -93,7 +128,7 @@ export default function Registration() {
 
       // Use a small timeout to ensure form is fully initialized
       const timer = setTimeout(() => {
-        if (course) {
+        if (course && (course !== "voucher" || isVoucherSaleActive())) {
           form.setValue("course", course as any);
         }
         if (variant) {
@@ -106,15 +141,38 @@ export default function Registration() {
   }, [form]);
 
   async function onSubmit(values: any) {
+    const voucherOrder = values.course === "voucher";
+    const payload = voucherOrder
+      ? {
+          typ: "Vánoční dárkový voucher",
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email,
+          phone: values.phone,
+          voucherNaKurz: VOUCHER_FOR_LABELS[values.voucherFor] ?? values.voucherFor,
+          proKoho: values.recipientName || "-",
+          poznamka: values.note || "-",
+          consent: values.consent,
+          _subject: `Objednávka vánočního voucheru: ${values.firstName} ${values.lastName}`,
+        }
+      : {
+          firstName: values.firstName,
+          lastName: values.lastName,
+          age: values.age,
+          email: values.email,
+          phone: values.phone,
+          course: values.course,
+          variant: values.variant,
+          consent: values.consent,
+          _subject: `Nová závazná přihláška: ${values.firstName} ${values.lastName}`,
+        };
     try {
       // Send to Formspree
-      await axios.post("https://formspree.io/f/xvzbowwd", {
-        ...values,
-        _subject: `Nová závazná přihláška: ${values.firstName} ${values.lastName}`,
-      });
-      trackRegistration(values.courseType);
+      await axios.post("https://formspree.io/f/xvzbowwd", payload);
+      trackRegistration(values.course);
+      setSubmittedVoucher(voucherOrder);
       setIsSubmitted(true);
-      toast.success("Přihláška odeslána!", {
+      toast.success(voucherOrder ? "Objednávka voucheru odeslána!" : "Přihláška odeslána!", {
         description: "Potvrzení vám přijde na email. Brzy se vám ozveme.",
       });
       form.reset();
@@ -154,6 +212,16 @@ export default function Registration() {
           </div>
 
 
+          {isVoucher && !isSubmitted && (
+            <img
+              src="/images/vanocni-voucher.webp"
+              alt="Vánoční dárkový voucher na řidičský kurz v Autoškole RED"
+              width={1200}
+              height={600}
+              className="w-full h-auto rounded-2xl shadow-xl mb-8"
+            />
+          )}
+
           <Card className="border border-black/10 shadow-2xl bg-white/90 backdrop-blur-md overflow-hidden ring-1 ring-black/5">
             <CardHeader className="bg-gray-50/50 border-b border-black/5 p-8">
               <CardTitle className="text-2xl font-black flex items-center gap-2">
@@ -171,13 +239,24 @@ export default function Registration() {
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
                   <div className="space-y-4">
-                    <h2 className="text-3xl font-black text-gray-900 tracking-tight">Gratulujeme, jste v systému! 🎉</h2>
-                    <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed">
-                      Děkujeme za důvěru. Vaše přihláška dorazila k nám do týmu RED. Teď si dejte kávu, my se na to podíváme a <span className="font-bold text-foreground">do 24 hodin se vám ozveme</span> s detaily první jízdy.
-                    </p>
+                    {submittedVoucher ? (
+                      <>
+                        <h2 className="text-3xl font-black text-gray-900 tracking-tight">Děkujeme za objednávku voucheru!</h2>
+                        <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed">
+                          Objednávka dorazila k nám do týmu RED. <span className="font-bold text-foreground">Do 24 hodin se vám ozveme</span>, domluvíme platbu a předání voucheru, ať je pod stromečkem včas.
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <h2 className="text-3xl font-black text-gray-900 tracking-tight">Gratulujeme, jste v systému! 🎉</h2>
+                        <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed">
+                          Děkujeme za důvěru. Vaše přihláška dorazila k nám do týmu RED. Teď si dejte kávu, my se na to podíváme a <span className="font-bold text-foreground">do 24 hodin se vám ozveme</span> s detaily první jízdy.
+                        </p>
+                      </>
+                    )}
                   </div>
                   <Button size="lg" variant="outline" onClick={() => setIsSubmitted(false)} className="mt-4">
-                    Vyplnit další přihlášku
+                    {submittedVoucher ? "Objednat další voucher" : "Vyplnit další přihlášku"}
                   </Button>
                 </div>
               ) : (
@@ -192,7 +271,7 @@ export default function Registration() {
                         name="firstName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Jméno</FormLabel>
+                            <FormLabel>{isVoucher ? "Vaše jméno" : "Jméno"}</FormLabel>
                             <FormControl>
                               <Input placeholder="Jan" {...field} />
                             </FormControl>
@@ -205,7 +284,7 @@ export default function Registration() {
                         name="lastName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Příjmení</FormLabel>
+                            <FormLabel>{isVoucher ? "Vaše příjmení" : "Příjmení"}</FormLabel>
                             <FormControl>
                               <Input placeholder="Novák" {...field} />
                             </FormControl>
@@ -216,19 +295,21 @@ export default function Registration() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <FormField
-                        control={form.control}
-                        name="age"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Věk</FormLabel>
-                            <FormControl>
-                              <Input type="number" placeholder="18" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                      {!isVoucher && (
+                        <FormField
+                          control={form.control}
+                          name="age"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Věk</FormLabel>
+                              <FormControl>
+                                <Input type="number" placeholder="18" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      )}
                       <FormField
                         control={form.control}
                         name="phone"
@@ -281,6 +362,9 @@ export default function Registration() {
                                 <SelectItem value="A2">Skupina A2 (Motocykl od 18 let)</SelectItem>
                                 <SelectItem value="A">Skupina A (Motocykl bez omezení)</SelectItem>
                                 <SelectItem value="combined">Sdružený výcvik B + A2/A</SelectItem>
+                                {voucherSaleActive && (
+                                  <SelectItem value="voucher">Vánoční dárkový voucher</SelectItem>
+                                )}
                               </SelectContent>
                             </Select>
                             <FormMessage />
@@ -288,6 +372,32 @@ export default function Registration() {
                         )}
                       />
 
+                      {isVoucher ? (
+                        <FormField
+                          control={form.control}
+                          name="voucherFor"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Voucher na kurz</FormLabel>
+                              <Select onValueChange={field.onChange} value={field.value}>
+                                <FormControl>
+                                  <SelectTrigger className="w-full overflow-hidden">
+                                    <div className="truncate w-full text-left">
+                                      <SelectValue placeholder="Na jaký kurz?" />
+                                    </div>
+                                  </SelectTrigger>
+                                </FormControl>
+                                <SelectContent>
+                                  {Object.entries(VOUCHER_FOR_LABELS).map(([value, label]) => (
+                                    <SelectItem key={value} value={value}>{label}</SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      ) : (
                       <FormField
                         control={form.control}
                         name="variant"
@@ -316,7 +426,46 @@ export default function Registration() {
                           </FormItem>
                         )}
                       />
+                      )}
                     </div>
+
+                    {isVoucher && (
+                      <div className="space-y-4 rounded-xl border border-primary/20 bg-primary/5 p-4">
+                        <div className="flex items-start gap-3 text-sm">
+                          <Gift className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                          <p className="text-muted-foreground leading-relaxed">
+                            Voucher připravíme na jméno obdarovaného s platností do {VOUCHER_VALID_UNTIL_LABEL}.
+                            Balíček (Economy, Standard…), cenu a předání s vámi doladíme po telefonu.
+                          </p>
+                        </div>
+                        <FormField
+                          control={form.control}
+                          name="recipientName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Pro koho je voucher (nepovinné)</FormLabel>
+                              <FormControl>
+                                <Input placeholder="Jméno obdarovaného" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="note"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Poznámka (nepovinné)</FormLabel>
+                              <FormControl>
+                                <Textarea placeholder="Např. kdy potřebujete voucher předat" rows={3} {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                    )}
 
                     <div className="text-sm text-muted-foreground -mt-4 mb-4">
                       Nejste si jistí? Můžeme to probrat i telefonicky na čísle <a href="tel:+420608913000" className="font-bold text-primary hover:underline">+420 608 913 000</a>.
@@ -338,7 +487,9 @@ export default function Registration() {
                               Souhlasím se zpracováním osobních údajů
                             </FormLabel>
                             <FormDescription>
-                              Vaše údaje použijeme pouze pro účely registrace do kurzu.
+                              {isVoucher
+                                ? "Vaše údaje použijeme pouze pro vyřízení objednávky voucheru."
+                                : "Vaše údaje použijeme pouze pro účely registrace do kurzu."}
                             </FormDescription>
                           </div>
                           <FormMessage />
@@ -347,7 +498,7 @@ export default function Registration() {
                     />
 
                     <Button type="submit" size="lg" className="w-full h-14 text-lg font-bold bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all">
-                      Odeslat přihlášku online <CheckCircle2 className="ml-2 w-6 h-6" />
+                      {isVoucher ? "Objednat voucher" : "Odeslat přihlášku online"} <CheckCircle2 className="ml-2 w-6 h-6" />
                     </Button>
                   </form>
                 </Form>
@@ -355,7 +506,8 @@ export default function Registration() {
             </CardContent>
           </Card>
 
-          {/* Important Notice - Documents (Moved & Compact) */}
+          {/* Important Notice - Documents (Moved & Compact) — u voucheru nedává smysl */}
+          {!(isVoucher || (isSubmitted && submittedVoucher)) && (
           <div className="mt-8 p-5 bg-primary/5 border border-primary/10 rounded-2xl flex flex-col sm:flex-row items-center gap-5 shadow-sm">
             <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0 border border-primary/5 text-primary">
               <FileText className="w-6 h-6" />
@@ -374,6 +526,7 @@ export default function Registration() {
               </a>
             </Button>
           </div>
+          )}
 
           {/* Benefits Section */}
           <div className="mt-12 flex flex-wrap justify-center gap-6">
