@@ -434,9 +434,9 @@ export default function Registration() {
                         <div className="flex items-start gap-3 text-sm">
                           <Gift className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                           <p className="text-muted-foreground leading-relaxed">
-                            Voucher připravíme na jméno obdarovaného s platností do {VOUCHER_VALID_UNTIL_LABEL}
-                            a pošleme vám ho předem, ať ho stihnete dát pod stromeček. Zaplatíte ho pak u nás
-                            v autoškole – QR kódem, kartou nebo hotově. Balíček (Economy, Standard…) s vámi doladíme po telefonu.
+                            Voucher připravíme na jméno obdarovaného s platností do {VOUCHER_VALID_UNTIL_LABEL} a pošleme
+                            vám ho předem, ať ho stihnete dát pod stromeček. Zaplatíte ho pak u nás v autoškole – QR kódem,
+                            kartou nebo hotově. Balíček (Economy, Standard…) s vámi doladíme na místě nebo po telefonu.
                           </p>
                         </div>
                         <FormField
